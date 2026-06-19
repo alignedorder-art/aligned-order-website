@@ -1,0 +1,1503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aligned Order — Transform Your Triggers. Reclaim Your Power.</title>
+<meta name="description" content="Aligned Order is an emotional intelligence coaching company helping people identify and transform their emotional trigger patterns through personalised assessments and one-on-one coaching.">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#ffffff;
+  --bg2:#f7f5fc;
+  --bg3:#f0ecfa;
+  --violet:#6a4fb5;
+  --violet-l:#7d5fc4;
+  --violet-d:#4a3490;
+  --gold:#b8893a;
+  --gold-l:#d4a84b;
+  --text:#1a1530;
+  --muted:rgba(26,21,48,0.6);
+  --muted2:rgba(26,21,48,0.38);
+  --border:rgba(106,79,181,0.18);
+  --card:rgba(106,79,181,0.035);
+  --card-border:rgba(106,79,181,0.12);
+  /* Hero stays dark regardless */
+  --hero-bg:#0d0b1a;
+  --hero-text:#f0ecff;
+  --hero-muted:rgba(240,236,255,0.55);
+}
+html{scroll-behavior:smooth;}
+
+/* HERO STAYS DARK — scoped overrides regardless of global light theme */
+#home{color:#f0ecff;}
+#home h1{color:#f0ecff;}
+#home h1 em{background:linear-gradient(135deg,#9b7fd4,#d4a84b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+#home .hero-sub{color:rgba(240,236,255,0.6);}
+#home .hero-badge{background:rgba(106,79,181,0.18);border-color:rgba(106,79,181,0.35);color:#b39ae8;}
+#home .btn-secondary{color:#f0ecff;border-color:rgba(255,255,255,0.2);}
+#home .btn-secondary:hover{border-color:rgba(155,127,212,0.5);background:rgba(106,79,181,0.12);}
+#home .stat-lbl{color:rgba(240,236,255,0.45);}
+#home .hero-stats{border-top-color:rgba(255,255,255,0.1);}
+body{background:var(--bg);color:var(--text);font-family:'Raleway',sans-serif;overflow-x:hidden;}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 40px;height:70px;display:flex;align-items:center;justify-content:space-between;transition:all 0.3s;}
+nav.scrolled{background:rgba(255,255,255,0.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.nav-brand{font-family:'Cinzel',serif;font-size:14px;font-weight:700;color:var(--text);letter-spacing:0.12em;}
+.nav-links{display:flex;align-items:center;gap:32px;}
+.nav-link{font-size:13px;font-weight:500;color:rgba(255,255,255,0.75);text-decoration:none;letter-spacing:0.04em;transition:color 0.2s;cursor:pointer;}
+nav.scrolled .nav-link{color:var(--muted);}
+.nav-link:hover{color:#fff;}
+nav.scrolled .nav-link:hover{color:var(--text);}
+.nav-cta{padding:9px 22px;border-radius:99px;background:linear-gradient(135deg,var(--violet),var(--violet-d));color:#fff;font-family:'Raleway',sans-serif;font-size:13px;font-weight:700;text-decoration:none;transition:all 0.2s;border:none;cursor:pointer;letter-spacing:0.02em;}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(106,79,181,0.4);}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+.hamburger span{display:block;width:24px;height:2px;background:var(--text);border-radius:2px;transition:all 0.3s;}
+.mobile-menu{display:none;position:fixed;inset:0;background:rgba(13,11,26,0.98);z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:32px;}
+.mobile-menu.open{display:flex;}
+.mobile-menu .nav-link{font-size:22px;color:var(--text);}
+
+/* ── HERO ── */
+#home{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:100px 24px 60px;position:relative;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 40%,rgba(106,79,181,0.25) 0%,transparent 65%),radial-gradient(ellipse 40% 40% at 80% 20%,rgba(155,127,212,0.12) 0%,transparent 60%),radial-gradient(ellipse 40% 40% at 20% 80%,rgba(212,168,75,0.08) 0%,transparent 60%);pointer-events:none;}
+.hero-orb{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;}
+.hero-orb-1{width:500px;height:500px;background:rgba(106,79,181,0.15);top:-100px;left:-100px;}
+.hero-orb-2{width:400px;height:400px;background:rgba(212,168,75,0.08);bottom:-50px;right:-50px;}
+.hero-content{position:relative;z-index:1;max-width:780px;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(106,79,181,0.15);border:1px solid rgba(106,79,181,0.3);border-radius:99px;padding:7px 18px;font-size:12px;font-weight:600;color:var(--violet-l);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:28px;}
+.hero-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--violet-l);animation:pulse 2s infinite;}
+h1{font-family:'Cinzel',serif;font-size:clamp(32px,6vw,64px);font-weight:700;line-height:1.15;margin-bottom:20px;letter-spacing:0.01em;}
+h1 em{font-style:italic;background:linear-gradient(135deg,var(--violet-l),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hero-sub{font-size:clamp(15px,2vw,18px);color:var(--muted);line-height:1.8;max-width:520px;margin:0 auto 40px;}
+.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+.btn-primary{padding:15px 36px;border-radius:99px;background:linear-gradient(135deg,var(--violet),var(--violet-d));color:#fff;font-family:'Raleway',sans-serif;font-size:15px;font-weight:700;text-decoration:none;transition:all 0.2s;box-shadow:0 8px 32px rgba(106,79,181,0.35);letter-spacing:0.02em;display:inline-block;}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(106,79,181,0.5);}
+.btn-secondary{padding:15px 36px;border-radius:99px;background:transparent;color:var(--text);font-family:'Raleway',sans-serif;font-size:15px;font-weight:600;text-decoration:none;transition:all 0.2s;border:1.5px solid var(--border);letter-spacing:0.02em;display:inline-block;}
+.btn-secondary:hover{border-color:rgba(106,79,181,0.5);background:rgba(106,79,181,0.08);}
+.hero-stats{display:flex;gap:48px;justify-content:center;margin-top:64px;padding-top:48px;border-top:1px solid var(--card-border);flex-wrap:wrap;}
+.stat{text-align:center;}
+.stat-num{font-family:'Cinzel',serif;font-size:32px;font-weight:700;background:linear-gradient(135deg,var(--violet-l),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.stat-lbl{font-size:12px;color:var(--muted);margin-top:4px;letter-spacing:0.06em;text-transform:uppercase;}
+
+/* ── SECTIONS ── */
+section{padding:100px 24px;}
+.container{max-width:1100px;margin:0 auto;}
+.section-badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--violet-l);margin-bottom:14px;}
+h2{font-family:'Cinzel',serif;font-size:clamp(26px,4vw,42px);font-weight:700;line-height:1.2;margin-bottom:16px;}
+h2 em{font-style:italic;color:var(--gold);}
+.section-sub{font-size:16px;color:var(--muted);line-height:1.8;max-width:560px;}
+
+/* ── HOW IT WORKS ── */
+#how{background:linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%);}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px;}
+.step{background:var(--card);border:1px solid var(--card-border);border-radius:20px;padding:32px 28px;position:relative;overflow:hidden;transition:border-color 0.3s;}
+.step:hover{border-color:rgba(106,79,181,0.35);}
+.step::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--violet),var(--gold));opacity:0;transition:opacity 0.3s;}
+.step:hover::before{opacity:1;}
+.step-num{font-family:'Cinzel',serif;font-size:48px;font-weight:700;color:rgba(106,79,181,0.15);line-height:1;margin-bottom:16px;}
+.step-icon{font-size:28px;margin-bottom:14px;}
+.step-title{font-family:'Cinzel',serif;font-size:17px;font-weight:600;color:var(--text);margin-bottom:10px;}
+.step-text{font-size:13.5px;color:var(--muted);line-height:1.75;}
+
+/* ── ABOUT ── */
+#about{background:var(--bg2);}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;margin-top:56px;}
+.about-visual{position:relative;}
+.about-card-main{background:linear-gradient(135deg,var(--bg3),var(--bg2));border:1px solid var(--border);border-radius:24px;padding:36px;text-align:center;position:relative;overflow:hidden;}
+.about-card-main::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--violet),var(--gold));}
+.about-avatar{width:90px;height:90px;border-radius:50%;background:linear-gradient(135deg,var(--violet),var(--violet-d));display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:32px;box-shadow:0 8px 32px rgba(106,79,181,0.3);}
+.about-name{font-family:'Cinzel',serif;font-size:18px;font-weight:700;color:var(--text);margin-bottom:6px;}
+.about-role{font-size:12px;color:var(--violet-l);font-weight:600;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:14px;}
+.about-quote{font-size:13px;color:var(--muted);line-height:1.7;font-style:italic;}
+.about-float{position:absolute;background:var(--card);border:1px solid var(--card-border);border-radius:14px;padding:14px 18px;backdrop-filter:blur(10px);}
+.about-float-1{bottom:-20px;right:-20px;}
+.about-float-2{top:-20px;left:-20px;}
+.float-label{font-size:10px;color:var(--muted2);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px;}
+.float-val{font-family:'Cinzel',serif;font-size:18px;font-weight:700;color:var(--gold);}
+.about-text p{font-size:15px;color:var(--muted);line-height:1.9;margin-bottom:18px;}
+.about-values{display:flex;flex-direction:column;gap:12px;margin-top:28px;}
+.about-value{display:flex;align-items:flex-start;gap:12px;}
+.about-value-icon{width:36px;height:36px;border-radius:10px;background:rgba(106,79,181,0.15);border:1px solid rgba(106,79,181,0.25);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;margin-top:2px;}
+.about-value-text h4{font-size:14px;font-weight:700;color:var(--text);margin-bottom:3px;}
+.about-value-text p{font-size:12.5px;color:var(--muted);line-height:1.6;margin:0;}
+
+/* ── SERVICES ── */
+#services{background:linear-gradient(180deg,var(--bg2) 0%,var(--bg3) 100%);}
+.services-intro{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;margin-bottom:56px;}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.service-card{background:var(--card);border:1px solid var(--card-border);border-radius:22px;padding:32px 26px;transition:all 0.25s;position:relative;overflow:hidden;}
+.service-card:hover{transform:translateY(-6px);border-color:rgba(106,79,181,0.4);box-shadow:0 20px 60px rgba(106,79,181,0.15);}
+.service-card.featured{background:linear-gradient(135deg,rgba(106,79,181,0.2),rgba(74,52,144,0.15));border-color:rgba(106,79,181,0.4);}
+.service-card.featured::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--violet),var(--gold));}
+.service-tag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:4px 12px;border-radius:99px;margin-bottom:18px;}
+.service-tag.free{background:rgba(76,175,125,0.15);color:#4caf7d;border:1px solid rgba(76,175,125,0.25);}
+.service-tag.assessment{background:rgba(106,79,181,0.15);color:var(--violet-l);border:1px solid rgba(106,79,181,0.25);}
+.service-tag.paid{background:rgba(212,168,75,0.15);color:var(--gold);border:1px solid rgba(212,168,75,0.25);}
+.service-icon{font-size:32px;margin-bottom:16px;}
+.service-title{font-family:'Cinzel',serif;font-size:18px;font-weight:700;color:var(--text);margin-bottom:8px;}
+.service-duration{font-size:12px;color:var(--muted2);margin-bottom:14px;font-weight:600;letter-spacing:0.06em;}
+.service-desc{font-size:13.5px;color:var(--muted);line-height:1.75;margin-bottom:20px;}
+.service-features{display:flex;flex-direction:column;gap:8px;margin-bottom:24px;}
+.service-feature{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--muted);}
+.service-feature::before{content:'✦';color:var(--violet-l);font-size:10px;flex-shrink:0;}
+.service-btn{display:block;text-align:center;padding:12px;border-radius:12px;font-family:'Raleway',sans-serif;font-size:13px;font-weight:700;text-decoration:none;transition:all 0.2s;cursor:pointer;border:none;}
+.service-btn.primary{background:linear-gradient(135deg,var(--violet),var(--violet-d));color:#fff;box-shadow:0 4px 16px rgba(106,79,181,0.3);}
+.service-btn.primary:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(106,79,181,0.4);}
+.service-btn.outline{background:transparent;color:var(--violet-l);border:1.5px solid rgba(106,79,181,0.35);}
+.service-btn.outline:hover{background:rgba(106,79,181,0.1);}
+
+/* ── TRIGGERS ── */
+#triggers{background:var(--bg3);padding:100px 24px;}
+.triggers-wrap{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.triggers-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.trigger-item{background:var(--card);border:1px solid var(--card-border);border-radius:14px;padding:18px 16px;display:flex;align-items:center;gap:12px;transition:all 0.2s;}
+.trigger-item:hover{border-color:rgba(106,79,181,0.3);background:rgba(106,79,181,0.06);}
+.trigger-emoji{font-size:22px;flex-shrink:0;}
+.trigger-label{font-size:13px;font-weight:600;color:var(--text);}
+.trigger-sub{font-size:11px;color:var(--muted2);margin-top:2px;}
+.triggers-text .section-sub{margin-bottom:28px;}
+.quote-block{background:linear-gradient(135deg,rgba(106,79,181,0.12),rgba(212,168,75,0.06));border:1px solid rgba(106,79,181,0.2);border-left:3px solid var(--violet-l);border-radius:0 14px 14px 0;padding:20px 22px;margin-top:28px;}
+.quote-text{font-size:15px;color:var(--text);line-height:1.7;font-style:italic;margin-bottom:8px;}
+.quote-author{font-size:12px;color:var(--violet-l);font-weight:700;}
+
+/* ── TESTIMONIALS ── */
+#testimonials{background:linear-gradient(180deg,var(--bg3) 0%,var(--bg2) 100%);}
+.testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:56px;}
+.testi-card{background:var(--card);border:1px solid var(--card-border);border-radius:20px;padding:28px;transition:border-color 0.3s;}
+.testi-card:hover{border-color:rgba(106,79,181,0.3);}
+.stars{display:flex;gap:3px;margin-bottom:16px;}
+.star{color:var(--gold);font-size:14px;}
+.testi-text{font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:20px;font-style:italic;}
+.testi-author{display:flex;align-items:center;gap:12px;}
+.testi-avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--violet),var(--violet-d));display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff;font-family:'Cinzel',serif;flex-shrink:0;}
+.testi-name{font-size:13px;font-weight:700;color:var(--text);}
+.testi-role{font-size:11.5px;color:var(--muted2);}
+
+/* ── CTA BANNER ── */
+.cta-banner{background:linear-gradient(135deg,var(--violet-d),var(--bg3));border:1px solid rgba(106,79,181,0.3);border-radius:28px;padding:64px 48px;text-align:center;margin:0 auto;max-width:900px;position:relative;overflow:hidden;}
+.cta-banner::before{content:'';position:absolute;top:-80px;right:-80px;width:300px;height:300px;background:radial-gradient(circle,rgba(212,168,75,0.1) 0%,transparent 65%);pointer-events:none;}
+.cta-banner h2{margin-bottom:16px;}
+.cta-banner .section-sub{margin:0 auto 36px;text-align:center;}
+.cta-banner .hero-btns{justify-content:center;}
+
+/* ── CONTACT ── */
+#contact{background:var(--bg2);}
+.contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:60px;margin-top:56px;}
+.contact-info{display:flex;flex-direction:column;gap:24px;}
+.contact-item{display:flex;align-items:flex-start;gap:16px;}
+.contact-icon{width:46px;height:46px;border-radius:12px;background:rgba(106,79,181,0.15);border:1px solid rgba(106,79,181,0.25);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
+.contact-item-title{font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px;}
+.contact-item-val{font-size:13px;color:var(--muted);}
+.contact-item-val a{color:var(--violet-l);text-decoration:none;}
+.contact-form{background:var(--card);border:1px solid var(--card-border);border-radius:24px;padding:36px 32px;}
+.form-group{margin-bottom:16px;}
+.form-label{display:block;font-size:11px;font-weight:700;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:7px;}
+.form-input,.form-textarea{width:100%;background:rgba(255,255,255,0.05);border:1.5px solid var(--card-border);border-radius:12px;padding:13px 16px;color:var(--text);font-family:'Raleway',sans-serif;font-size:14px;font-weight:500;outline:none;transition:all 0.2s;}
+.form-input:focus,.form-textarea:focus{border-color:rgba(106,79,181,0.5);background:rgba(106,79,181,0.05);}
+.form-input::placeholder,.form-textarea::placeholder{color:var(--muted2);}
+.form-textarea{resize:vertical;min-height:120px;line-height:1.6;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.form-submit{width:100%;padding:15px;border-radius:99px;font-family:'Raleway',sans-serif;font-size:14px;font-weight:700;cursor:pointer;border:none;background:linear-gradient(135deg,var(--violet),var(--violet-d));color:#fff;box-shadow:0 6px 24px rgba(106,79,181,0.3);transition:all 0.2s;margin-top:8px;letter-spacing:0.02em;}
+.form-submit:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(106,79,181,0.4);}
+.form-submit:disabled{opacity:0.5;cursor:not-allowed;transform:none;}
+
+/* ── FOOTER ── */
+footer{background:var(--bg);border-top:1px solid var(--card-border);padding:48px 24px;}
+.footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;}
+.footer-brand{font-family:'Cinzel',serif;font-size:15px;font-weight:700;color:var(--text);letter-spacing:0.1em;margin-bottom:12px;display:flex;align-items:center;gap:10px;}
+.footer-desc{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:20px;}
+.footer-social{display:flex;gap:10px;}
+.social-btn{width:36px;height:36px;border-radius:10px;background:var(--card);border:1px solid var(--card-border);display:flex;align-items:center;justify-content:center;font-size:16px;cursor:pointer;transition:all 0.2s;text-decoration:none;}
+.social-btn:hover{border-color:rgba(106,79,181,0.4);background:rgba(106,79,181,0.1);}
+.footer-col-title{font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted2);margin-bottom:16px;}
+.footer-links{display:flex;flex-direction:column;gap:10px;}
+.footer-link{font-size:13px;color:var(--muted);text-decoration:none;cursor:pointer;transition:color 0.2s;}
+.footer-link:hover{color:var(--text);}
+.footer-bottom{max-width:1100px;margin:32px auto 0;padding-top:24px;border-top:1px solid var(--card-border);display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--muted2);}
+
+/* ── ANIMATIONS ── */
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.fade-up{opacity:0;transform:translateY(30px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.fade-up.visible{opacity:1;transform:translateY(0);}
+
+/* ── SUCCESS MSG ── */
+.success-msg{background:rgba(76,175,125,0.15);border:1px solid rgba(76,175,125,0.3);border-radius:12px;padding:14px 18px;font-size:13px;color:#4caf7d;margin-top:14px;display:none;text-align:center;}
+.success-msg.show{display:block;}
+
+/* ── MOBILE ── */
+@media(max-width:900px){
+  .steps{grid-template-columns:1fr 1fr;}
+  .about-grid,.triggers-wrap,.contact-grid,.services-intro{grid-template-columns:1fr;}
+  .services-grid{grid-template-columns:1fr 1fr;}
+  .testimonials-grid{grid-template-columns:1fr 1fr;}
+  .footer-inner{grid-template-columns:1fr 1fr;}
+  .about-visual{display:none;}
+}
+@media(max-width:600px){
+  nav{padding:0 16px;}
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  .steps,.services-grid,.testimonials-grid,.triggers-grid{grid-template-columns:1fr;}
+  section{padding:70px 16px;}
+  .cta-banner{padding:40px 22px;border-radius:20px;}
+  .form-row{grid-template-columns:1fr;}
+  .footer-inner{grid-template-columns:1fr;}
+  .footer-bottom{flex-direction:column;gap:8px;text-align:center;}
+  .hero-stats{gap:28px;}
+}
+
+/* ── HERO CANVAS ── */
+#heroCanvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;}
+.hero-content{position:relative;z-index:2;}
+.hero-bg{display:none;}
+.hero-orb{display:none;}
+.hero-fire-btn{position:absolute;bottom:32px;right:32px;z-index:3;background:rgba(106,79,181,0.25);border:1px solid rgba(155,127,212,0.4);color:#c9a0ff;padding:10px 22px;border-radius:99px;font-family:'Raleway',sans-serif;font-size:12px;font-weight:600;cursor:pointer;letter-spacing:0.08em;transition:all 0.2s;backdrop-filter:blur(6px);}
+.hero-fire-btn:hover{background:rgba(106,79,181,0.4);transform:translateY(-2px);}
+
+/* ── SCROLL REVEAL TRANSITIONS ── */
+.section-transition{position:relative;overflow:hidden;}
+.section-transition::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:120px;
+  background:linear-gradient(180deg,var(--bg) 0%,transparent 100%);
+  z-index:2;pointer-events:none;
+}
+.section-transition::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:120px;
+  background:linear-gradient(0deg,var(--bg2) 0%,transparent 100%);
+  z-index:2;pointer-events:none;
+}
+
+/* ── FLOATING ORBS ── */
+.orb-container{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;}
+.orb{position:absolute;border-radius:50%;filter:blur(100px);opacity:0.12;animation:orbFloat linear infinite;}
+@keyframes orbFloat{0%{transform:translate(0,0) scale(1)}33%{transform:translate(30px,-20px) scale(1.05)}66%{transform:translate(-20px,15px) scale(0.95)}100%{transform:translate(0,0) scale(1)}}
+
+/* ── GLITCH TEXT EFFECT ── */
+.glitch{position:relative;}
+.glitch::before,.glitch::after{content:attr(data-text);position:absolute;top:0;left:0;width:100%;height:100%;}
+.glitch::before{animation:glitch1 4s infinite;color:rgba(155,127,212,0.5);clip-path:polygon(0 0,100% 0,100% 40%,0 40%);}
+.glitch::after{animation:glitch2 4s infinite;color:rgba(212,168,75,0.4);clip-path:polygon(0 60%,100% 60%,100% 100%,0 100%);}
+@keyframes glitch1{0%,90%,100%{transform:translate(0)}91%{transform:translate(-2px,0)}93%{transform:translate(2px,0)}95%{transform:translate(0)}}
+@keyframes glitch2{0%,90%,100%{transform:translate(0)}91%{transform:translate(2px,0)}93%{transform:translate(-2px,0)}95%{transform:translate(0)}}
+
+/* ── TYPING CURSOR ── */
+.typing-cursor{display:inline-block;width:3px;height:0.8em;background:var(--gold);margin-left:4px;vertical-align:middle;animation:blink 0.8s step-end infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+
+/* ── COUNTER ANIMATION ── */
+@keyframes countUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.stat-num{animation:countUp 0.6s ease both;}
+
+/* ── EXPAND / READ MORE ── */
+.expand-wrap{position:relative;}
+.expand-content{display:grid;grid-template-rows:0fr;transition:grid-template-rows 0.4s cubic-bezier(0.4,0,0.2,1);}
+.expand-content.open{grid-template-rows:1fr;}
+.expand-content-inner{overflow:hidden;}
+.expand-btn{display:inline-flex;align-items:center;gap:6px;background:none;border:none;color:var(--violet);font-family:'Raleway',sans-serif;font-size:13px;font-weight:700;cursor:pointer;padding:4px 0;transition:gap 0.2s;}
+.expand-btn:hover{gap:9px;}
+.expand-btn .arrow{transition:transform 0.3s;font-size:11px;}
+.expand-btn.open .arrow{transform:rotate(180deg);}
+
+/* ── MODAL ── */
+.info-modal-overlay{position:fixed;inset:0;background:rgba(13,11,26,0.6);backdrop-filter:blur(4px);z-index:1000;display:none;align-items:center;justify-content:center;padding:20px;}
+.info-modal-overlay.open{display:flex;}
+.info-modal{background:#fff;border-radius:24px;max-width:560px;width:100%;max-height:85vh;overflow-y:auto;box-shadow:0 32px 80px rgba(0,0,0,0.25);animation:modalIn 0.3s cubic-bezier(0.34,1.56,0.64,1);}
+@keyframes modalIn{from{opacity:0;transform:scale(0.92) translateY(20px)}to{opacity:1;transform:scale(1) translateY(0)}}
+.info-modal-head{padding:28px 32px 20px;border-bottom:1px solid var(--card-border);position:relative;}
+.info-modal-head::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--violet),var(--gold));border-radius:24px 24px 0 0;}
+.info-modal-close{position:absolute;top:20px;right:24px;background:none;border:none;font-size:18px;color:var(--muted2);cursor:pointer;width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;transition:all 0.2s;}
+.info-modal-close:hover{background:var(--card);color:var(--text);}
+.info-modal-icon{font-size:28px;margin-bottom:12px;}
+.info-modal-title{font-family:'Cinzel',serif;font-size:20px;font-weight:700;color:var(--text);}
+.info-modal-body{padding:24px 32px 32px;font-size:14px;color:var(--muted);line-height:1.85;}
+.info-modal-body p{margin-bottom:14px;}
+.info-modal-body p:last-child{margin-bottom:0;}
+</style>
+</head>
+<body>
+<div class="orb-container" id="orbContainer">
+  <div class="orb" style="width:600px;height:600px;background:radial-gradient(circle,#6a4fb5,transparent);top:-10%;left:-10%;animation-duration:25s;"></div>
+  <div class="orb" style="width:400px;height:400px;background:radial-gradient(circle,#9b7fd4,transparent);top:30%;right:-5%;animation-duration:20s;animation-delay:-8s;"></div>
+  <div class="orb" style="width:350px;height:350px;background:radial-gradient(circle,#d4a84b,transparent);bottom:10%;left:20%;animation-duration:30s;animation-delay:-15s;"></div>
+</div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a class="nav-logo" href="#home">
+    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+      <circle cx="16" cy="16" r="14.5" stroke="#9b7fd4" stroke-width="1.2" opacity="0.8"/>
+      <polygon points="16,4 27,24 5,24" fill="none" stroke="#9b7fd4" stroke-width="1.5"/>
+      <polygon points="16,13 22,24 10,24" fill="rgba(106,79,181,0.2)" stroke="#9b7fd4" stroke-width="1"/>
+      <polygon points="16,3 18,7 14,7" fill="#d4a84b"/>
+    </svg>
+    <div class="nav-brand">Aligned Order</div>
+  </a>
+  <div class="nav-links">
+    <a class="nav-link" onclick="scrollTo('home')">Home</a>
+    <a class="nav-link" onclick="scrollTo('about')">About</a>
+    <a class="nav-link" onclick="scrollTo('services')">Services</a>
+    <a class="nav-link" onclick="scrollTo('packages')">Packages</a>
+    <a class="nav-link" onclick="scrollTo('founder')">Founder</a>
+    <a class="nav-link" onclick="scrollTo('contact')">Contact</a>
+    <a class="nav-link" href="https://thealignedorder.netlify.app/login" target="_blank" style="color:rgba(240,236,255,0.4);font-size:12px;letter-spacing:0.05em;">&#128274; Members</a>
+    <a class="nav-cta" href="https://thealignedorder.netlify.app" target="_blank">Take the Assessment</a>
+  </div>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a class="nav-link" onclick="scrollTo('home');toggleMenu()">Home</a>
+  <a class="nav-link" onclick="scrollTo('about');toggleMenu()">About</a>
+  <a class="nav-link" onclick="scrollTo('services');toggleMenu()">Services</a>
+  <a class="nav-link" onclick="scrollTo('packages');toggleMenu()">Packages</a>
+  <a class="nav-link" onclick="scrollTo('founder');toggleMenu()">Founder</a>
+  <a class="nav-link" onclick="scrollTo('contact');toggleMenu()">Contact</a>
+  <a class="nav-cta" href="https://thealignedorder.netlify.app" target="_blank">Take the Assessment</a>
+</div>
+
+<!-- HERO -->
+<section id="home" style="position:relative;overflow:hidden;background:#0d0b1a;">
+  <div class="hero-bg"></div>
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <canvas id="heroCanvas"></canvas>
+  <button class="hero-fire-btn" onclick="triggerBurst()">⚡ Fire Neurons</button>
+  <div class="hero-content">
+    <div class="hero-badge">Emotional Intelligence Coaching</div>
+    <h1>Transform Your <em>Triggers.</em><br>Reclaim Your Power.</h1>
+    <p class="hero-sub">Most people manage their emotions. We help you master them. Discover your trigger patterns and break free from the cycles holding you back.</p>
+    <div class="hero-btns">
+      <a class="btn-primary" href="https://thealignedorder.netlify.app" target="_blank">Take the Free Assessment →</a>
+      <a class="btn-secondary" onclick="scrollTo('services')">Explore Services</a>
+    </div>
+    <div class="hero-stats" id="heroStats">
+      <div class="stat"><div class="stat-num">3–4</div><div class="stat-lbl">Minutes to complete</div></div>
+      <div class="stat"><div class="stat-num">5</div><div class="stat-lbl">Trigger components</div></div>
+      <div class="stat"><div class="stat-num">100%</div><div class="stat-lbl">Personalised results</div></div>
+      <div class="stat"><div class="stat-num">Free</div><div class="stat-lbl">Discovery call</div></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- PROBLEM SECTION -->
+<section id="problem" style="padding:100px 24px;background:linear-gradient(180deg,#ffffff 0%,#f7f5fc 100%);">
+  <div class="container">
+    <div style="text-align:center;max-width:600px;margin:0 auto 56px;">
+      <div class="section-badge">Sound Familiar?</div>
+      <h2>You're Not Broken.<br>You're <em>Triggered.</em></h2>
+      <p class="section-sub" style="margin:0 auto;">Reactions that feel out of control. Patterns you can't explain.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:60px;">
+      <div style="background:rgba(106,79,181,0.04);border:1px solid rgba(106,79,181,0.12);border-radius:18px;padding:28px 24px;border-left:3px solid rgba(224,90,90,0.5);">
+        <div style="font-size:28px;margin-bottom:14px;">😤</div>
+        <div style="font-family:'Cinzel',serif;font-size:15px;font-weight:600;color:var(--text);margin-bottom:10px;">You snap — then regret it</div>
+        <div style="font-size:13.5px;color:var(--muted);line-height:1.75;">Small things trigger huge reactions you regret instantly.</div>
+      </div>
+      <div style="background:rgba(106,79,181,0.04);border:1px solid rgba(106,79,181,0.12);border-radius:18px;padding:28px 24px;border-left:3px solid rgba(212,168,75,0.5);">
+        <div style="font-size:28px;margin-bottom:14px;">😰</div>
+        <div style="font-family:'Cinzel',serif;font-size:15px;font-weight:600;color:var(--text);margin-bottom:10px;">Stress follows you everywhere</div>
+        <div style="font-size:13.5px;color:var(--muted);line-height:1.75;">Stress bleeds from one part of life into everything else.</div>
+      </div>
+      <div style="background:rgba(106,79,181,0.04);border:1px solid rgba(106,79,181,0.12);border-radius:18px;padding:28px 24px;border-left:3px solid rgba(155,127,212,0.5);">
+        <div style="font-size:28px;margin-bottom:14px;">🔄</div>
+        <div style="font-family:'Cinzel',serif;font-size:15px;font-weight:600;color:var(--text);margin-bottom:10px;">You keep repeating patterns</div>
+        <div style="font-size:13.5px;color:var(--muted);line-height:1.75;">Same arguments, same reactions — and nothing seems to change.</div>
+      </div>
+      <div style="background:rgba(106,79,181,0.04);border:1px solid rgba(106,79,181,0.12);border-radius:18px;padding:28px 24px;border-left:3px solid rgba(76,175,125,0.5);">
+        <div style="font-size:28px;margin-bottom:14px;">💔</div>
+        <div style="font-family:'Cinzel',serif;font-size:15px;font-weight:600;color:var(--text);margin-bottom:10px;">Relationships are suffering</div>
+        <div style="font-size:13.5px;color:var(--muted);line-height:1.75;">People around you walk on eggshells. Connection feels strained.</div>
+      </div>
+      <div style="background:rgba(106,79,181,0.04);border:1px solid rgba(106,79,181,0.12);border-radius:18px;padding:28px 24px;border-left:3px solid rgba(91,141,217,0.5);">
+        <div style="font-size:28px;margin-bottom:14px;">🧠</div>
+        <div style="font-family:'Cinzel',serif;font-size:15px;font-weight:600;color:var(--text);margin-bottom:10px;">Your mind won't switch off</div>
+        <div style="font-size:13.5px;color:var(--muted);line-height:1.75;">You replay conversations and overthink long after they're over.</div>
+      </div>
+      <div style="background:rgba(106,79,181,0.04);border:1px solid rgba(106,79,181,0.12);border-radius:18px;padding:28px 24px;border-left:3px solid rgba(212,80,80,0.5);">
+        <div style="font-size:28px;margin-bottom:14px;">🎭</div>
+        <div style="font-family:'Cinzel',serif;font-size:15px;font-weight:600;color:var(--text);margin-bottom:10px;">You're wearing a mask</div>
+        <div style="font-size:13.5px;color:var(--muted);line-height:1.75;">Holding it together all day is exhausting — and invisible.</div>
+      </div>
+    </div>
+    <div style="text-align:center;background:linear-gradient(135deg,rgba(106,79,181,0.15),rgba(212,168,75,0.08));border:1px solid rgba(106,79,181,0.25);border-radius:20px;padding:36px;max-width:680px;margin:0 auto;">
+      <div style="font-family:'Cinzel',serif;font-size:20px;color:var(--text);margin-bottom:12px;">Sound familiar? You're in the right place.</div>
+      <div style="font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:24px;">These are <strong style="color:var(--violet-l)">trigger patterns</strong> — and they can be changed.</div>
+      <a class="btn-primary" href="https://thealignedorder.netlify.app" target="_blank">Discover Your Triggers — It's Free →</a>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTION SECTION -->
+<section id="solution" style="padding:100px 24px;background:linear-gradient(180deg,#f7f5fc 0%,#ffffff 100%);">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;">
+      <div class="fade-up">
+        <div class="section-badge">The Solution</div>
+        <h2>Awareness Without <em>Action</em> Changes Nothing</h2>
+        <p style="font-size:15px;color:var(--muted);line-height:1.9;margin-bottom:20px;">We map your trigger patterns — then give you the tools to change them.</p>
+        <button class="expand-btn" onclick="openInfoModal('solution')" style="margin-bottom:28px;">Learn how it works <span class="arrow">▾</span></button>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <div style="display:flex;align-items:center;gap:12px;font-size:14px;color:var(--text);"><span style="color:var(--gold);font-size:18px;">✦</span> Identify your specific patterns</div>
+          <div style="display:flex;align-items:center;gap:12px;font-size:14px;color:var(--text);"><span style="color:var(--gold);font-size:18px;">✦</span> Understand the root cause</div>
+          <div style="display:flex;align-items:center;gap:12px;font-size:14px;color:var(--text);"><span style="color:var(--gold);font-size:18px;">✦</span> Apply tools that create lasting change</div>
+          <div style="display:flex;align-items:center;gap:12px;font-size:14px;color:var(--text);"><span style="color:var(--gold);font-size:18px;">✦</span> Feel results from session one</div>
+        </div>
+      </div>
+      <div class="fade-up" style="display:flex;flex-direction:column;gap:14px;">
+        <div style="background:linear-gradient(135deg,rgba(106,79,181,0.2),rgba(74,52,144,0.1));border:1px solid rgba(106,79,181,0.3);border-radius:18px;padding:26px;">
+          <div style="font-size:32px;margin-bottom:12px;">🎯</div>
+          <div style="font-family:'Cinzel',serif;font-size:16px;color:var(--text);margin-bottom:8px;">Precision Assessment</div>
+          <div style="font-size:13px;color:var(--muted);line-height:1.7;">10 adaptive questions. Real-time AI insights.</div>
+        </div>
+        <div style="background:linear-gradient(135deg,rgba(212,168,75,0.12),rgba(180,130,40,0.06));border:1px solid rgba(212,168,75,0.25);border-radius:18px;padding:26px;">
+          <div style="font-size:32px;margin-bottom:12px;">🧬</div>
+          <div style="font-family:'Cinzel',serif;font-size:16px;color:var(--text);margin-bottom:8px;">Root Cause Analysis</div>
+          <div style="font-size:13px;color:var(--muted);line-height:1.7;">Beyond reactions — the wiring underneath.</div>
+        </div>
+        <div style="background:linear-gradient(135deg,rgba(76,175,125,0.12),rgba(46,125,82,0.06));border:1px solid rgba(76,175,125,0.25);border-radius:18px;padding:26px;">
+          <div style="font-size:32px;margin-bottom:12px;">⚡</div>
+          <div style="font-family:'Cinzel',serif;font-size:16px;color:var(--text);margin-bottom:8px;">Rapid Transformation</div>
+          <div style="font-size:13px;color:var(--muted);line-height:1.7;">Practical tools, applied immediately.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how" style="padding:100px 24px;background:linear-gradient(180deg,#ffffff 0%,#f7f5fc 100%);">
+  <div class="container">
+    <div style="text-align:center;max-width:580px;margin:0 auto 60px;">
+      <div class="section-badge">How It Works</div>
+      <h2>Three Steps to <em>Lasting Change</em></h2>
+      <p class="section-sub" style="margin:0 auto;">Simple, powerful, built around you.</p>
+    </div>
+    <div class="steps">
+      <div class="step fade-up">
+        <div class="step-num">01</div>
+        <div class="step-icon">📋</div>
+        <div class="step-title">Take the Free Assessment</div>
+        <div class="step-text">Answer 10 adaptive questions that change based on your responses. As you go, you'll receive real-time mini-diagnoses revealing your emotional patterns. Takes just 3–4 minutes.</div>
+      </div>
+      <div class="step fade-up">
+        <div class="step-num">02</div>
+        <div class="step-icon">🔍</div>
+        <div class="step-title">Receive Your Trigger Profile</div>
+        <div class="step-text">Get a personalised report with your score across 5 trigger components, AI-generated insights unique to your answers, and a full emotional pattern breakdown sent to your email instantly.</div>
+      </div>
+      <div class="step fade-up">
+        <div class="step-num">03</div>
+        <div class="step-icon">🔥</div>
+        <div class="step-title">Transform with Coaching</div>
+        <div class="step-text">Qualify for a free Discovery Call and begin your coaching journey. Work directly with us to dismantle your trigger patterns and build new emotional responses that serve your life.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COURSE PACKAGES -->
+<section id="packages" style="padding:100px 24px;background:linear-gradient(180deg,#f7f5fc 0%,#ffffff 100%);">
+  <div class="container">
+    <div style="text-align:center;max-width:680px;margin:0 auto 20px;">
+      <div class="section-badge">Limited Time — Introductory Offer</div>
+      <h2>Coaching <em>Packages</em></h2>
+      <p class="section-sub" style="margin:0 auto;">Choose the package that matches your commitment — and save with introductory pricing.</p>
+    </div>
+
+    <div style="text-align:center;margin-bottom:48px;">
+      <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(212,168,75,0.12);border:1px solid rgba(212,168,75,0.3);border-radius:99px;padding:8px 20px;font-size:12.5px;font-weight:600;color:#d4a84b;">
+        <span>&#9889;</span> Introductory pricing — save up to 25% for a limited time
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
+
+      <!-- FOUNDATION -->
+      <div class="fade-up" style="background:rgba(106,79,181,0.04);border:1px solid rgba(106,79,181,0.14);border-radius:24px;padding:36px 30px;display:flex;flex-direction:column;transition:all 0.25s;" onmouseover="this.style.transform='translateY(-6px)';this.style.borderColor='rgba(106,79,181,0.35)'" onmouseout="this.style.transform='translateY(0)';this.style.borderColor='rgba(255,255,255,0.08)'">
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#9090c0;margin-bottom:16px;">3 Sessions</div>
+        <div style="font-family:'Cinzel',serif;font-size:24px;font-weight:700;color:#1a1530;margin-bottom:10px;">Foundation</div>
+        <div style="font-size:13.5px;color:rgba(26,21,48,0.55);line-height:1.75;margin-bottom:24px;min-height:40px;">Get clear on your core trigger patterns and build foundational awareness.</div>
+        <div style="margin-bottom:28px;">
+          <span style="font-size:14px;color:rgba(26,21,48,0.35);text-decoration:line-through;">$450</span>
+          <div style="display:flex;align-items:baseline;gap:6px;">
+            <span style="font-family:'Cinzel',serif;font-size:36px;font-weight:700;color:#1a1530;">$360</span>
+            <span style="font-size:13px;color:rgba(26,21,48,0.45);">/ package</span>
+          </div>
+          <div style="font-size:11.5px;color:#4caf7d;margin-top:4px;font-weight:600;">Save $90 — $120/session</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:11px;margin-bottom:28px;flex:1;">
+          <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:rgba(26,21,48,0.65);"><span style="color:#9b7fd4;flex-shrink:0;">&#10022;</span>Identify your top 3 trigger patterns</div>
+          <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:rgba(26,21,48,0.65);"><span style="color:#9b7fd4;flex-shrink:0;">&#10022;</span>Understand the root causes</div>
+          <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:rgba(26,21,48,0.65);"><span style="color:#9b7fd4;flex-shrink:0;">&#10022;</span>Initial regulation tools and techniques</div>
+          <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:rgba(26,21,48,0.65);"><span style="color:#9b7fd4;flex-shrink:0;">&#10022;</span>Personalised action plan</div>
+        </div>
+        <a href="https://calendly.com/alignedorder/paid-session" target="_blank" style="display:block;text-align:center;padding:13px;border-radius:99px;background:transparent;color:#9b7fd4;border:1.5px solid rgba(106,79,181,0.35);font-family:'Raleway',sans-serif;font-size:13.5px;font-weight:700;text-decoration:none;transition:all 0.2s;">Get Started →</a>
+      </div>
+
+      <!-- BREAKTHROUGH (featured) -->
+      <div class="fade-up" style="background:linear-gradient(135deg,#3d2d75,#241a4d);border:1px solid rgba(155,127,212,0.4);border-radius:24px;padding:36px 30px;display:flex;flex-direction:column;position:relative;overflow:hidden;transform:scale(1.03);box-shadow:0 20px 60px rgba(74,52,144,0.35);">
+        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#6a4fb5,#d4a84b);"></div>
+        <div style="position:absolute;top:18px;right:-32px;background:#d4a84b;color:#0d0b1a;font-size:10px;font-weight:800;padding:5px 36px;transform:rotate(40deg);letter-spacing:0.05em;">MOST POPULAR</div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#c9a0ff;margin-bottom:16px;">6 Sessions</div>
+        <div style="font-family:'Cinzel',serif;font-size:24px;font-weight:700;color:#fff;margin-bottom:10px;">Breakthrough</div>
+        <div style="font-size:13.5px;color:rgba(255,255,255,0.7);line-height:1.75;margin-bottom:24px;min-height:40px;">Enough depth to move from awareness into real behavioural change.</div>
+        <div style="margin-bottom:28px;">
+          <span style="font-size:14px;color:rgba(255,255,255,0.4);text-decoration:line-through;">$900</span>
+          <div style="display:flex;align-items:baseline;gap:6px;">
+            <span style="font-family:'Cinzel',serif;font-size:36px;font-weight:700;color:#fff;">$660</span>
+            <span style="font-size:13px;color:rgba(255,255,255,0.55);">/ package</span>
+          </div>
+          <div style="font-size:11.5px;color:#7ee8a8;margin-top:4px;font-weight:600;">Save $240 — $110/session</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:11px;margin-bottom:28px;flex:1;">
+          <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:rgba(255,255,255,0.8);"><span style="color:#d4a84b;flex-shrink:0;">&#10022;</span>Everything in Foundation, plus:</div>
+          <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:rgba(255,255,255,0.8);"><span style="color:#d4a84b;flex-shrink:0;">&#10022;</span>Deep work across relationships, work & family triggers</div>
+          <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:rgba(255,255,255,0.8);"><span style="color:#d4a84b;flex-shrink:0;">&#10022;</span>Practical reframing & nervous system tools</div>
+          <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:rgba(255,255,255,0.8);"><span style="color:#d4a84b;flex-shrink:0;">&#10022;</span>Real-time progress tracking between sessions</div>
+          <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:rgba(255,255,255,0.8);"><span style="color:#d4a84b;flex-shrink:0;">&#10022;</span>Priority scheduling</div>
+        </div>
+        <a href="https://calendly.com/alignedorder/paid-session" target="_blank" style="display:block;text-align:center;padding:14px;border-radius:99px;background:linear-gradient(135deg,#6a4fb5,#4a3490);color:#fff;font-family:'Raleway',sans-serif;font-size:14px;font-weight:700;text-decoration:none;box-shadow:0 8px 28px rgba(106,79,181,0.4);transition:all 0.2s;">Start Breakthrough →</a>
+      </div>
+
+      <!-- MASTERY -->
+      <div class="fade-up" style="background:rgba(255,255,255,0.03);border:1px solid rgba(212,168,75,0.25);border-radius:24px;padding:36px 30px;display:flex;flex-direction:column;transition:all 0.25s;" onmouseover="this.style.transform='translateY(-6px)';this.style.borderColor='rgba(212,168,75,0.45)'" onmouseout="this.style.transform='translateY(0)';this.style.borderColor='rgba(212,168,75,0.25)'">
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#e8c47a;margin-bottom:16px;">10 Sessions</div>
+        <div style="font-family:'Cinzel',serif;font-size:24px;font-weight:700;color:#1a1530;margin-bottom:10px;">Mastery</div>
+        <div style="font-size:13.5px;color:rgba(26,21,48,0.55);line-height:1.75;margin-bottom:24px;min-height:40px;">Complete reprogramming with ongoing support and accountability.</div>
+        <div style="margin-bottom:28px;">
+          <span style="font-size:14px;color:rgba(26,21,48,0.35);text-decoration:line-through;">$1,500</span>
+          <div style="display:flex;align-items:baseline;gap:6px;">
+            <span style="font-family:'Cinzel',serif;font-size:36px;font-weight:700;color:#1a1530;">$1,125</span>
+            <span style="font-size:13px;color:rgba(26,21,48,0.45);">/ package</span>
+          </div>
+          <div style="font-size:11.5px;color:#4caf7d;margin-top:4px;font-weight:600;">Save $375 — $112.50/session</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:11px;margin-bottom:28px;flex:1;">
+          <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:rgba(26,21,48,0.65);"><span style="color:#d4a84b;flex-shrink:0;">&#10022;</span>Everything in Breakthrough, plus:</div>
+          <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:rgba(26,21,48,0.65);"><span style="color:#d4a84b;flex-shrink:0;">&#10022;</span>Full trigger pattern reprogramming</div>
+          <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:rgba(26,21,48,0.65);"><span style="color:#d4a84b;flex-shrink:0;">&#10022;</span>Ongoing accountability check-ins</div>
+          <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:rgba(26,21,48,0.65);"><span style="color:#d4a84b;flex-shrink:0;">&#10022;</span>WhatsApp support between sessions</div>
+          <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:rgba(26,21,48,0.65);"><span style="color:#d4a84b;flex-shrink:0;">&#10022;</span>3-month follow-up session included</div>
+        </div>
+        <a href="https://calendly.com/alignedorder/paid-session" target="_blank" style="display:block;text-align:center;padding:13px;border-radius:99px;background:transparent;color:#e8c47a;border:1.5px solid rgba(212,168,75,0.4);font-family:'Raleway',sans-serif;font-size:13.5px;font-weight:700;text-decoration:none;transition:all 0.2s;">Begin Mastery →</a>
+      </div>
+
+    </div>
+
+    <div style="text-align:center;margin-top:40px;">
+      <p style="font-size:13px;color:rgba(26,21,48,0.4);">Not sure which package is right for you? <a href="https://calendly.com/alignedorder/30min" target="_blank" style="color:#9b7fd4;text-decoration:none;font-weight:600;">Book a free Discovery Call</a> and we'll help you decide.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" style="padding:100px 24px;background:linear-gradient(180deg,#f7f5fc 0%,#ffffff 100%);">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;">
+      <div class="fade-up">
+        <div class="section-badge">About Us</div>
+        <h2>We Help People <em>Master</em> Their Emotions — Not Just Manage Them</h2>
+        <p style="font-size:15px;color:var(--muted);line-height:1.9;margin-bottom:14px;">Most suffering comes not from what happens to us — but from our reaction to it. We built a precise diagnostic tool to map that reaction, and a coaching method to change it.</p>
+        <button class="expand-btn" onclick="openInfoModal('about')" style="margin-bottom:32px;">Read our full story <span class="arrow">▾</span></button>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+          <div style="background:rgba(106,79,181,0.04);border:1px solid rgba(106,79,181,0.12);border-radius:14px;padding:20px;text-align:center;">
+            <div style="font-family:'Cinzel',serif;font-size:28px;font-weight:700;background:linear-gradient(135deg,var(--violet-l),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">200+</div>
+            <div style="font-size:12px;color:var(--muted);margin-top:4px;text-transform:uppercase;letter-spacing:0.1em;">Lives Changed</div>
+          </div>
+          <div style="background:rgba(106,79,181,0.04);border:1px solid rgba(106,79,181,0.12);border-radius:14px;padding:20px;text-align:center;">
+            <div style="font-family:'Cinzel',serif;font-size:28px;font-weight:700;background:linear-gradient(135deg,var(--violet-l),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">4.9★</div>
+            <div style="font-size:12px;color:var(--muted);margin-top:4px;text-transform:uppercase;letter-spacing:0.1em;">Session Rating</div>
+          </div>
+          <div style="background:rgba(106,79,181,0.04);border:1px solid rgba(106,79,181,0.12);border-radius:14px;padding:20px;text-align:center;">
+            <div style="font-family:'Cinzel',serif;font-size:28px;font-weight:700;background:linear-gradient(135deg,var(--violet-l),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">1st</div>
+            <div style="font-size:12px;color:var(--muted);margin-top:4px;text-transform:uppercase;letter-spacing:0.1em;">Results in Session 1</div>
+          </div>
+          <div style="background:rgba(106,79,181,0.04);border:1px solid rgba(106,79,181,0.12);border-radius:14px;padding:20px;text-align:center;">
+            <div style="font-family:'Cinzel',serif;font-size:28px;font-weight:700;background:linear-gradient(135deg,var(--violet-l),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">100%</div>
+            <div style="font-size:12px;color:var(--muted);margin-top:4px;text-transform:uppercase;letter-spacing:0.1em;">Confidential</div>
+          </div>
+        </div>
+      </div>
+      <div class="fade-up">
+        <div style="background:linear-gradient(135deg,#f7f3ff,#fdfbff);border:1px solid rgba(106,79,181,0.18);border-radius:24px;padding:36px;position:relative;overflow:hidden;box-shadow:0 20px 50px rgba(106,79,181,0.08);">
+          <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--violet),var(--gold));"></div>
+          <div style="text-align:center;margin-bottom:28px;">
+            <div style="width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--violet),var(--violet-d));display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:30px;box-shadow:0 8px 32px rgba(106,79,181,0.4);">✦</div>
+            <div style="font-family:'Cinzel',serif;font-size:18px;color:var(--text);margin-bottom:6px;">Aligned Order</div>
+            <div style="font-size:11px;color:var(--violet-l);font-weight:600;letter-spacing:0.15em;text-transform:uppercase;">Emotional Intelligence Coaching</div>
+          </div>
+          <div style="font-size:14px;color:var(--muted);line-height:1.85;font-style:italic;text-align:center;margin-bottom:24px;">"Your triggers are not your fault — but they are your responsibility. We help you take that responsibility and turn it into your greatest strength."</div>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:var(--muted);"><span style="color:var(--violet-l);">✦</span> Action-oriented</div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:var(--muted);"><span style="color:var(--violet-l);">✦</span> Results you feel</div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:var(--muted);"><span style="color:var(--violet-l);">✦</span> Fully personalised</div>
+            <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:var(--muted);"><span style="color:var(--violet-l);">✦</span> Built for busy lives</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRANSFORMATION — BEFORE VS AFTER -->
+<section style="padding:100px 24px;background:linear-gradient(180deg,#ffffff 0%,#f7f5fc 100%);">
+  <div class="container">
+    <div style="text-align:center;max-width:580px;margin:0 auto 60px;">
+      <div class="section-badge">The Transformation</div>
+      <h2>Life Before & <em>After</em> Aligned Order</h2>
+      <p class="section-sub" style="margin:0 auto;">What changes when you do the work.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:900px;margin:0 auto;">
+      <div class="fade-up" style="background:rgba(224,90,90,0.05);border:1px solid rgba(224,90,90,0.2);border-radius:20px;padding:32px;">
+        <div style="font-size:13px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(224,90,90,0.8);margin-bottom:20px;">✕ Before</div>
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <div style="display:flex;align-items:flex-start;gap:10px;font-size:13.5px;color:var(--muted);line-height:1.6;"><span style="color:rgba(224,90,90,0.7);margin-top:2px;flex-shrink:0;">✕</span>Reacting before thinking — and regretting it</div>
+          <div style="display:flex;align-items:flex-start;gap:10px;font-size:13.5px;color:var(--muted);line-height:1.6;"><span style="color:rgba(224,90,90,0.7);margin-top:2px;flex-shrink:0;">✕</span>Walking on eggshells in your own home</div>
+          <div style="display:flex;align-items:flex-start;gap:10px;font-size:13.5px;color:var(--muted);line-height:1.6;"><span style="color:rgba(224,90,90,0.7);margin-top:2px;flex-shrink:0;">✕</span>Stress from one area bleeding into everything else</div>
+          <div style="display:flex;align-items:flex-start;gap:10px;font-size:13.5px;color:var(--muted);line-height:1.6;"><span style="color:rgba(224,90,90,0.7);margin-top:2px;flex-shrink:0;">✕</span>Feeling out of control when triggered</div>
+          <div style="display:flex;align-items:flex-start;gap:10px;font-size:13.5px;color:var(--muted);line-height:1.6;"><span style="color:rgba(224,90,90,0.7);margin-top:2px;flex-shrink:0;">✕</span>Repeating the same patterns for years</div>
+          <div style="display:flex;align-items:flex-start;gap:10px;font-size:13.5px;color:var(--muted);line-height:1.6;"><span style="color:rgba(224,90,90,0.7);margin-top:2px;flex-shrink:0;">✕</span>Exhausted from managing your emotions alone</div>
+        </div>
+      </div>
+      <div class="fade-up" style="background:rgba(76,175,125,0.05);border:1px solid rgba(76,175,125,0.25);border-radius:20px;padding:32px;">
+        <div style="font-size:13px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(76,175,125,0.9);margin-bottom:20px;">✦ After</div>
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <div style="display:flex;align-items:flex-start;gap:10px;font-size:13.5px;color:var(--muted);line-height:1.6;"><span style="color:rgba(76,175,125,0.8);margin-top:2px;flex-shrink:0;">✦</span>Responding with intention — not reaction</div>
+          <div style="display:flex;align-items:flex-start;gap:10px;font-size:13.5px;color:var(--muted);line-height:1.6;"><span style="color:rgba(76,175,125,0.8);margin-top:2px;flex-shrink:0;">✦</span>Deeper, calmer relationships at home</div>
+          <div style="display:flex;align-items:flex-start;gap:10px;font-size:13.5px;color:var(--muted);line-height:1.6;"><span style="color:rgba(76,175,125,0.8);margin-top:2px;flex-shrink:0;">✦</span>Clear boundaries between work, home and self</div>
+          <div style="display:flex;align-items:flex-start;gap:10px;font-size:13.5px;color:var(--muted);line-height:1.6;"><span style="color:rgba(76,175,125,0.8);margin-top:2px;flex-shrink:0;">✦</span>Catching triggers before they escalate</div>
+          <div style="display:flex;align-items:flex-start;gap:10px;font-size:13.5px;color:var(--muted);line-height:1.6;"><span style="color:rgba(76,175,125,0.8);margin-top:2px;flex-shrink:0;">✦</span>Breaking patterns that held you back for years</div>
+          <div style="display:flex;align-items:flex-start;gap:10px;font-size:13.5px;color:var(--muted);line-height:1.6;"><span style="color:rgba(76,175,125,0.8);margin-top:2px;flex-shrink:0;">✦</span>Emotional energy freed up for what matters</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- FOUNDER -->
+<section id="founder" style="padding:100px 24px;background:linear-gradient(180deg,#ffffff 0%,#f7f5fc 100%);">
+  <div class="container">
+    <div style="text-align:center;max-width:580px;margin:0 auto 56px;">
+      <div class="section-badge">Meet the Founder</div>
+      <h2>The Person Behind <em>Aligned Order</em></h2>
+      <p class="section-sub" style="margin:0 auto;">Coaching built on lived experience, not just theory.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:0.8fr 1.2fr;gap:60px;align-items:center;max-width:960px;margin:0 auto;">
+
+      <!-- PHOTO / AVATAR CARD -->
+      <div class="fade-up" style="position:relative;">
+        <div style="background:linear-gradient(135deg,#f7f3ff,#fdfbff);border:1px solid rgba(106,79,181,0.18);border-radius:24px;padding:8px;box-shadow:0 24px 60px rgba(106,79,181,0.12);">
+          <div style="border-radius:18px;aspect-ratio:1;position:relative;overflow:hidden;">
+            <img src="images/founder.jpg" alt="Matyyx Zander Tahero" style="width:100%;height:100%;object-fit:cover;object-position:center 25%;display:block;">
+            <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(106,79,181,0.15) 100%);"></div>
+          </div>
+        </div>
+        <div style="position:absolute;bottom:-16px;right:-16px;background:#fff;border:1px solid rgba(106,79,181,0.18);border-radius:16px;padding:14px 18px;box-shadow:0 12px 32px rgba(106,79,181,0.15);">
+          <div style="font-size:10px;color:var(--muted2);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:2px;">Years of Practice</div>
+          <div style="font-family:'Cinzel',serif;font-size:20px;font-weight:700;color:var(--gold);">8+</div>
+        </div>
+      </div>
+
+      <!-- BIO -->
+      <div class="fade-up">
+        <div style="font-family:'Cinzel',serif;font-size:24px;font-weight:700;color:var(--text);margin-bottom:6px;">Matyyx Zander Tahero</div>
+        <div style="font-size:12.5px;font-weight:600;color:var(--violet-l);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:22px;">Founder &amp; Lead Coach</div>
+
+        <p style="font-size:14.5px;color:var(--muted);line-height:1.9;margin-bottom:16px;">I didn't start this from a textbook — I started it from my own struggle with triggers I couldn't explain.</p>
+        <button class="expand-btn" onclick="openInfoModal('founder')" style="margin-bottom:28px;">Read my full story <span class="arrow">▾</span></button>
+
+        <div style="background:rgba(106,79,181,0.05);border-left:3px solid var(--violet-l);border-radius:0 14px 14px 0;padding:18px 20px;margin-bottom:28px;">
+          <div style="font-size:14px;color:var(--text);line-height:1.7;font-style:italic;">"I'm not here to tell you to calm down. I'm here to show you why you can't — and walk with you until you can."</div>
+        </div>
+
+        <div style="display:flex;gap:28px;flex-wrap:wrap;">
+          <div>
+            <div style="font-family:'Cinzel',serif;font-size:22px;font-weight:700;color:var(--text);">200+</div>
+            <div style="font-size:11px;color:var(--muted2);text-transform:uppercase;letter-spacing:0.08em;margin-top:2px;">Clients Coached</div>
+          </div>
+          <div>
+            <div style="font-family:'Cinzel',serif;font-size:22px;font-weight:700;color:var(--text);">8+</div>
+            <div style="font-size:11px;color:var(--muted2);text-transform:uppercase;letter-spacing:0.08em;margin-top:2px;">Years Experience</div>
+          </div>
+          <div>
+            <div style="font-family:'Cinzel',serif;font-size:22px;font-weight:700;color:var(--text);">4.9★</div>
+            <div style="font-size:11px;color:var(--muted2);text-transform:uppercase;letter-spacing:0.08em;margin-top:2px;">Average Rating</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials" style="padding:100px 24px;background:linear-gradient(180deg,#f7f5fc 0%,#ffffff 100%);">
+  <div class="container">
+    <div style="text-align:center;max-width:580px;margin:0 auto 60px;">
+      <div class="section-badge">Client Stories</div>
+      <h2>Real People. Real <em>Results.</em></h2>
+      <p class="section-sub" style="margin:0 auto;">Real transformations from real people.</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testi-card fade-up">
+        <div class="stars">★★★★★</div>
+        <div class="testi-text">"After two sessions, my wife noticed a difference before I even told her I was doing coaching."</div>
+        <div class="testi-author"><div class="testi-avatar">M</div><div><div class="testi-name">Michael R.</div><div class="testi-role">Business Owner, 41</div></div></div>
+      </div>
+      <div class="testi-card fade-up">
+        <div class="stars">★★★★★</div>
+        <div class="testi-text">"The assessment alone was eye-opening. The coaching was the missing piece I'd been searching for."</div>
+        <div class="testi-author"><div class="testi-avatar">S</div><div><div class="testi-name">Sarah K.</div><div class="testi-role">Marketing Director, 35</div></div></div>
+      </div>
+      <div class="testi-card fade-up">
+        <div class="stars">★★★★★</div>
+        <div class="testi-text">"The coaching gave me actual tools — not just awareness — to stay calm when my kids push my buttons."</div>
+        <div class="testi-author"><div class="testi-avatar">D</div><div><div class="testi-name">David T.</div><div class="testi-role">Father of 3, 38</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- SERVICES -->
+<section id="services" style="padding:100px 24px;background:linear-gradient(180deg,#ffffff 0%,#f7f5fc 100%);">
+  <div class="container">
+    <div style="text-align:center;max-width:680px;margin:0 auto 60px;">
+      <div class="section-badge">Our Services</div>
+      <h2>Choose Your Path to <em>Transformation</em></h2>
+      <p class="section-sub" style="margin:0 auto;">Every journey begins with the free assessment.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card fade-up">
+        <div class="service-tag assessment">Free</div>
+        <div class="service-icon">📊</div>
+        <div class="service-title">Trigger Assessment</div>
+        <div class="service-duration">Online · 3–4 minutes · Free forever</div>
+        <div class="service-desc">Maps your trigger patterns across 5 components with AI-powered insights.</div>
+        <div class="service-features">
+          <div class="service-feature">10 adaptive questions that evolve as you answer</div>
+          <div class="service-feature">Real-time mini-diagnoses during the quiz</div>
+          <div class="service-feature">Full trigger profile emailed instantly</div>
+          <div class="service-feature">5-component score breakdown</div>
+          <div class="service-feature">Personalised AI insight</div>
+        </div>
+        <a class="service-btn primary" href="https://thealignedorder.netlify.app" target="_blank">Start Free Assessment →</a>
+      </div>
+      <div class="service-card featured fade-up">
+        <div class="service-tag free">Free · By Qualification</div>
+        <div class="service-icon">📞</div>
+        <div class="service-title">Discovery Call</div>
+        <div class="service-duration">30 minutes · Video call · No obligation</div>
+        <div class="service-desc">A personal conversation to explore your patterns and map a path forward.</div>
+        <div class="service-features">
+          <div class="service-feature">Deep dive into your trigger profile</div>
+          <div class="service-feature">Identify root causes together</div>
+          <div class="service-feature">Personalised recommendations</div>
+          <div class="service-feature">Zero sales pressure</div>
+          <div class="service-feature">Clarity regardless of next steps</div>
+        </div>
+        <a class="service-btn primary" href="https://calendly.com/alignedorder/30min" target="_blank">Book Discovery Call →</a>
+      </div>
+      <div class="service-card fade-up">
+        <div class="service-tag paid">Paid · Premium</div>
+        <div class="service-icon">🔥</div>
+        <div class="service-title">Coaching Programme</div>
+        <div class="service-duration">60 minutes per session · One-on-one</div>
+        <div class="service-desc">Deep working sessions with practical tools you apply immediately.</div>
+        <div class="service-features">
+          <div class="service-feature">Relationship & intimacy triggers</div>
+          <div class="service-feature">Workplace & pressure triggers</div>
+          <div class="service-feature">Parenting & family triggers</div>
+          <div class="service-feature">Financial & self-worth triggers</div>
+          <div class="service-feature">Felt results from session one</div>
+        </div>
+        <a class="service-btn outline" href="https://calendly.com/alignedorder/paid-session" target="_blank">Book Coaching Session →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section style="padding:80px 24px;">
+  <div class="container">
+    <div class="cta-banner fade-up">
+      <div class="section-badge">Start Today — It's Free</div>
+      <h2>The First Step Costs <em>Nothing</em></h2>
+      <p class="section-sub" style="margin:0 auto 36px;">3 minutes. No credit card. Just clarity.</p>
+      <div class="hero-btns">
+        <a class="btn-primary" href="https://thealignedorder.netlify.app" target="_blank">Take the Free Assessment →</a>
+        <a class="btn-secondary" href="https://calendly.com/alignedorder/30min" target="_blank">Book a Discovery Call</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" style="padding:100px 24px;background:var(--bg2);">
+  <div class="container">
+    <div style="max-width:580px;margin-bottom:56px;">
+      <div class="section-badge">Contact Us</div>
+      <h2>Get in <em>Touch</em></h2>
+      <p class="section-sub">Have a question about our services or want to learn more? We'd love to hear from you.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info fade-up">
+        <div class="contact-item">
+          <div class="contact-icon">✉</div>
+          <div><div class="contact-item-title">Email Us</div><div class="contact-item-val"><a href="mailto:alignedorder@gmail.com">alignedorder@gmail.com</a></div></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📋</div>
+          <div><div class="contact-item-title">Take the Assessment</div><div class="contact-item-val"><a href="https://thealignedorder.netlify.app" target="_blank">thealignedorder.netlify.app</a></div></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📞</div>
+          <div><div class="contact-item-title">Free Discovery Call</div><div class="contact-item-val"><a href="https://calendly.com/alignedorder/30min" target="_blank">calendly.com/alignedorder/30min</a></div></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">🔥</div>
+          <div><div class="contact-item-title">Coaching Session</div><div class="contact-item-val"><a href="https://calendly.com/alignedorder/paid-session" target="_blank">calendly.com/alignedorder/paid-session</a></div></div>
+        </div>
+      </div>
+      <div class="contact-form fade-up">
+        <div class="form-row">
+          <div class="form-group"><label class="form-label">First Name</label><input class="form-input" id="cfFirst" placeholder="Your first name"></div>
+          <div class="form-group"><label class="form-label">Last Name</label><input class="form-input" id="cfLast" placeholder="Your last name"></div>
+        </div>
+        <div class="form-group"><label class="form-label">Email</label><input class="form-input" id="cfEmail" type="email" placeholder="you@email.com"></div>
+        <div class="form-group"><label class="form-label">Subject</label><input class="form-input" id="cfSubject" placeholder="What can we help you with?"></div>
+        <div class="form-group"><label class="form-label">Message</label><textarea class="form-textarea" id="cfMessage" placeholder="Tell us more…"></textarea></div>
+        <button class="form-submit" id="cfSubmit" onclick="submitContact()">Send Message →</button>
+        <div class="success-msg" id="cfSuccess">✓ Message sent! We'll get back to you within 24 hours.</div>
+      </div>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="12" r="11" stroke="#9b7fd4" stroke-width="1"/>
+          <polygon points="12,3 20,18 4,18" fill="none" stroke="#9b7fd4" stroke-width="1.2"/>
+          <polygon points="12,10 16,18 8,18" fill="rgba(106,79,181,0.2)" stroke="#9b7fd4" stroke-width="0.8"/>
+          <polygon points="12,2 13,5 11,5" fill="#d4a84b"/>
+        </svg>
+        Aligned Order
+      </div>
+      <div class="footer-desc">Emotional intelligence coaching that transforms your triggers and reclaims your power. Take the free assessment today.</div>
+      <div class="footer-social">
+        <a class="social-btn" href="mailto:alignedorder@gmail.com">✉</a>
+        <a class="social-btn" href="https://thealignedorder.netlify.app" target="_blank">◈</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Navigation</div>
+      <div class="footer-links">
+        <a class="footer-link" onclick="scrollTo('home')">Home</a>
+        <a class="footer-link" onclick="scrollTo('about')">About</a>
+        <a class="footer-link" onclick="scrollTo('services')">Services</a>
+        <a class="footer-link" onclick="scrollTo('contact')">Contact</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Services</div>
+      <div class="footer-links">
+        <a class="footer-link" href="https://thealignedorder.netlify.app" target="_blank">Free Assessment</a>
+        <a class="footer-link" href="https://calendly.com/alignedorder/30min" target="_blank">Discovery Call</a>
+        <a class="footer-link" href="https://calendly.com/alignedorder/paid-session" target="_blank">Coaching Session</a>
+        <a class="footer-link" href="https://thealignedorder.netlify.app/booking" target="_blank">Book Now</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Get Started</div>
+      <div class="footer-links">
+        <a class="footer-link" href="https://thealignedorder.netlify.app" target="_blank">Take the Assessment</a>
+        <a class="footer-link" href="https://calendly.com/alignedorder/30min" target="_blank">Free 30-min Call</a>
+        <a class="footer-link" href="mailto:alignedorder@gmail.com">Email Us</a>
+        <a class="footer-link" href="https://thealignedorder.netlify.app/login" target="_blank">&#128274; Team Login</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2026 Aligned Order. All rights reserved.</div>
+    <div>Transform Your Triggers. Reclaim Your Power.</div>
+  </div>
+</footer>
+
+<!-- ── INFO MODALS ── -->
+<div class="info-modal-overlay" id="infoModalOverlay" onclick="closeInfoModal(event)">
+  <div class="info-modal" onclick="event.stopPropagation()">
+    <div class="info-modal-head">
+      <button class="info-modal-close" onclick="closeInfoModal()">&#10005;</button>
+      <div class="info-modal-icon" id="modalIcon">&#10024;</div>
+      <div class="info-modal-title" id="modalTitle">Title</div>
+    </div>
+    <div class="info-modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<script>
+var INFO_CONTENT = {
+  solution: {
+    icon: '&#127919;',
+    title: 'How Aligned Order Works',
+    body: '<p>Most people know they have triggers. What they don\'t know is exactly what they are, where they come from, and how to dismantle them.</p>' +
+          '<p>Aligned Order combines a precision trigger assessment with personalised one-on-one coaching to give you something most programmes never offer: <strong>a map of your emotional patterns and the tools to change them.</strong></p>' +
+          '<p>This isn\'t therapy. This isn\'t meditation. This is targeted, results-driven emotional intelligence work — and clients feel the difference within the first session.</p>' +
+          '<p>We start with the free assessment, which identifies exactly which areas of your life are triggering you most. From there, coaching takes that map and turns it into a transformation plan that\'s practical, fast and deeply personal.</p>'
+  },
+  about: {
+    icon: '&#10022;',
+    title: 'Our Full Story',
+    body: '<p>Aligned Order was built on a single conviction: most human suffering comes not from what happens to us, but from our unconscious reaction to it.</p>' +
+          '<p>We created the Trigger Assessment to give people something they\'ve never had before — a precise, personalised map of their emotional patterns. Not a personality test. Not a mood tracker. A real diagnostic tool that shows you exactly where your nervous system is wired to react.</p>' +
+          '<p>Our coaching then takes that map and turns it into a transformation plan — practical, fast and deeply personal. We work with professionals, parents, business owners and anyone who feels their emotions are running the show instead of them.</p>' +
+          '<p>Every framework we use has been tested in the real world, refined through hundreds of coaching sessions, and built around one goal: results you can feel, not just understand intellectually.</p>'
+  },
+  founder: {
+    icon: '&#128100;',
+    title: 'Matyyx\'s Full Story',
+    body: '<p>I didn\'t start this work from a textbook — I started it from my own struggle with triggers I couldn\'t explain. Years spent reacting before thinking, carrying tension that never seemed to leave, and watching it quietly affect the people I cared about most.</p>' +
+          '<p>It took real work — and the right guidance — to understand that my reactions weren\'t random. They were patterns. Patterns that could be mapped, understood and changed.</p>' +
+          '<p>Aligned Order exists to give other people that same map — faster, clearer and more practically than I ever had it. Every assessment question, every coaching framework, comes from real lived experience of what actually creates change.</p>' +
+          '<p style="font-style:italic;color:var(--violet-l);margin-top:20px;">"I\'m not here to tell you to calm down. I\'m here to show you why you can\'t — and walk with you until you can."</p>'
+  }
+};
+
+function openInfoModal(key) {
+  var data = INFO_CONTENT[key];
+  if (!data) return;
+  document.getElementById('modalIcon').innerHTML = data.icon;
+  document.getElementById('modalTitle').textContent = data.title;
+  document.getElementById('modalBody').innerHTML = data.body;
+  document.getElementById('infoModalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeInfoModal(e) {
+  if (e && e.target !== document.getElementById('infoModalOverlay')) return;
+  document.getElementById('infoModalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+window.openInfoModal = openInfoModal;
+window.closeInfoModal = closeInfoModal;
+</script>
+
+
+<script>
+// ── BRAIN + UNIVERSE HERO ANIMATION ──
+(function(){
+  const canvas = document.getElementById('heroCanvas');
+  const ctx = canvas.getContext('2d');
+  let W, H, nodes=[], stars=[], sparks=[], time=0;
+  let raf;
+
+  function resize(){
+    W = canvas.width = canvas.offsetWidth || window.innerWidth;
+    H = canvas.height = canvas.offsetHeight || window.innerHeight;
+  }
+
+  class Star {
+    constructor(init){
+      this.x = Math.random()*W;
+      this.y = Math.random()*H;
+      this.size = Math.random()*1.8+0.2;
+      this.opacity = Math.random()*0.7+0.1;
+      this.twinkle = Math.random()*Math.PI*2;
+      this.speed = Math.random()*0.2+0.05;
+    }
+    update(){
+      this.x -= this.speed;
+      this.twinkle += 0.03;
+      if(this.x < -5){ this.x=W+5; this.y=Math.random()*H; }
+    }
+    draw(){
+      const o = this.opacity*(0.6+0.4*Math.sin(this.twinkle));
+      ctx.save();
+      ctx.globalAlpha = o;
+      ctx.fillStyle = '#ffffff';
+      if(this.size > 1.2){ ctx.shadowBlur=5; ctx.shadowColor='rgba(200,180,255,0.8)'; }
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.size, 0, Math.PI*2);
+      ctx.fill();
+      ctx.restore();
+    }
+  }
+
+  class Node {
+    constructor(x,y,r){
+      this.x=x; this.y=y; this.r=r; this.baseR=r;
+      this.pulse=Math.random()*Math.PI*2;
+      this.pulseSpeed=0.02+Math.random()*0.03;
+      this.energy=0;
+      this.color=Math.random()>0.55?'violet':'gold';
+      this.connections=[];
+      this.firing=false;
+      this.fireTimer=0;
+      this.vx=(Math.random()-0.5)*0.06;
+      this.vy=(Math.random()-0.5)*0.06;
+    }
+    fire(){
+      if(this.firing) return;
+      this.firing=true; this.fireTimer=0; this.energy=1;
+      setTimeout(()=>{
+        this.connections.forEach(n=>{
+          setTimeout(()=>{ n.fire(); createSpark(this.x,this.y,n.x,n.y); }, 80+Math.random()*140);
+        });
+      }, 40);
+    }
+    update(){
+      this.pulse += this.pulseSpeed;
+      this.x += this.vx; this.y += this.vy;
+      const cx=W/2, cy=H/2;
+      const dx=this.x-cx, dy=this.y-cy;
+      const dist=Math.sqrt(dx*dx+dy*dy);
+      const maxD=Math.min(W,H)*0.4;
+      if(dist>maxD){ this.vx-=dx*0.001; this.vy-=dy*0.001; }
+      if(this.energy>0) this.energy-=0.035;
+      if(this.firing){ this.fireTimer++; if(this.fireTimer>35) this.firing=false; }
+      this.r = this.baseR*(1+0.12*Math.sin(this.pulse));
+    }
+    draw(){
+      const pf=0.75+0.25*Math.sin(this.pulse);
+      const isV=this.color==='violet';
+      const bc=isV?[155,127,212]:[212,168,75];
+      const e=this.energy;
+      ctx.save();
+      if(e>0){ ctx.shadowBlur=15+e*25; ctx.shadowColor=isV?`rgba(200,170,255,${e})`:`rgba(255,200,80,${e})`; }
+      const grad=ctx.createRadialGradient(this.x,this.y,0,this.x,this.y,this.r*2.5);
+      grad.addColorStop(0,`rgba(${bc[0]},${bc[1]},${bc[2]},${0.8+e*0.2})`);
+      grad.addColorStop(0.5,`rgba(${bc[0]},${bc[1]},${bc[2]},0.3)`);
+      grad.addColorStop(1,'rgba(0,0,0,0)');
+      ctx.globalAlpha=pf*(0.5+e*0.5);
+      ctx.fillStyle=grad;
+      ctx.beginPath();
+      ctx.arc(this.x,this.y,this.r*2.5,0,Math.PI*2);
+      ctx.fill();
+      ctx.globalAlpha=1;
+      ctx.fillStyle=e>0?`rgba(255,255,255,${0.9+e*0.1})`:`rgba(${bc[0]},${bc[1]},${bc[2]},0.95)`;
+      ctx.shadowBlur=e>0?12:3;
+      ctx.shadowColor=isV?'rgba(180,150,255,0.8)':'rgba(255,200,80,0.8)';
+      ctx.beginPath();
+      ctx.arc(this.x,this.y,this.r*pf,0,Math.PI*2);
+      ctx.fill();
+      ctx.restore();
+    }
+  }
+
+  class Spark {
+    constructor(x1,y1,x2,y2){
+      this.x1=x1;this.y1=y1;this.x2=x2;this.y2=y2;
+      this.progress=0; this.speed=0.05+Math.random()*0.06; this.life=1;
+      this.jitter=[];
+      for(let i=0;i<8;i++) this.jitter.push({dx:(Math.random()-0.5)*18,dy:(Math.random()-0.5)*18});
+    }
+    update(){ this.progress+=this.speed; if(this.progress>1) this.life-=0.09; }
+    draw(){
+      if(this.life<=0)return;
+      const steps=this.jitter.length;
+      ctx.save();
+      ctx.globalAlpha=this.life*0.75;
+      ctx.strokeStyle=`rgba(200,180,255,${this.life})`;
+      ctx.shadowBlur=8; ctx.shadowColor='rgba(155,127,212,0.9)';
+      ctx.lineWidth=1.5;
+      ctx.beginPath();
+      for(let i=0;i<=steps;i++){
+        const t=i/steps;
+        if(t>this.progress)break;
+        const bx=this.x1+(this.x2-this.x1)*t;
+        const by=this.y1+(this.y2-this.y1)*t;
+        const j=this.jitter[Math.min(i,steps-1)];
+        const jf=Math.sin(t*Math.PI)*0.5;
+        if(i===0)ctx.moveTo(bx+j.dx*jf,by+j.dy*jf);
+        else ctx.lineTo(bx+j.dx*jf,by+j.dy*jf);
+      }
+      ctx.stroke();
+      ctx.restore();
+    }
+    isDead(){return this.life<=0;}
+  }
+
+  function createSpark(x1,y1,x2,y2){ sparks.push(new Spark(x1,y1,x2,y2)); }
+
+  function drawBackground(){
+    ctx.fillStyle='#000008';
+    ctx.fillRect(0,0,W,H);
+    const cx=W/2, cy=H/2;
+    const g1=ctx.createRadialGradient(cx,cy,0,cx,cy,Math.min(W,H)*0.55);
+    g1.addColorStop(0,'rgba(30,12,70,0.9)');
+    g1.addColorStop(0.45,'rgba(12,5,35,0.85)');
+    g1.addColorStop(1,'rgba(0,0,8,0.95)');
+    ctx.fillStyle=g1; ctx.fillRect(0,0,W,H);
+    const g2=ctx.createRadialGradient(cx,cy,0,cx,cy,Math.min(W,H)*0.4);
+    g2.addColorStop(0,'rgba(80,40,160,0.22)');
+    g2.addColorStop(0.5,'rgba(40,15,100,0.1)');
+    g2.addColorStop(1,'rgba(0,0,0,0)');
+    ctx.fillStyle=g2; ctx.fillRect(0,0,W,H);
+    const gx=cx+W*0.2+Math.sin(time*0.0008)*W*0.05;
+    const gy=cy-H*0.1+Math.cos(time*0.0006)*H*0.04;
+    const g3=ctx.createRadialGradient(gx,gy,0,gx,gy,W*0.22);
+    g3.addColorStop(0,'rgba(212,120,30,0.07)');
+    g3.addColorStop(1,'rgba(0,0,0,0)');
+    ctx.fillStyle=g3; ctx.fillRect(0,0,W,H);
+  }
+
+  function drawConnections(){
+    nodes.forEach((a,i)=>{
+      nodes.forEach((b,j)=>{
+        if(j<=i)return;
+        const dx=a.x-b.x, dy=a.y-b.y;
+        const dist=Math.sqrt(dx*dx+dy*dy);
+        if(dist>130)return;
+        const ae=a.energy, be=b.energy;
+        const alpha=(1-dist/130)*0.14*(1+ae*0.6+be*0.6);
+        const isV=a.color==='violet'&&b.color==='violet';
+        ctx.save();
+        ctx.globalAlpha=alpha;
+        ctx.strokeStyle=isV?'rgba(155,127,212,1)':'rgba(212,168,75,1)';
+        ctx.lineWidth=0.7+(ae+be)*0.4;
+        ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke();
+        ctx.restore();
+      });
+    });
+  }
+
+  function init(){
+    resize();
+    stars=[]; for(let i=0;i<150;i++) stars.push(new Star(true));
+    nodes=[];
+    const cx=W/2, cy=H/2;
+    for(let i=0;i<32;i++){
+      const angle=Math.random()*Math.PI*2;
+      const r=20+Math.random()*Math.min(W,H)*0.38;
+      nodes.push(new Node(cx+Math.cos(angle)*r, cy+Math.sin(angle)*r, 2+Math.random()*3));
+    }
+    nodes.forEach(n=>{
+      n.connections=nodes.filter(o=>{
+        if(o===n)return false;
+        const dx=n.x-o.x,dy=n.y-o.y;
+        return Math.sqrt(dx*dx+dy*dy)<115;
+      }).slice(0,3);
+    });
+    sparks=[];
+  }
+
+  window.triggerBurst=function(){
+    const r=nodes[Math.floor(Math.random()*nodes.length)];
+    if(r)r.fire();
+  };
+
+  function animate(){
+    time++;
+    drawBackground();
+    stars.forEach(s=>{s.update();s.draw();});
+    drawConnections();
+    nodes.forEach(n=>{n.update();n.draw();});
+    sparks=sparks.filter(s=>!s.isDead());
+    sparks.forEach(s=>{s.update();s.draw();});
+    if(time%85===0){ const r=nodes[Math.floor(Math.random()*nodes.length)]; if(r)r.fire(); }
+    raf=requestAnimationFrame(animate);
+  }
+
+  window.addEventListener('resize',()=>{init();});
+  canvas.addEventListener('click',()=>window.triggerBurst());
+
+  window.addEventListener('load',()=>{init();animate();});
+  setTimeout(()=>{init();animate();},100);
+})();
+
+// ── NAV SCROLL ──
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// ── SMOOTH SCROLL ──
+function scrollTo(id) {
+  document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+}
+
+// ── MOBILE MENU ──
+function toggleMenu() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+
+// ── SCROLL ANIMATIONS ──
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting) { e.target.classList.add('visible'); }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+// ── CONTACT FORM ──
+async function submitContact() {
+  const first   = document.getElementById('cfFirst').value.trim();
+  const last    = document.getElementById('cfLast').value.trim();
+  const email   = document.getElementById('cfEmail').value.trim();
+  const subject = document.getElementById('cfSubject').value.trim();
+  const message = document.getElementById('cfMessage').value.trim();
+
+  if(!first || !email || !message) {
+    alert('Please fill in your name, email and message.');
+    return;
+  }
+
+  const btn = document.getElementById('cfSubmit');
+  btn.disabled = true;
+  btn.textContent = 'Sending…';
+
+  // Open email client as fallback
+  const body = 'Name: ' + first + ' ' + last + '\nEmail: ' + email + '\n\n' + message;
+  const subj = encodeURIComponent(subject || 'Website Enquiry - Aligned Order');
+  window.open('mailto:alignedorder@gmail.com?subject=' + subj + '&body=' + encodeURIComponent(body), '_blank');
+
+  setTimeout(() => {
+    document.getElementById('cfSuccess').classList.add('show');
+    btn.disabled = false;
+    btn.textContent = 'Send Message →';
+    ['cfFirst','cfLast','cfEmail','cfSubject','cfMessage'].forEach(id => {
+      document.getElementById(id).value = '';
+    });
+  }, 800);
+}
+</script>
+
+<!-- ── CHATBOT ── -->
+<style>
+#chatBtn{position:fixed;bottom:28px;right:28px;z-index:999;width:58px;height:58px;border-radius:50%;background:linear-gradient(135deg,#6a4fb5,#4a3490);border:none;cursor:pointer;box-shadow:0 8px 28px rgba(106,79,181,0.5);display:flex;align-items:center;justify-content:center;transition:all 0.3s;font-size:24px;}
+#chatBtn:hover{transform:scale(1.1);}
+#chatBtn .ping{position:absolute;top:-2px;right:-2px;width:14px;height:14px;border-radius:50%;background:#4caf7d;border:2px solid #000;animation:chatPing 2s infinite;}
+@keyframes chatPing{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.3);opacity:0.7}}
+#chatBox{position:fixed;bottom:100px;right:28px;z-index:999;width:360px;max-height:560px;background:#0d0b1a;border:1px solid rgba(106,79,181,0.3);border-radius:20px;box-shadow:0 20px 60px rgba(0,0,0,0.6);display:none;flex-direction:column;overflow:hidden;animation:chatIn 0.3s cubic-bezier(0.34,1.56,0.64,1);}
+@keyframes chatIn{from{opacity:0;transform:scale(0.85) translateY(20px)}to{opacity:1;transform:scale(1) translateY(0)}}
+#chatBox.open{display:flex;}
+.chat-head{background:linear-gradient(135deg,rgba(106,79,181,0.3),rgba(74,52,144,0.2));padding:16px 18px;border-bottom:1px solid rgba(106,79,181,0.2);display:flex;align-items:center;gap:12px;}
+.chat-head-avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#6a4fb5,#4a3490);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
+.chat-head-info{flex:1;}
+.chat-head-name{font-size:14px;font-weight:700;color:#f0ecff;font-family:'Cinzel',serif;}
+.chat-head-status{font-size:11px;color:#4caf7d;display:flex;align-items:center;gap:5px;}
+.chat-head-status::before{content:'';width:6px;height:6px;border-radius:50%;background:#4caf7d;display:inline-block;}
+.chat-close{background:none;border:none;color:rgba(240,236,255,0.5);cursor:pointer;font-size:18px;padding:4px;}
+.chat-messages{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:12px;max-height:380px;}
+.chat-messages::-webkit-scrollbar{width:4px;}
+.chat-messages::-webkit-scrollbar-thumb{background:rgba(106,79,181,0.3);border-radius:2px;}
+.msg{max-width:85%;animation:msgIn 0.3s ease;}
+@keyframes msgIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.msg.bot{align-self:flex-start;}
+.msg.user{align-self:flex-end;}
+.msg-bubble{padding:11px 14px;border-radius:14px;font-size:13.5px;line-height:1.6;}
+.msg.bot .msg-bubble{background:rgba(255,255,255,0.06);color:#e8e4ff;border:1px solid rgba(255,255,255,0.08);border-bottom-left-radius:4px;}
+.msg.user .msg-bubble{background:linear-gradient(135deg,#6a4fb5,#4a3490);color:#fff;border-bottom-right-radius:4px;}
+.msg-time{font-size:10px;color:rgba(240,236,255,0.3);margin-top:4px;padding:0 4px;}
+.msg.user .msg-time{text-align:right;}
+.chat-typing{align-self:flex-start;padding:11px 14px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);border-radius:14px;border-bottom-left-radius:4px;display:none;}
+.chat-typing.show{display:flex;gap:4px;align-items:center;}
+.typing-dot{width:7px;height:7px;border-radius:50%;background:rgba(155,127,212,0.7);animation:typingBounce 1.2s infinite;}
+.typing-dot:nth-child(2){animation-delay:0.2s;}
+.typing-dot:nth-child(3){animation-delay:0.4s;}
+@keyframes typingBounce{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-6px)}}
+.chat-quick{padding:10px 14px;display:flex;gap:6px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,0.06);}
+.qbtn{padding:6px 12px;border-radius:99px;font-size:11.5px;font-weight:600;cursor:pointer;border:1px solid rgba(106,79,181,0.4);background:rgba(106,79,181,0.1);color:#c9a0ff;transition:all 0.15s;font-family:'Raleway',sans-serif;}
+.qbtn:hover{background:rgba(106,79,181,0.25);}
+.chat-input-wrap{padding:12px 14px;border-top:1px solid rgba(255,255,255,0.06);display:flex;gap:8px;align-items:center;}
+#chatInput{flex:1;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:10px 12px;color:#f0ecff;font-family:'Raleway',sans-serif;font-size:13px;outline:none;}
+#chatInput:focus{border-color:rgba(106,79,181,0.5);}
+#chatInput::placeholder{color:rgba(240,236,255,0.3);}
+#chatSend{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#6a4fb5,#4a3490);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
+#chatSend:disabled{opacity:0.4;cursor:not-allowed;}
+@media(max-width:480px){#chatBox{width:calc(100vw - 24px);right:12px;bottom:90px;}#chatBtn{bottom:16px;right:16px;}}
+</style>
+
+<button id="chatBtn" onclick="toggleChat()" aria-label="Open chat">
+  <span id="chatIcon">&#10022;</span>
+  <div class="ping"></div>
+</button>
+
+<div id="chatBox">
+  <div class="chat-head">
+    <div class="chat-head-avatar">&#10022;</div>
+    <div class="chat-head-info">
+      <div class="chat-head-name">Aligned Order</div>
+      <div class="chat-head-status">Online now</div>
+    </div>
+    <button class="chat-close" onclick="toggleChat()">&#10005;</button>
+  </div>
+  <div class="chat-messages" id="chatMessages">
+    <div class="chat-typing" id="chatTyping">
+      <div class="typing-dot"></div>
+      <div class="typing-dot"></div>
+      <div class="typing-dot"></div>
+    </div>
+  </div>
+  <div class="chat-quick" id="quickReplies"></div>
+  <div class="chat-input-wrap">
+    <input id="chatInput" placeholder="Ask me anything..." onkeydown="if(event.key==='Enter'){event.preventDefault();sendChat();}">
+    <button id="chatSend" onclick="sendChat()">&#8594;</button>
+  </div>
+</div>
+
+<script>
+var chatOpen = false;
+var chatHistory = [];
+var hasGreeted = false;
+var chatBusy = false;
+
+var ASSESSMENT_URL = 'https://thealignedorder.netlify.app';
+var DISCOVERY_URL  = 'https://calendly.com/alignedorder/30min';
+var COACHING_URL   = 'https://calendly.com/alignedorder/paid-session';
+
+var SYSTEM = 'You are Aria, a warm AI assistant for Aligned Order, an emotional intelligence coaching company. Keep responses to 2-3 sentences max. Be warm, empathetic and conversational. Services: 1) Free Trigger Assessment at ' + ASSESSMENT_URL + ' (10 questions, 3-4 mins), 2) Free Discovery Call 30 mins at ' + DISCOVERY_URL + ' for those who score 70%+, 3) Paid Coaching Sessions 60 mins at ' + COACHING_URL + '. After 2 exchanges guide visitors to take the free assessment. Never use markdown. Contact: alignedorder@gmail.com';
+
+var QUICK = {
+  initial: ['What is Aligned Order?','How does it work?','Is it free?','I feel triggered often'],
+  after: ['Take the assessment','Book a call','Tell me more','What are triggers?'],
+  cta: ['Take free assessment','Book discovery call','Learn more first']
+};
+
+function toggleChat() {
+  chatOpen = !chatOpen;
+  var box = document.getElementById('chatBox');
+  var icon = document.getElementById('chatIcon');
+  var ping = document.querySelector('#chatBtn .ping');
+  if (chatOpen) {
+    box.classList.add('open');
+    icon.innerHTML = '&#10005;';
+    if (ping) ping.style.display = 'none';
+    if (!hasGreeted) { setTimeout(greet, 500); hasGreeted = true; }
+  } else {
+    box.classList.remove('open');
+    icon.innerHTML = '&#10022;';
+  }
+}
+
+function greet() {
+  showTyping();
+  setTimeout(function() {
+    hideTyping();
+    addBotMsg("Hi there! I'm Aria, your Aligned Order guide. I help people discover their emotional trigger patterns and find the right support. What brings you here today?");
+    showQuick('initial');
+  }, 1200);
+}
+
+function addBotMsg(text) {
+  addMsg('bot', text);
+  chatHistory.push({role: 'assistant', content: text});
+}
+
+function addMsg(role, text) {
+  var wrap = document.getElementById('chatMessages');
+  var typing = document.getElementById('chatTyping');
+  var div = document.createElement('div');
+  div.className = 'msg ' + role;
+  var now = new Date().toLocaleTimeString('en-GB', {hour: '2-digit', minute: '2-digit'});
+  var bubble = document.createElement('div');
+  bubble.className = 'msg-bubble';
+  bubble.innerHTML = text.split('\n').join('<br>');
+  var time = document.createElement('div');
+  time.className = 'msg-time';
+  time.textContent = now;
+  div.appendChild(bubble);
+  div.appendChild(time);
+  wrap.insertBefore(div, typing);
+  wrap.scrollTop = wrap.scrollHeight;
+}
+
+function showTyping() {
+  document.getElementById('chatTyping').classList.add('show');
+  var w = document.getElementById('chatMessages');
+  w.scrollTop = w.scrollHeight;
+}
+function hideTyping() { document.getElementById('chatTyping').classList.remove('show'); }
+
+function showQuick(set) {
+  var wrap = document.getElementById('quickReplies');
+  var btns = QUICK[set] || [];
+  wrap.innerHTML = '';
+  btns.forEach(function(b) {
+    var btn = document.createElement('button');
+    btn.className = 'qbtn';
+    btn.textContent = b;
+    btn.onclick = function() { quickChat(b); };
+    wrap.appendChild(btn);
+  });
+}
+
+function quickChat(text) {
+  document.getElementById('quickReplies').innerHTML = '';
+  if (text.toLowerCase().indexOf('assessment') >= 0) {
+    addMsg('user', text);
+    chatHistory.push({role: 'user', content: text});
+    addBotMsg('The free assessment takes just 3-4 minutes and gives you a personalised trigger profile with AI insights. Start here: ' + ASSESSMENT_URL);
+    showQuick('cta');
+    return;
+  }
+  if (text.toLowerCase().indexOf('call') >= 0 || text.toLowerCase().indexOf('discovery') >= 0) {
+    addMsg('user', text);
+    chatHistory.push({role: 'user', content: text});
+    addBotMsg('The Discovery Call is a free 30-minute video session for people who score 70%+ on the assessment. Book here: ' + DISCOVERY_URL);
+    showQuick('cta');
+    return;
+  }
+  sendChat(text);
+}
+
+async function sendChat(override) {
+  var input = document.getElementById('chatInput');
+  var text = override || input.value.trim();
+  if (!text || chatBusy) return;
+  chatBusy = true;
+  input.value = '';
+  document.getElementById('chatSend').disabled = true;
+  document.getElementById('quickReplies').innerHTML = '';
+  addMsg('user', text);
+  chatHistory.push({role: 'user', content: text});
+  showTyping();
+  try {
+    var msgs = chatHistory.slice(-10);
+    var res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': '',
+        'anthropic-version': '2023-06-01',
+        'anthropic-dangerous-request-origin': 'https://alignedorder.com'
+      },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-6',
+        max_tokens: 200,
+        system: SYSTEM,
+        messages: msgs
+      })
+    });
+    var data = await res.json();
+    hideTyping();
+    var reply = (data.content && data.content[0] && data.content[0].text) || "I'm here to help! For immediate assistance email alignedorder@gmail.com or take our free assessment at " + ASSESSMENT_URL;
+    addBotMsg(reply);
+    var r = reply.toLowerCase();
+    if (r.indexOf('assessment') >= 0 || r.indexOf('trigger') >= 0) { showQuick('cta'); }
+    else { showQuick('after'); }
+  } catch(e) {
+    hideTyping();
+    addBotMsg("Something went wrong on my end! You can reach us at alignedorder@gmail.com or start the free assessment here: " + ASSESSMENT_URL);
+    showQuick('cta');
+  }
+  chatBusy = false;
+  document.getElementById('chatSend').disabled = false;
+}
+
+window.toggleChat = toggleChat;
+window.sendChat = sendChat;
+window.quickChat = quickChat;
+</script>
+</body>
+</html>
