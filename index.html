@@ -389,48 +389,59 @@ footer{background:var(--bg);border-top:1px solid var(--card-border);padding:48px
 
 
 <!-- PROBLEM SECTION -->
-<section id="problem" style="padding:80px 24px;background:linear-gradient(180deg,#fbf8f2 0%,#f3ece1 100%);">
+<section id="problem" style="padding:80px 0;background:linear-gradient(180deg,#fbf8f2 0%,#f3ece1 100%);overflow:hidden;">
   <div class="container">
-    <div style="text-align:center;max-width:600px;margin:0 auto 56px;">
+    <div style="text-align:center;max-width:600px;margin:0 auto 48px;padding:0 24px;">
       <div class="section-badge">Sound Familiar?</div>
       <h2>You're Not Broken.<br>You're <em>Triggered.</em></h2>
       <p class="section-sub" style="margin:0 auto;">Reactions that feel out of control. Patterns you can't explain.</p>
     </div>
+  </div>
 
-    <div style="display:grid;grid-template-columns:1.3fr 1fr;gap:16px;margin-bottom:16px;">
-      <div class="fade-up" style="background:linear-gradient(135deg,#3d2d75,#241a4d);border-radius:24px;padding:32px;min-height:220px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;">
-        <div style="position:absolute;top:-40px;right:-40px;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(155,127,212,0.25),transparent 70%);"></div>
-        <div style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#c9a0ff;margin-bottom:8px;">The pattern</div>
-        <div style="font-family:'Cinzel',serif;font-size:20px;color:#fff;margin-bottom:6px;">You snap — then regret it</div>
-        <div style="font-size:13px;color:rgba(255,255,255,0.6);line-height:1.6;">Small things trigger huge reactions you regret instantly.</div>
+  <div class="pattern-slider-wrap fade-up">
+    <div class="pattern-slider" id="patternSlider">
+      <div class="pattern-card" style="background:linear-gradient(135deg,#3d2d75,#241a4d);">
+        <div class="pattern-orb"></div>
+        <div class="pattern-eyebrow" style="color:#c9a0ff;">The pattern</div>
+        <div class="pattern-title" style="color:#fff;">You snap — then regret it</div>
+        <div class="pattern-text" style="color:rgba(255,255,255,0.6);">Small things trigger huge reactions you regret instantly.</div>
       </div>
-      <div class="fade-up" style="background:var(--card);border:1px solid var(--card-border);border-radius:24px;padding:32px;min-height:220px;display:flex;flex-direction:column;justify-content:flex-end;">
-        <div style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">The pattern</div>
-        <div style="font-family:'Cinzel',serif;font-size:18px;color:var(--text);margin-bottom:6px;">Stress follows you everywhere</div>
-        <div style="font-size:13px;color:var(--muted);line-height:1.6;">Bleeds from one part of life into everything else.</div>
+      <div class="pattern-card" style="background:var(--card);border:1px solid var(--card-border);">
+        <div class="pattern-eyebrow" style="color:var(--gold);">The pattern</div>
+        <div class="pattern-title" style="color:var(--text);">Stress follows you everywhere</div>
+        <div class="pattern-text" style="color:var(--muted);">Bleeds from one part of life into everything else.</div>
+      </div>
+      <div class="pattern-card" style="background:var(--card);border:1px solid var(--card-border);">
+        <div class="pattern-eyebrow" style="color:var(--gold);">The pattern</div>
+        <div class="pattern-title" style="color:var(--text);">Repeating patterns</div>
+        <div class="pattern-text" style="color:var(--muted);">Same reactions, nothing changes.</div>
+      </div>
+      <div class="pattern-card" style="background:linear-gradient(135deg,var(--violet),var(--violet-d));">
+        <div class="pattern-eyebrow" style="color:rgba(255,255,255,0.75);">The pattern</div>
+        <div class="pattern-title" style="color:#fff;">Relationships suffer</div>
+        <div class="pattern-text" style="color:rgba(255,255,255,0.65);">Connection replaced by tension.</div>
+      </div>
+      <div class="pattern-card" style="background:var(--card);border:1px solid var(--card-border);">
+        <div class="pattern-eyebrow" style="color:var(--gold);">The pattern</div>
+        <div class="pattern-title" style="color:var(--text);">Mind won't switch off</div>
+        <div class="pattern-text" style="color:var(--muted);">Overthinking long after it's over.</div>
+      </div>
+      <div class="pattern-card" style="background:var(--gold);">
+        <div class="pattern-eyebrow" style="color:rgba(42,33,24,0.6);">The pattern</div>
+        <div class="pattern-title" style="color:#2a2118;">Wearing a mask</div>
+        <div class="pattern-text" style="color:rgba(42,33,24,0.7);">Exhausting — and invisible.</div>
       </div>
     </div>
+  </div>
 
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:40px;">
-      <div class="fade-up" style="background:var(--card);border:1px solid var(--card-border);border-radius:20px;padding:24px 20px;min-height:170px;display:flex;flex-direction:column;justify-content:flex-end;">
-        <div style="font-family:'Cinzel',serif;font-size:15px;color:var(--text);margin-bottom:6px;">Repeating patterns</div>
-        <div style="font-size:12px;color:var(--muted);line-height:1.6;">Same reactions, nothing changes.</div>
-      </div>
-      <div class="fade-up" style="background:linear-gradient(135deg,var(--violet),var(--violet-d));border-radius:20px;padding:24px 20px;min-height:170px;display:flex;flex-direction:column;justify-content:flex-end;">
-        <div style="font-family:'Cinzel',serif;font-size:15px;color:#fff;margin-bottom:6px;">Relationships suffer</div>
-        <div style="font-size:12px;color:rgba(255,255,255,0.65);line-height:1.6;">Connection replaced by tension.</div>
-      </div>
-      <div class="fade-up" style="background:var(--card);border:1px solid var(--card-border);border-radius:20px;padding:24px 20px;min-height:170px;display:flex;flex-direction:column;justify-content:flex-end;">
-        <div style="font-family:'Cinzel',serif;font-size:15px;color:var(--text);margin-bottom:6px;">Mind won't switch off</div>
-        <div style="font-size:12px;color:var(--muted);line-height:1.6;">Overthinking long after it's over.</div>
-      </div>
-      <div class="fade-up" style="background:var(--gold);border-radius:20px;padding:24px 20px;min-height:170px;display:flex;flex-direction:column;justify-content:flex-end;">
-        <div style="font-family:'Cinzel',serif;font-size:15px;color:#2a2118;margin-bottom:6px;">Wearing a mask</div>
-        <div style="font-size:12px;color:rgba(42,33,24,0.7);line-height:1.6;">Exhausting — and invisible.</div>
-      </div>
-    </div>
+  <div class="pattern-controls">
+    <button class="pattern-arrow" onclick="patternSlide(-1)" aria-label="Previous">&#8592;</button>
+    <div class="pattern-dots" id="patternDots"></div>
+    <button class="pattern-arrow" onclick="patternSlide(1)" aria-label="Next">&#8594;</button>
+  </div>
 
-    <div style="text-align:center;background:var(--paper);border:1px solid var(--card-border);border-radius:20px;padding:36px;max-width:680px;margin:0 auto;">
+  <div class="container">
+    <div style="text-align:center;background:var(--paper);border:1px solid var(--card-border);border-radius:20px;padding:36px;max-width:680px;margin:48px auto 0;">
       <div style="font-family:'Cinzel',serif;font-size:20px;color:var(--text);margin-bottom:12px;">Sound familiar? You're in the right place.</div>
       <div style="font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:24px;">These are <strong style="color:var(--violet)">trigger patterns</strong> — and they can be changed.</div>
       <a class="btn-primary" href="https://thealignedorder.netlify.app" target="_blank">Discover Your Triggers — It's Free →</a>
@@ -1023,6 +1034,104 @@ window.closeInfoModal = closeInfoModal;
   setTimeout(()=>{init();animate();},100);
 })();
 
+// ── PATTERN SLIDER ──
+(function() {
+  var slider = document.getElementById('patternSlider');
+  var dotsWrap = document.getElementById('patternDots');
+  if (!slider || !dotsWrap) return;
+
+  var cards = slider.children;
+  var current = 0;
+  var cardWidth, gap, visibleCount, maxIndex;
+  var isDragging = false;
+  var startX = 0;
+  var currentTranslate = 0;
+  var prevTranslate = 0;
+
+  function setup() {
+    var style = getComputedStyle(slider);
+    gap = parseFloat(style.gap) || 16;
+    cardWidth = cards[0].offsetWidth + gap;
+    var wrapWidth = slider.parentElement.offsetWidth;
+    visibleCount = Math.max(1, Math.floor(wrapWidth / cardWidth));
+    maxIndex = Math.max(0, cards.length - visibleCount);
+    buildDots();
+    goTo(Math.min(current, maxIndex));
+  }
+
+  function buildDots() {
+    dotsWrap.innerHTML = '';
+    for (var i = 0; i <= maxIndex; i++) {
+      var dot = document.createElement('button');
+      dot.className = 'pattern-dot' + (i === current ? ' active' : '');
+      dot.setAttribute('aria-label', 'Slide ' + (i + 1));
+      dot.onclick = (function(idx) { return function() { goTo(idx); }; })(i);
+      dotsWrap.appendChild(dot);
+    }
+  }
+
+  function updateDots() {
+    var dots = dotsWrap.children;
+    for (var i = 0; i < dots.length; i++) {
+      dots[i].classList.toggle('active', i === current);
+    }
+  }
+
+  function goTo(idx) {
+    current = Math.max(0, Math.min(idx, maxIndex));
+    var offset = -current * cardWidth;
+    slider.style.transform = 'translateX(' + offset + 'px)';
+    prevTranslate = offset;
+    currentTranslate = offset;
+    updateDots();
+  }
+
+  window.patternSlide = function(dir) {
+    goTo(current + dir);
+  };
+
+  // Drag / swipe support
+  function getX(e) {
+    return e.touches ? e.touches[0].clientX : e.clientX;
+  }
+
+  slider.addEventListener('mousedown', dragStart);
+  slider.addEventListener('touchstart', dragStart, { passive: true });
+  slider.addEventListener('mouseup', dragEnd);
+  slider.addEventListener('mouseleave', dragEnd);
+  slider.addEventListener('touchend', dragEnd);
+  slider.addEventListener('mousemove', dragMove);
+  slider.addEventListener('touchmove', dragMove, { passive: true });
+
+  function dragStart(e) {
+    isDragging = true;
+    startX = getX(e);
+    slider.classList.add('dragging');
+  }
+  function dragMove(e) {
+    if (!isDragging) return;
+    var x = getX(e);
+    var diff = x - startX;
+    slider.style.transform = 'translateX(' + (prevTranslate + diff) + 'px)';
+  }
+  function dragEnd(e) {
+    if (!isDragging) return;
+    isDragging = false;
+    slider.classList.remove('dragging');
+    var x = (e.changedTouches ? e.changedTouches[0].clientX : e.clientX) || startX;
+    var diff = x - startX;
+    if (Math.abs(diff) > 50) {
+      if (diff < 0) goTo(current + 1);
+      else goTo(current - 1);
+    } else {
+      goTo(current);
+    }
+  }
+
+  window.addEventListener('resize', setup);
+  setTimeout(setup, 200);
+})();
+
 // ── NAV SCROLL ──
 window.addEventListener('scroll', () => {
   var heroHeight = document.getElementById('home').offsetHeight;
@@ -1125,6 +1234,24 @@ async function submitContact() {
 #chatSend{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#6a4fb5,#4a3490);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
 #chatSend:disabled{opacity:0.4;cursor:not-allowed;}
 @media(max-width:480px){#chatBox{width:calc(100vw - 24px);right:12px;bottom:90px;}#chatBtn{bottom:16px;right:16px;}}
+.pattern-slider-wrap{position:relative;width:100%;overflow:hidden;padding:4px 0;}
+.pattern-slider{display:flex;gap:16px;padding:0 24px;transition:transform 0.45s cubic-bezier(0.4,0,0.2,1);will-change:transform;cursor:grab;}
+.pattern-slider.dragging{transition:none;cursor:grabbing;}
+.pattern-card{flex:0 0 auto;width:260px;border-radius:24px;padding:28px 26px;min-height:200px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;user-select:none;}
+.pattern-orb{position:absolute;top:-40px;right:-40px;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(155,127,212,0.25),transparent 70%);pointer-events:none;}
+.pattern-eyebrow{font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px;}
+.pattern-title{font-family:'Cinzel',serif;font-size:18px;margin-bottom:6px;line-height:1.3;}
+.pattern-text{font-size:13px;line-height:1.6;}
+.pattern-controls{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:24px;}
+.pattern-arrow{width:38px;height:38px;border-radius:50%;border:1px solid var(--card-border);background:var(--paper);color:var(--text);font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;flex-shrink:0;}
+.pattern-arrow:hover{background:var(--violet);color:#fff;border-color:var(--violet);}
+.pattern-dots{display:flex;gap:7px;}
+.pattern-dot{width:7px;height:7px;border-radius:50%;background:var(--card-border);cursor:pointer;transition:all 0.25s;border:none;padding:0;}
+.pattern-dot.active{background:var(--violet);width:20px;border-radius:99px;}
+@media(max-width:640px){
+  .pattern-card{width:220px;min-height:180px;padding:22px 20px;}
+  .pattern-slider{gap:12px;}
+}
 </style>
 
 <button id="chatBtn" onclick="toggleChat()" aria-label="Open chat">
