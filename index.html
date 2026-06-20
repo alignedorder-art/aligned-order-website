@@ -9,20 +9,21 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
 :root{
-  --bg:#ffffff;
-  --bg2:#f7f5fc;
-  --bg3:#f0ecfa;
+  --bg:#f3ece1;
+  --bg2:#ede4d5;
+  --bg3:#e7dcc9;
+  --paper:#fbf8f2;
   --violet:#6a4fb5;
   --violet-l:#7d5fc4;
   --violet-d:#4a3490;
-  --gold:#b8893a;
-  --gold-l:#d4a84b;
-  --text:#1a1530;
-  --muted:rgba(26,21,48,0.6);
-  --muted2:rgba(26,21,48,0.38);
-  --border:rgba(106,79,181,0.18);
-  --card:rgba(106,79,181,0.035);
-  --card-border:rgba(106,79,181,0.12);
+  --gold:#a87a28;
+  --gold-l:#c99a3e;
+  --text:#2a2118;
+  --muted:rgba(42,33,24,0.62);
+  --muted2:rgba(42,33,24,0.4);
+  --border:rgba(168,122,40,0.2);
+  --card:rgba(255,255,255,0.45);
+  --card-border:rgba(168,122,40,0.16);
   /* Hero stays dark regardless */
   --hero-bg:#0d0b1a;
   --hero-text:#f0ecff;
@@ -43,19 +44,21 @@ html{scroll-behavior:smooth;}
 body{background:var(--bg);color:var(--text);font-family:'Raleway',sans-serif;overflow-x:hidden;}
 
 /* ── NAV ── */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 40px;height:70px;display:flex;align-items:center;justify-content:space-between;transition:all 0.3s;}
-nav.scrolled{background:rgba(255,255,255,0.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 40px;height:70px;display:flex;align-items:center;justify-content:space-between;transition:background-color 0.25s ease,border-color 0.25s ease;background:transparent;}
+nav.scrolled{background:rgba(251,248,242,0.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
 .nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
-.nav-brand{font-family:'Cinzel',serif;font-size:14px;font-weight:700;color:var(--text);letter-spacing:0.12em;}
+.nav-brand{font-family:'Cinzel',serif;font-size:14px;font-weight:700;color:#fff;letter-spacing:0.12em;transition:color 0.25s ease;}
+nav.scrolled .nav-brand{color:var(--text);}
 .nav-links{display:flex;align-items:center;gap:32px;}
-.nav-link{font-size:13px;font-weight:500;color:rgba(255,255,255,0.75);text-decoration:none;letter-spacing:0.04em;transition:color 0.2s;cursor:pointer;}
+.nav-link{font-size:13px;font-weight:500;color:rgba(255,255,255,0.75);text-decoration:none;letter-spacing:0.04em;transition:color 0.25s ease;cursor:pointer;}
 nav.scrolled .nav-link{color:var(--muted);}
 .nav-link:hover{color:#fff;}
 nav.scrolled .nav-link:hover{color:var(--text);}
 .nav-cta{padding:9px 22px;border-radius:99px;background:linear-gradient(135deg,var(--violet),var(--violet-d));color:#fff;font-family:'Raleway',sans-serif;font-size:13px;font-weight:700;text-decoration:none;transition:all 0.2s;border:none;cursor:pointer;letter-spacing:0.02em;}
 .nav-cta:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(106,79,181,0.4);}
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
-.hamburger span{display:block;width:24px;height:2px;background:var(--text);border-radius:2px;transition:all 0.3s;}
+.hamburger span{display:block;width:24px;height:2px;background:#fff;border-radius:2px;transition:background-color 0.25s ease;}
+nav.scrolled .hamburger span{background:var(--text);}
 .mobile-menu{display:none;position:fixed;inset:0;background:rgba(13,11,26,0.98);z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:32px;}
 .mobile-menu.open{display:flex;}
 .mobile-menu .nav-link{font-size:22px;color:var(--text);}
@@ -83,7 +86,7 @@ h1 em{font-style:italic;background:linear-gradient(135deg,var(--violet-l),var(--
 .stat-lbl{font-size:12px;color:var(--muted);margin-top:4px;letter-spacing:0.06em;text-transform:uppercase;}
 
 /* ── SECTIONS ── */
-section{padding:100px 24px;}
+section{padding:80px 24px;}
 .container{max-width:1100px;margin:0 auto;}
 .section-badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--violet-l);margin-bottom:14px;}
 h2{font-family:'Cinzel',serif;font-size:clamp(26px,4vw,42px);font-weight:700;line-height:1.2;margin-bottom:16px;}
@@ -150,7 +153,7 @@ h2 em{font-style:italic;color:var(--gold);}
 .service-btn.outline:hover{background:rgba(106,79,181,0.1);}
 
 /* ── TRIGGERS ── */
-#triggers{background:var(--bg3);padding:100px 24px;}
+#triggers{background:var(--bg3);padding:80px 24px;}
 .triggers-wrap{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
 .triggers-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
 .trigger-item{background:var(--card);border:1px solid var(--card-border);border-radius:14px;padding:18px 16px;display:flex;align-items:center;gap:12px;transition:all 0.2s;}
@@ -338,10 +341,9 @@ footer{background:var(--bg);border-top:1px solid var(--card-border);padding:48px
   </a>
   <div class="nav-links">
     <a class="nav-link" onclick="scrollTo('home')">Home</a>
-    <a class="nav-link" onclick="scrollTo('about')">About</a>
-    <a class="nav-link" onclick="scrollTo('services')">Services</a>
-    <a class="nav-link" onclick="scrollTo('packages')">Packages</a>
+    <a class="nav-link" onclick="scrollTo('packages')">Sessions</a>
     <a class="nav-link" onclick="scrollTo('founder')">Founder</a>
+    <a class="nav-link" onclick="scrollTo('testimonials')">Stories</a>
     <a class="nav-link" onclick="scrollTo('contact')">Contact</a>
     <a class="nav-link" href="https://thealignedorder.netlify.app/login" target="_blank" style="color:rgba(240,236,255,0.4);font-size:12px;letter-spacing:0.05em;">&#128274; Members</a>
     <a class="nav-cta" href="https://thealignedorder.netlify.app" target="_blank">Take the Assessment</a>
@@ -354,10 +356,9 @@ footer{background:var(--bg);border-top:1px solid var(--card-border);padding:48px
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
   <a class="nav-link" onclick="scrollTo('home');toggleMenu()">Home</a>
-  <a class="nav-link" onclick="scrollTo('about');toggleMenu()">About</a>
-  <a class="nav-link" onclick="scrollTo('services');toggleMenu()">Services</a>
-  <a class="nav-link" onclick="scrollTo('packages');toggleMenu()">Packages</a>
+  <a class="nav-link" onclick="scrollTo('packages');toggleMenu()">Sessions</a>
   <a class="nav-link" onclick="scrollTo('founder');toggleMenu()">Founder</a>
+  <a class="nav-link" onclick="scrollTo('testimonials');toggleMenu()">Stories</a>
   <a class="nav-link" onclick="scrollTo('contact');toggleMenu()">Contact</a>
   <a class="nav-cta" href="https://thealignedorder.netlify.app" target="_blank">Take the Assessment</a>
 </div>
@@ -375,7 +376,7 @@ footer{background:var(--bg);border-top:1px solid var(--card-border);padding:48px
     <p class="hero-sub">Most people manage their emotions. We help you master them. Discover your trigger patterns and break free from the cycles holding you back.</p>
     <div class="hero-btns">
       <a class="btn-primary" href="https://thealignedorder.netlify.app" target="_blank">Take the Free Assessment →</a>
-      <a class="btn-secondary" onclick="scrollTo('services')">Explore Services</a>
+      <a class="btn-secondary" onclick="scrollTo('packages')">Explore Sessions</a>
     </div>
     <div class="hero-stats" id="heroStats">
       <div class="stat"><div class="stat-num">3–4</div><div class="stat-lbl">Minutes to complete</div></div>
@@ -388,92 +389,57 @@ footer{background:var(--bg);border-top:1px solid var(--card-border);padding:48px
 
 
 <!-- PROBLEM SECTION -->
-<section id="problem" style="padding:100px 24px;background:linear-gradient(180deg,#ffffff 0%,#f7f5fc 100%);">
+<section id="problem" style="padding:80px 24px;background:linear-gradient(180deg,#fbf8f2 0%,#f3ece1 100%);">
   <div class="container">
     <div style="text-align:center;max-width:600px;margin:0 auto 56px;">
       <div class="section-badge">Sound Familiar?</div>
       <h2>You're Not Broken.<br>You're <em>Triggered.</em></h2>
       <p class="section-sub" style="margin:0 auto;">Reactions that feel out of control. Patterns you can't explain.</p>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:60px;">
-      <div style="background:rgba(106,79,181,0.04);border:1px solid rgba(106,79,181,0.12);border-radius:18px;padding:28px 24px;border-left:3px solid rgba(224,90,90,0.5);">
-        <div style="font-size:28px;margin-bottom:14px;">😤</div>
-        <div style="font-family:'Cinzel',serif;font-size:15px;font-weight:600;color:var(--text);margin-bottom:10px;">You snap — then regret it</div>
-        <div style="font-size:13.5px;color:var(--muted);line-height:1.75;">Small things trigger huge reactions you regret instantly.</div>
+
+    <div style="display:grid;grid-template-columns:1.3fr 1fr;gap:16px;margin-bottom:16px;">
+      <div class="fade-up" style="background:linear-gradient(135deg,#3d2d75,#241a4d);border-radius:24px;padding:32px;min-height:220px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;">
+        <div style="position:absolute;top:-40px;right:-40px;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(155,127,212,0.25),transparent 70%);"></div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#c9a0ff;margin-bottom:8px;">The pattern</div>
+        <div style="font-family:'Cinzel',serif;font-size:20px;color:#fff;margin-bottom:6px;">You snap — then regret it</div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.6);line-height:1.6;">Small things trigger huge reactions you regret instantly.</div>
       </div>
-      <div style="background:rgba(106,79,181,0.04);border:1px solid rgba(106,79,181,0.12);border-radius:18px;padding:28px 24px;border-left:3px solid rgba(212,168,75,0.5);">
-        <div style="font-size:28px;margin-bottom:14px;">😰</div>
-        <div style="font-family:'Cinzel',serif;font-size:15px;font-weight:600;color:var(--text);margin-bottom:10px;">Stress follows you everywhere</div>
-        <div style="font-size:13.5px;color:var(--muted);line-height:1.75;">Stress bleeds from one part of life into everything else.</div>
-      </div>
-      <div style="background:rgba(106,79,181,0.04);border:1px solid rgba(106,79,181,0.12);border-radius:18px;padding:28px 24px;border-left:3px solid rgba(155,127,212,0.5);">
-        <div style="font-size:28px;margin-bottom:14px;">🔄</div>
-        <div style="font-family:'Cinzel',serif;font-size:15px;font-weight:600;color:var(--text);margin-bottom:10px;">You keep repeating patterns</div>
-        <div style="font-size:13.5px;color:var(--muted);line-height:1.75;">Same arguments, same reactions — and nothing seems to change.</div>
-      </div>
-      <div style="background:rgba(106,79,181,0.04);border:1px solid rgba(106,79,181,0.12);border-radius:18px;padding:28px 24px;border-left:3px solid rgba(76,175,125,0.5);">
-        <div style="font-size:28px;margin-bottom:14px;">💔</div>
-        <div style="font-family:'Cinzel',serif;font-size:15px;font-weight:600;color:var(--text);margin-bottom:10px;">Relationships are suffering</div>
-        <div style="font-size:13.5px;color:var(--muted);line-height:1.75;">People around you walk on eggshells. Connection feels strained.</div>
-      </div>
-      <div style="background:rgba(106,79,181,0.04);border:1px solid rgba(106,79,181,0.12);border-radius:18px;padding:28px 24px;border-left:3px solid rgba(91,141,217,0.5);">
-        <div style="font-size:28px;margin-bottom:14px;">🧠</div>
-        <div style="font-family:'Cinzel',serif;font-size:15px;font-weight:600;color:var(--text);margin-bottom:10px;">Your mind won't switch off</div>
-        <div style="font-size:13.5px;color:var(--muted);line-height:1.75;">You replay conversations and overthink long after they're over.</div>
-      </div>
-      <div style="background:rgba(106,79,181,0.04);border:1px solid rgba(106,79,181,0.12);border-radius:18px;padding:28px 24px;border-left:3px solid rgba(212,80,80,0.5);">
-        <div style="font-size:28px;margin-bottom:14px;">🎭</div>
-        <div style="font-family:'Cinzel',serif;font-size:15px;font-weight:600;color:var(--text);margin-bottom:10px;">You're wearing a mask</div>
-        <div style="font-size:13.5px;color:var(--muted);line-height:1.75;">Holding it together all day is exhausting — and invisible.</div>
+      <div class="fade-up" style="background:var(--card);border:1px solid var(--card-border);border-radius:24px;padding:32px;min-height:220px;display:flex;flex-direction:column;justify-content:flex-end;">
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;">The pattern</div>
+        <div style="font-family:'Cinzel',serif;font-size:18px;color:var(--text);margin-bottom:6px;">Stress follows you everywhere</div>
+        <div style="font-size:13px;color:var(--muted);line-height:1.6;">Bleeds from one part of life into everything else.</div>
       </div>
     </div>
-    <div style="text-align:center;background:linear-gradient(135deg,rgba(106,79,181,0.15),rgba(212,168,75,0.08));border:1px solid rgba(106,79,181,0.25);border-radius:20px;padding:36px;max-width:680px;margin:0 auto;">
+
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:40px;">
+      <div class="fade-up" style="background:var(--card);border:1px solid var(--card-border);border-radius:20px;padding:24px 20px;min-height:170px;display:flex;flex-direction:column;justify-content:flex-end;">
+        <div style="font-family:'Cinzel',serif;font-size:15px;color:var(--text);margin-bottom:6px;">Repeating patterns</div>
+        <div style="font-size:12px;color:var(--muted);line-height:1.6;">Same reactions, nothing changes.</div>
+      </div>
+      <div class="fade-up" style="background:linear-gradient(135deg,var(--violet),var(--violet-d));border-radius:20px;padding:24px 20px;min-height:170px;display:flex;flex-direction:column;justify-content:flex-end;">
+        <div style="font-family:'Cinzel',serif;font-size:15px;color:#fff;margin-bottom:6px;">Relationships suffer</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.65);line-height:1.6;">Connection replaced by tension.</div>
+      </div>
+      <div class="fade-up" style="background:var(--card);border:1px solid var(--card-border);border-radius:20px;padding:24px 20px;min-height:170px;display:flex;flex-direction:column;justify-content:flex-end;">
+        <div style="font-family:'Cinzel',serif;font-size:15px;color:var(--text);margin-bottom:6px;">Mind won't switch off</div>
+        <div style="font-size:12px;color:var(--muted);line-height:1.6;">Overthinking long after it's over.</div>
+      </div>
+      <div class="fade-up" style="background:var(--gold);border-radius:20px;padding:24px 20px;min-height:170px;display:flex;flex-direction:column;justify-content:flex-end;">
+        <div style="font-family:'Cinzel',serif;font-size:15px;color:#2a2118;margin-bottom:6px;">Wearing a mask</div>
+        <div style="font-size:12px;color:rgba(42,33,24,0.7);line-height:1.6;">Exhausting — and invisible.</div>
+      </div>
+    </div>
+
+    <div style="text-align:center;background:var(--paper);border:1px solid var(--card-border);border-radius:20px;padding:36px;max-width:680px;margin:0 auto;">
       <div style="font-family:'Cinzel',serif;font-size:20px;color:var(--text);margin-bottom:12px;">Sound familiar? You're in the right place.</div>
-      <div style="font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:24px;">These are <strong style="color:var(--violet-l)">trigger patterns</strong> — and they can be changed.</div>
+      <div style="font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:24px;">These are <strong style="color:var(--violet)">trigger patterns</strong> — and they can be changed.</div>
       <a class="btn-primary" href="https://thealignedorder.netlify.app" target="_blank">Discover Your Triggers — It's Free →</a>
     </div>
   </div>
 </section>
 
-<!-- SOLUTION SECTION -->
-<section id="solution" style="padding:100px 24px;background:linear-gradient(180deg,#f7f5fc 0%,#ffffff 100%);">
-  <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;">
-      <div class="fade-up">
-        <div class="section-badge">The Solution</div>
-        <h2>Awareness Without <em>Action</em> Changes Nothing</h2>
-        <p style="font-size:15px;color:var(--muted);line-height:1.9;margin-bottom:20px;">We map your trigger patterns — then give you the tools to change them.</p>
-        <button class="expand-btn" onclick="openInfoModal('solution')" style="margin-bottom:28px;">Learn how it works <span class="arrow">▾</span></button>
-        <div style="display:flex;flex-direction:column;gap:12px;">
-          <div style="display:flex;align-items:center;gap:12px;font-size:14px;color:var(--text);"><span style="color:var(--gold);font-size:18px;">✦</span> Identify your specific patterns</div>
-          <div style="display:flex;align-items:center;gap:12px;font-size:14px;color:var(--text);"><span style="color:var(--gold);font-size:18px;">✦</span> Understand the root cause</div>
-          <div style="display:flex;align-items:center;gap:12px;font-size:14px;color:var(--text);"><span style="color:var(--gold);font-size:18px;">✦</span> Apply tools that create lasting change</div>
-          <div style="display:flex;align-items:center;gap:12px;font-size:14px;color:var(--text);"><span style="color:var(--gold);font-size:18px;">✦</span> Feel results from session one</div>
-        </div>
-      </div>
-      <div class="fade-up" style="display:flex;flex-direction:column;gap:14px;">
-        <div style="background:linear-gradient(135deg,rgba(106,79,181,0.2),rgba(74,52,144,0.1));border:1px solid rgba(106,79,181,0.3);border-radius:18px;padding:26px;">
-          <div style="font-size:32px;margin-bottom:12px;">🎯</div>
-          <div style="font-family:'Cinzel',serif;font-size:16px;color:var(--text);margin-bottom:8px;">Precision Assessment</div>
-          <div style="font-size:13px;color:var(--muted);line-height:1.7;">10 adaptive questions. Real-time AI insights.</div>
-        </div>
-        <div style="background:linear-gradient(135deg,rgba(212,168,75,0.12),rgba(180,130,40,0.06));border:1px solid rgba(212,168,75,0.25);border-radius:18px;padding:26px;">
-          <div style="font-size:32px;margin-bottom:12px;">🧬</div>
-          <div style="font-family:'Cinzel',serif;font-size:16px;color:var(--text);margin-bottom:8px;">Root Cause Analysis</div>
-          <div style="font-size:13px;color:var(--muted);line-height:1.7;">Beyond reactions — the wiring underneath.</div>
-        </div>
-        <div style="background:linear-gradient(135deg,rgba(76,175,125,0.12),rgba(46,125,82,0.06));border:1px solid rgba(76,175,125,0.25);border-radius:18px;padding:26px;">
-          <div style="font-size:32px;margin-bottom:12px;">⚡</div>
-          <div style="font-family:'Cinzel',serif;font-size:16px;color:var(--text);margin-bottom:8px;">Rapid Transformation</div>
-          <div style="font-size:13px;color:var(--muted);line-height:1.7;">Practical tools, applied immediately.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- HOW IT WORKS -->
-<section id="how" style="padding:100px 24px;background:linear-gradient(180deg,#ffffff 0%,#f7f5fc 100%);">
+<section id="how" style="padding:80px 24px;background:linear-gradient(180deg,#fbf8f2 0%,#f3ece1 100%);">
   <div class="container">
     <div style="text-align:center;max-width:580px;margin:0 auto 60px;">
       <div class="section-badge">How It Works</div>
@@ -485,31 +451,31 @@ footer{background:var(--bg);border-top:1px solid var(--card-border);padding:48px
         <div class="step-num">01</div>
         <div class="step-icon">📋</div>
         <div class="step-title">Take the Free Assessment</div>
-        <div class="step-text">Answer 10 adaptive questions that change based on your responses. As you go, you'll receive real-time mini-diagnoses revealing your emotional patterns. Takes just 3–4 minutes.</div>
+        <div class="step-text">10 adaptive questions, real-time insights as you go. Takes 3–4 minutes.</div>
       </div>
       <div class="step fade-up">
         <div class="step-num">02</div>
         <div class="step-icon">🔍</div>
         <div class="step-title">Receive Your Trigger Profile</div>
-        <div class="step-text">Get a personalised report with your score across 5 trigger components, AI-generated insights unique to your answers, and a full emotional pattern breakdown sent to your email instantly.</div>
+        <div class="step-text">Your score across 5 trigger components, with AI insights sent straight to your inbox.</div>
       </div>
       <div class="step fade-up">
         <div class="step-num">03</div>
         <div class="step-icon">🔥</div>
         <div class="step-title">Transform with Coaching</div>
-        <div class="step-text">Qualify for a free Discovery Call and begin your coaching journey. Work directly with us to dismantle your trigger patterns and build new emotional responses that serve your life.</div>
+        <div class="step-text">Qualify for a free Discovery Call, then work directly with us to dismantle the patterns holding you back.</div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- COURSE PACKAGES -->
-<section id="packages" style="padding:100px 24px;background:linear-gradient(180deg,#f7f5fc 0%,#ffffff 100%);">
+<section id="packages" style="padding:80px 24px;background:linear-gradient(180deg,#f3ece1 0%,#fbf8f2 100%);">
   <div class="container">
     <div style="text-align:center;max-width:680px;margin:0 auto 20px;">
       <div class="section-badge">Limited Time — Introductory Offer</div>
-      <h2>Coaching <em>Packages</em></h2>
-      <p class="section-sub" style="margin:0 auto;">Choose the package that matches your commitment — and save with introductory pricing.</p>
+      <h2>Coaching <em>Sessions</em></h2>
+      <p class="section-sub" style="margin:0 auto;">Choose the session bundle that matches your commitment — and save with introductory pricing.</p>
     </div>
 
     <div style="text-align:center;margin-bottom:48px;">
@@ -523,21 +489,21 @@ footer{background:var(--bg);border-top:1px solid var(--card-border);padding:48px
       <!-- FOUNDATION -->
       <div class="fade-up" style="background:rgba(106,79,181,0.04);border:1px solid rgba(106,79,181,0.14);border-radius:24px;padding:36px 30px;display:flex;flex-direction:column;transition:all 0.25s;" onmouseover="this.style.transform='translateY(-6px)';this.style.borderColor='rgba(106,79,181,0.35)'" onmouseout="this.style.transform='translateY(0)';this.style.borderColor='rgba(255,255,255,0.08)'">
         <div style="font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#9090c0;margin-bottom:16px;">3 Sessions</div>
-        <div style="font-family:'Cinzel',serif;font-size:24px;font-weight:700;color:#1a1530;margin-bottom:10px;">Foundation</div>
-        <div style="font-size:13.5px;color:rgba(26,21,48,0.55);line-height:1.75;margin-bottom:24px;min-height:40px;">Get clear on your core trigger patterns and build foundational awareness.</div>
+        <div style="font-family:'Cinzel',serif;font-size:24px;font-weight:700;color:var(--text);margin-bottom:10px;">Foundation</div>
+        <div style="font-size:13.5px;color:rgba(42,33,24,0.6);line-height:1.75;margin-bottom:24px;min-height:40px;">Get clear on your core trigger patterns and build foundational awareness.</div>
         <div style="margin-bottom:28px;">
-          <span style="font-size:14px;color:rgba(26,21,48,0.35);text-decoration:line-through;">$450</span>
+          <span style="font-size:14px;color:rgba(42,33,24,0.38);text-decoration:line-through;">$450</span>
           <div style="display:flex;align-items:baseline;gap:6px;">
-            <span style="font-family:'Cinzel',serif;font-size:36px;font-weight:700;color:#1a1530;">$360</span>
-            <span style="font-size:13px;color:rgba(26,21,48,0.45);">/ package</span>
+            <span style="font-family:'Cinzel',serif;font-size:36px;font-weight:700;color:var(--text);">$360</span>
+            <span style="font-size:13px;color:rgba(42,33,24,0.48);">/ sessions</span>
           </div>
           <div style="font-size:11.5px;color:#4caf7d;margin-top:4px;font-weight:600;">Save $90 — $120/session</div>
         </div>
         <div style="display:flex;flex-direction:column;gap:11px;margin-bottom:28px;flex:1;">
-          <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:rgba(26,21,48,0.65);"><span style="color:#9b7fd4;flex-shrink:0;">&#10022;</span>Identify your top 3 trigger patterns</div>
-          <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:rgba(26,21,48,0.65);"><span style="color:#9b7fd4;flex-shrink:0;">&#10022;</span>Understand the root causes</div>
-          <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:rgba(26,21,48,0.65);"><span style="color:#9b7fd4;flex-shrink:0;">&#10022;</span>Initial regulation tools and techniques</div>
-          <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:rgba(26,21,48,0.65);"><span style="color:#9b7fd4;flex-shrink:0;">&#10022;</span>Personalised action plan</div>
+          <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:rgba(42,33,24,0.68);"><span style="color:#9b7fd4;flex-shrink:0;">&#10022;</span>Identify your top 3 trigger patterns</div>
+          <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:rgba(42,33,24,0.68);"><span style="color:#9b7fd4;flex-shrink:0;">&#10022;</span>Understand the root causes</div>
+          <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:rgba(42,33,24,0.68);"><span style="color:#9b7fd4;flex-shrink:0;">&#10022;</span>Initial regulation tools and techniques</div>
+          <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:rgba(42,33,24,0.68);"><span style="color:#9b7fd4;flex-shrink:0;">&#10022;</span>Personalised action plan</div>
         </div>
         <a href="https://calendly.com/alignedorder/paid-session" target="_blank" style="display:block;text-align:center;padding:13px;border-radius:99px;background:transparent;color:#9b7fd4;border:1.5px solid rgba(106,79,181,0.35);font-family:'Raleway',sans-serif;font-size:13.5px;font-weight:700;text-decoration:none;transition:all 0.2s;">Get Started →</a>
       </div>
@@ -553,7 +519,7 @@ footer{background:var(--bg);border-top:1px solid var(--card-border);padding:48px
           <span style="font-size:14px;color:rgba(255,255,255,0.4);text-decoration:line-through;">$900</span>
           <div style="display:flex;align-items:baseline;gap:6px;">
             <span style="font-family:'Cinzel',serif;font-size:36px;font-weight:700;color:#fff;">$660</span>
-            <span style="font-size:13px;color:rgba(255,255,255,0.55);">/ package</span>
+            <span style="font-size:13px;color:rgba(255,255,255,0.55);">/ sessions</span>
           </div>
           <div style="font-size:11.5px;color:#7ee8a8;margin-top:4px;font-weight:600;">Save $240 — $110/session</div>
         </div>
@@ -570,22 +536,22 @@ footer{background:var(--bg);border-top:1px solid var(--card-border);padding:48px
       <!-- MASTERY -->
       <div class="fade-up" style="background:rgba(255,255,255,0.03);border:1px solid rgba(212,168,75,0.25);border-radius:24px;padding:36px 30px;display:flex;flex-direction:column;transition:all 0.25s;" onmouseover="this.style.transform='translateY(-6px)';this.style.borderColor='rgba(212,168,75,0.45)'" onmouseout="this.style.transform='translateY(0)';this.style.borderColor='rgba(212,168,75,0.25)'">
         <div style="font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#e8c47a;margin-bottom:16px;">10 Sessions</div>
-        <div style="font-family:'Cinzel',serif;font-size:24px;font-weight:700;color:#1a1530;margin-bottom:10px;">Mastery</div>
-        <div style="font-size:13.5px;color:rgba(26,21,48,0.55);line-height:1.75;margin-bottom:24px;min-height:40px;">Complete reprogramming with ongoing support and accountability.</div>
+        <div style="font-family:'Cinzel',serif;font-size:24px;font-weight:700;color:var(--text);margin-bottom:10px;">Mastery</div>
+        <div style="font-size:13.5px;color:rgba(42,33,24,0.6);line-height:1.75;margin-bottom:24px;min-height:40px;">Complete reprogramming with ongoing support and accountability.</div>
         <div style="margin-bottom:28px;">
-          <span style="font-size:14px;color:rgba(26,21,48,0.35);text-decoration:line-through;">$1,500</span>
+          <span style="font-size:14px;color:rgba(42,33,24,0.38);text-decoration:line-through;">$1,500</span>
           <div style="display:flex;align-items:baseline;gap:6px;">
-            <span style="font-family:'Cinzel',serif;font-size:36px;font-weight:700;color:#1a1530;">$1,125</span>
-            <span style="font-size:13px;color:rgba(26,21,48,0.45);">/ package</span>
+            <span style="font-family:'Cinzel',serif;font-size:36px;font-weight:700;color:var(--text);">$1,125</span>
+            <span style="font-size:13px;color:rgba(42,33,24,0.48);">/ sessions</span>
           </div>
           <div style="font-size:11.5px;color:#4caf7d;margin-top:4px;font-weight:600;">Save $375 — $112.50/session</div>
         </div>
         <div style="display:flex;flex-direction:column;gap:11px;margin-bottom:28px;flex:1;">
-          <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:rgba(26,21,48,0.65);"><span style="color:#d4a84b;flex-shrink:0;">&#10022;</span>Everything in Breakthrough, plus:</div>
-          <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:rgba(26,21,48,0.65);"><span style="color:#d4a84b;flex-shrink:0;">&#10022;</span>Full trigger pattern reprogramming</div>
-          <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:rgba(26,21,48,0.65);"><span style="color:#d4a84b;flex-shrink:0;">&#10022;</span>Ongoing accountability check-ins</div>
-          <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:rgba(26,21,48,0.65);"><span style="color:#d4a84b;flex-shrink:0;">&#10022;</span>WhatsApp support between sessions</div>
-          <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:rgba(26,21,48,0.65);"><span style="color:#d4a84b;flex-shrink:0;">&#10022;</span>3-month follow-up session included</div>
+          <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:rgba(42,33,24,0.68);"><span style="color:#d4a84b;flex-shrink:0;">&#10022;</span>Everything in Breakthrough, plus:</div>
+          <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:rgba(42,33,24,0.68);"><span style="color:#d4a84b;flex-shrink:0;">&#10022;</span>Full trigger pattern reprogramming</div>
+          <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:rgba(42,33,24,0.68);"><span style="color:#d4a84b;flex-shrink:0;">&#10022;</span>Ongoing accountability check-ins</div>
+          <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:rgba(42,33,24,0.68);"><span style="color:#d4a84b;flex-shrink:0;">&#10022;</span>WhatsApp support between sessions</div>
+          <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:rgba(42,33,24,0.68);"><span style="color:#d4a84b;flex-shrink:0;">&#10022;</span>3-month follow-up session included</div>
         </div>
         <a href="https://calendly.com/alignedorder/paid-session" target="_blank" style="display:block;text-align:center;padding:13px;border-radius:99px;background:transparent;color:#e8c47a;border:1.5px solid rgba(212,168,75,0.4);font-family:'Raleway',sans-serif;font-size:13.5px;font-weight:700;text-decoration:none;transition:all 0.2s;">Begin Mastery →</a>
       </div>
@@ -593,98 +559,13 @@ footer{background:var(--bg);border-top:1px solid var(--card-border);padding:48px
     </div>
 
     <div style="text-align:center;margin-top:40px;">
-      <p style="font-size:13px;color:rgba(26,21,48,0.4);">Not sure which package is right for you? <a href="https://calendly.com/alignedorder/30min" target="_blank" style="color:#9b7fd4;text-decoration:none;font-weight:600;">Book a free Discovery Call</a> and we'll help you decide.</p>
+      <p style="font-size:13px;color:rgba(42,33,24,0.42);">Not sure which session bundle is right for you? <a href="https://calendly.com/alignedorder/30min" target="_blank" style="color:#9b7fd4;text-decoration:none;font-weight:600;">Book a free Discovery Call</a> and we'll help you decide.</p>
     </div>
   </div>
 </section>
-
-<!-- ABOUT -->
-<section id="about" style="padding:100px 24px;background:linear-gradient(180deg,#f7f5fc 0%,#ffffff 100%);">
-  <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;">
-      <div class="fade-up">
-        <div class="section-badge">About Us</div>
-        <h2>We Help People <em>Master</em> Their Emotions — Not Just Manage Them</h2>
-        <p style="font-size:15px;color:var(--muted);line-height:1.9;margin-bottom:14px;">Most suffering comes not from what happens to us — but from our reaction to it. We built a precise diagnostic tool to map that reaction, and a coaching method to change it.</p>
-        <button class="expand-btn" onclick="openInfoModal('about')" style="margin-bottom:32px;">Read our full story <span class="arrow">▾</span></button>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
-          <div style="background:rgba(106,79,181,0.04);border:1px solid rgba(106,79,181,0.12);border-radius:14px;padding:20px;text-align:center;">
-            <div style="font-family:'Cinzel',serif;font-size:28px;font-weight:700;background:linear-gradient(135deg,var(--violet-l),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">200+</div>
-            <div style="font-size:12px;color:var(--muted);margin-top:4px;text-transform:uppercase;letter-spacing:0.1em;">Lives Changed</div>
-          </div>
-          <div style="background:rgba(106,79,181,0.04);border:1px solid rgba(106,79,181,0.12);border-radius:14px;padding:20px;text-align:center;">
-            <div style="font-family:'Cinzel',serif;font-size:28px;font-weight:700;background:linear-gradient(135deg,var(--violet-l),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">4.9★</div>
-            <div style="font-size:12px;color:var(--muted);margin-top:4px;text-transform:uppercase;letter-spacing:0.1em;">Session Rating</div>
-          </div>
-          <div style="background:rgba(106,79,181,0.04);border:1px solid rgba(106,79,181,0.12);border-radius:14px;padding:20px;text-align:center;">
-            <div style="font-family:'Cinzel',serif;font-size:28px;font-weight:700;background:linear-gradient(135deg,var(--violet-l),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">1st</div>
-            <div style="font-size:12px;color:var(--muted);margin-top:4px;text-transform:uppercase;letter-spacing:0.1em;">Results in Session 1</div>
-          </div>
-          <div style="background:rgba(106,79,181,0.04);border:1px solid rgba(106,79,181,0.12);border-radius:14px;padding:20px;text-align:center;">
-            <div style="font-family:'Cinzel',serif;font-size:28px;font-weight:700;background:linear-gradient(135deg,var(--violet-l),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">100%</div>
-            <div style="font-size:12px;color:var(--muted);margin-top:4px;text-transform:uppercase;letter-spacing:0.1em;">Confidential</div>
-          </div>
-        </div>
-      </div>
-      <div class="fade-up">
-        <div style="background:linear-gradient(135deg,#f7f3ff,#fdfbff);border:1px solid rgba(106,79,181,0.18);border-radius:24px;padding:36px;position:relative;overflow:hidden;box-shadow:0 20px 50px rgba(106,79,181,0.08);">
-          <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--violet),var(--gold));"></div>
-          <div style="text-align:center;margin-bottom:28px;">
-            <div style="width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--violet),var(--violet-d));display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:30px;box-shadow:0 8px 32px rgba(106,79,181,0.4);">✦</div>
-            <div style="font-family:'Cinzel',serif;font-size:18px;color:var(--text);margin-bottom:6px;">Aligned Order</div>
-            <div style="font-size:11px;color:var(--violet-l);font-weight:600;letter-spacing:0.15em;text-transform:uppercase;">Emotional Intelligence Coaching</div>
-          </div>
-          <div style="font-size:14px;color:var(--muted);line-height:1.85;font-style:italic;text-align:center;margin-bottom:24px;">"Your triggers are not your fault — but they are your responsibility. We help you take that responsibility and turn it into your greatest strength."</div>
-          <div style="display:flex;flex-direction:column;gap:10px;">
-            <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:var(--muted);"><span style="color:var(--violet-l);">✦</span> Action-oriented</div>
-            <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:var(--muted);"><span style="color:var(--violet-l);">✦</span> Results you feel</div>
-            <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:var(--muted);"><span style="color:var(--violet-l);">✦</span> Fully personalised</div>
-            <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:var(--muted);"><span style="color:var(--violet-l);">✦</span> Built for busy lives</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TRANSFORMATION — BEFORE VS AFTER -->
-<section style="padding:100px 24px;background:linear-gradient(180deg,#ffffff 0%,#f7f5fc 100%);">
-  <div class="container">
-    <div style="text-align:center;max-width:580px;margin:0 auto 60px;">
-      <div class="section-badge">The Transformation</div>
-      <h2>Life Before & <em>After</em> Aligned Order</h2>
-      <p class="section-sub" style="margin:0 auto;">What changes when you do the work.</p>
-    </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:900px;margin:0 auto;">
-      <div class="fade-up" style="background:rgba(224,90,90,0.05);border:1px solid rgba(224,90,90,0.2);border-radius:20px;padding:32px;">
-        <div style="font-size:13px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(224,90,90,0.8);margin-bottom:20px;">✕ Before</div>
-        <div style="display:flex;flex-direction:column;gap:14px;">
-          <div style="display:flex;align-items:flex-start;gap:10px;font-size:13.5px;color:var(--muted);line-height:1.6;"><span style="color:rgba(224,90,90,0.7);margin-top:2px;flex-shrink:0;">✕</span>Reacting before thinking — and regretting it</div>
-          <div style="display:flex;align-items:flex-start;gap:10px;font-size:13.5px;color:var(--muted);line-height:1.6;"><span style="color:rgba(224,90,90,0.7);margin-top:2px;flex-shrink:0;">✕</span>Walking on eggshells in your own home</div>
-          <div style="display:flex;align-items:flex-start;gap:10px;font-size:13.5px;color:var(--muted);line-height:1.6;"><span style="color:rgba(224,90,90,0.7);margin-top:2px;flex-shrink:0;">✕</span>Stress from one area bleeding into everything else</div>
-          <div style="display:flex;align-items:flex-start;gap:10px;font-size:13.5px;color:var(--muted);line-height:1.6;"><span style="color:rgba(224,90,90,0.7);margin-top:2px;flex-shrink:0;">✕</span>Feeling out of control when triggered</div>
-          <div style="display:flex;align-items:flex-start;gap:10px;font-size:13.5px;color:var(--muted);line-height:1.6;"><span style="color:rgba(224,90,90,0.7);margin-top:2px;flex-shrink:0;">✕</span>Repeating the same patterns for years</div>
-          <div style="display:flex;align-items:flex-start;gap:10px;font-size:13.5px;color:var(--muted);line-height:1.6;"><span style="color:rgba(224,90,90,0.7);margin-top:2px;flex-shrink:0;">✕</span>Exhausted from managing your emotions alone</div>
-        </div>
-      </div>
-      <div class="fade-up" style="background:rgba(76,175,125,0.05);border:1px solid rgba(76,175,125,0.25);border-radius:20px;padding:32px;">
-        <div style="font-size:13px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(76,175,125,0.9);margin-bottom:20px;">✦ After</div>
-        <div style="display:flex;flex-direction:column;gap:14px;">
-          <div style="display:flex;align-items:flex-start;gap:10px;font-size:13.5px;color:var(--muted);line-height:1.6;"><span style="color:rgba(76,175,125,0.8);margin-top:2px;flex-shrink:0;">✦</span>Responding with intention — not reaction</div>
-          <div style="display:flex;align-items:flex-start;gap:10px;font-size:13.5px;color:var(--muted);line-height:1.6;"><span style="color:rgba(76,175,125,0.8);margin-top:2px;flex-shrink:0;">✦</span>Deeper, calmer relationships at home</div>
-          <div style="display:flex;align-items:flex-start;gap:10px;font-size:13.5px;color:var(--muted);line-height:1.6;"><span style="color:rgba(76,175,125,0.8);margin-top:2px;flex-shrink:0;">✦</span>Clear boundaries between work, home and self</div>
-          <div style="display:flex;align-items:flex-start;gap:10px;font-size:13.5px;color:var(--muted);line-height:1.6;"><span style="color:rgba(76,175,125,0.8);margin-top:2px;flex-shrink:0;">✦</span>Catching triggers before they escalate</div>
-          <div style="display:flex;align-items:flex-start;gap:10px;font-size:13.5px;color:var(--muted);line-height:1.6;"><span style="color:rgba(76,175,125,0.8);margin-top:2px;flex-shrink:0;">✦</span>Breaking patterns that held you back for years</div>
-          <div style="display:flex;align-items:flex-start;gap:10px;font-size:13.5px;color:var(--muted);line-height:1.6;"><span style="color:rgba(76,175,125,0.8);margin-top:2px;flex-shrink:0;">✦</span>Emotional energy freed up for what matters</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 
 <!-- FOUNDER -->
-<section id="founder" style="padding:100px 24px;background:linear-gradient(180deg,#ffffff 0%,#f7f5fc 100%);">
+<section id="founder" style="padding:80px 24px;background:linear-gradient(180deg,#fbf8f2 0%,#f3ece1 100%);">
   <div class="container">
     <div style="text-align:center;max-width:580px;margin:0 auto 56px;">
       <div class="section-badge">Meet the Founder</div>
@@ -696,13 +577,13 @@ footer{background:var(--bg);border-top:1px solid var(--card-border);padding:48px
 
       <!-- PHOTO / AVATAR CARD -->
       <div class="fade-up" style="position:relative;">
-        <div style="background:linear-gradient(135deg,#f7f3ff,#fdfbff);border:1px solid rgba(106,79,181,0.18);border-radius:24px;padding:8px;box-shadow:0 24px 60px rgba(106,79,181,0.12);">
+        <div style="background:linear-gradient(135deg,#fbf8f2,#f3ece1);border:1px solid var(--card-border);border-radius:24px;padding:8px;box-shadow:0 24px 60px rgba(106,79,181,0.12);">
           <div style="border-radius:18px;aspect-ratio:1;position:relative;overflow:hidden;">
             <img src="images/founder.jpg" alt="Matyyx Zander Tahero" style="width:100%;height:100%;object-fit:cover;object-position:center 25%;display:block;">
             <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(106,79,181,0.15) 100%);"></div>
           </div>
         </div>
-        <div style="position:absolute;bottom:-16px;right:-16px;background:#fff;border:1px solid rgba(106,79,181,0.18);border-radius:16px;padding:14px 18px;box-shadow:0 12px 32px rgba(106,79,181,0.15);">
+        <div style="position:absolute;bottom:-16px;right:-16px;background:var(--paper);border:1px solid var(--card-border);border-radius:16px;padding:14px 18px;box-shadow:0 12px 32px rgba(168,122,40,0.15);">
           <div style="font-size:10px;color:var(--muted2);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:2px;">Years of Practice</div>
           <div style="font-family:'Cinzel',serif;font-size:20px;font-weight:700;color:var(--gold);">8+</div>
         </div>
@@ -741,7 +622,7 @@ footer{background:var(--bg);border-top:1px solid var(--card-border);padding:48px
 </section>
 
 <!-- TESTIMONIALS -->
-<section id="testimonials" style="padding:100px 24px;background:linear-gradient(180deg,#f7f5fc 0%,#ffffff 100%);">
+<section id="testimonials" style="padding:80px 24px;background:linear-gradient(180deg,#f3ece1 0%,#fbf8f2 100%);">
   <div class="container">
     <div style="text-align:center;max-width:580px;margin:0 auto 60px;">
       <div class="section-badge">Client Stories</div>
@@ -769,64 +650,6 @@ footer{background:var(--bg);border-top:1px solid var(--card-border);padding:48px
 </section>
 
 
-<!-- SERVICES -->
-<section id="services" style="padding:100px 24px;background:linear-gradient(180deg,#ffffff 0%,#f7f5fc 100%);">
-  <div class="container">
-    <div style="text-align:center;max-width:680px;margin:0 auto 60px;">
-      <div class="section-badge">Our Services</div>
-      <h2>Choose Your Path to <em>Transformation</em></h2>
-      <p class="section-sub" style="margin:0 auto;">Every journey begins with the free assessment.</p>
-    </div>
-    <div class="services-grid">
-      <div class="service-card fade-up">
-        <div class="service-tag assessment">Free</div>
-        <div class="service-icon">📊</div>
-        <div class="service-title">Trigger Assessment</div>
-        <div class="service-duration">Online · 3–4 minutes · Free forever</div>
-        <div class="service-desc">Maps your trigger patterns across 5 components with AI-powered insights.</div>
-        <div class="service-features">
-          <div class="service-feature">10 adaptive questions that evolve as you answer</div>
-          <div class="service-feature">Real-time mini-diagnoses during the quiz</div>
-          <div class="service-feature">Full trigger profile emailed instantly</div>
-          <div class="service-feature">5-component score breakdown</div>
-          <div class="service-feature">Personalised AI insight</div>
-        </div>
-        <a class="service-btn primary" href="https://thealignedorder.netlify.app" target="_blank">Start Free Assessment →</a>
-      </div>
-      <div class="service-card featured fade-up">
-        <div class="service-tag free">Free · By Qualification</div>
-        <div class="service-icon">📞</div>
-        <div class="service-title">Discovery Call</div>
-        <div class="service-duration">30 minutes · Video call · No obligation</div>
-        <div class="service-desc">A personal conversation to explore your patterns and map a path forward.</div>
-        <div class="service-features">
-          <div class="service-feature">Deep dive into your trigger profile</div>
-          <div class="service-feature">Identify root causes together</div>
-          <div class="service-feature">Personalised recommendations</div>
-          <div class="service-feature">Zero sales pressure</div>
-          <div class="service-feature">Clarity regardless of next steps</div>
-        </div>
-        <a class="service-btn primary" href="https://calendly.com/alignedorder/30min" target="_blank">Book Discovery Call →</a>
-      </div>
-      <div class="service-card fade-up">
-        <div class="service-tag paid">Paid · Premium</div>
-        <div class="service-icon">🔥</div>
-        <div class="service-title">Coaching Programme</div>
-        <div class="service-duration">60 minutes per session · One-on-one</div>
-        <div class="service-desc">Deep working sessions with practical tools you apply immediately.</div>
-        <div class="service-features">
-          <div class="service-feature">Relationship & intimacy triggers</div>
-          <div class="service-feature">Workplace & pressure triggers</div>
-          <div class="service-feature">Parenting & family triggers</div>
-          <div class="service-feature">Financial & self-worth triggers</div>
-          <div class="service-feature">Felt results from session one</div>
-        </div>
-        <a class="service-btn outline" href="https://calendly.com/alignedorder/paid-session" target="_blank">Book Coaching Session →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- FINAL CTA -->
 <section style="padding:80px 24px;">
   <div class="container">
@@ -843,12 +666,12 @@ footer{background:var(--bg);border-top:1px solid var(--card-border);padding:48px
 </section>
 
 <!-- CONTACT -->
-<section id="contact" style="padding:100px 24px;background:var(--bg2);">
+<section id="contact" style="padding:80px 24px;background:var(--bg2);">
   <div class="container">
-    <div style="max-width:580px;margin-bottom:56px;">
+    <div style="max-width:580px;margin-bottom:40px;">
       <div class="section-badge">Contact Us</div>
       <h2>Get in <em>Touch</em></h2>
-      <p class="section-sub">Have a question about our services or want to learn more? We'd love to hear from you.</p>
+      <p class="section-sub">Questions? We'd love to hear from you.</p>
     </div>
     <div class="contact-grid">
       <div class="contact-info fade-up">
@@ -905,8 +728,8 @@ footer{background:var(--bg);border-top:1px solid var(--card-border);padding:48px
       <div class="footer-col-title">Navigation</div>
       <div class="footer-links">
         <a class="footer-link" onclick="scrollTo('home')">Home</a>
-        <a class="footer-link" onclick="scrollTo('about')">About</a>
-        <a class="footer-link" onclick="scrollTo('services')">Services</a>
+        <a class="footer-link" onclick="scrollTo('packages')">Sessions</a>
+        <a class="footer-link" onclick="scrollTo('founder')">Founder</a>
         <a class="footer-link" onclick="scrollTo('contact')">Contact</a>
       </div>
     </div>
@@ -949,22 +772,6 @@ footer{background:var(--bg);border-top:1px solid var(--card-border);padding:48px
 
 <script>
 var INFO_CONTENT = {
-  solution: {
-    icon: '&#127919;',
-    title: 'How Aligned Order Works',
-    body: '<p>Most people know they have triggers. What they don\'t know is exactly what they are, where they come from, and how to dismantle them.</p>' +
-          '<p>Aligned Order combines a precision trigger assessment with personalised one-on-one coaching to give you something most programmes never offer: <strong>a map of your emotional patterns and the tools to change them.</strong></p>' +
-          '<p>This isn\'t therapy. This isn\'t meditation. This is targeted, results-driven emotional intelligence work — and clients feel the difference within the first session.</p>' +
-          '<p>We start with the free assessment, which identifies exactly which areas of your life are triggering you most. From there, coaching takes that map and turns it into a transformation plan that\'s practical, fast and deeply personal.</p>'
-  },
-  about: {
-    icon: '&#10022;',
-    title: 'Our Full Story',
-    body: '<p>Aligned Order was built on a single conviction: most human suffering comes not from what happens to us, but from our unconscious reaction to it.</p>' +
-          '<p>We created the Trigger Assessment to give people something they\'ve never had before — a precise, personalised map of their emotional patterns. Not a personality test. Not a mood tracker. A real diagnostic tool that shows you exactly where your nervous system is wired to react.</p>' +
-          '<p>Our coaching then takes that map and turns it into a transformation plan — practical, fast and deeply personal. We work with professionals, parents, business owners and anyone who feels their emotions are running the show instead of them.</p>' +
-          '<p>Every framework we use has been tested in the real world, refined through hundreds of coaching sessions, and built around one goal: results you can feel, not just understand intellectually.</p>'
-  },
   founder: {
     icon: '&#128100;',
     title: 'Matyyx\'s Full Story',
@@ -1218,7 +1025,9 @@ window.closeInfoModal = closeInfoModal;
 
 // ── NAV SCROLL ──
 window.addEventListener('scroll', () => {
-  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
+  var heroHeight = document.getElementById('home').offsetHeight;
+  var threshold = Math.max(heroHeight - 100, 100);
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > threshold);
 });
 
 // ── SMOOTH SCROLL ──
@@ -1356,7 +1165,7 @@ var ASSESSMENT_URL = 'https://thealignedorder.netlify.app';
 var DISCOVERY_URL  = 'https://calendly.com/alignedorder/30min';
 var COACHING_URL   = 'https://calendly.com/alignedorder/paid-session';
 
-var SYSTEM = 'You are Aria, a warm AI assistant for Aligned Order, an emotional intelligence coaching company. Keep responses to 2-3 sentences max. Be warm, empathetic and conversational. Services: 1) Free Trigger Assessment at ' + ASSESSMENT_URL + ' (10 questions, 3-4 mins), 2) Free Discovery Call 30 mins at ' + DISCOVERY_URL + ' for those who score 70%+, 3) Paid Coaching Sessions 60 mins at ' + COACHING_URL + '. After 2 exchanges guide visitors to take the free assessment. Never use markdown. Contact: alignedorder@gmail.com';
+var SYSTEM = 'You are Aria, a warm AI assistant for Aligned Order, an emotional intelligence coaching company. Keep responses to 2-3 sentences max. Be warm, empathetic and conversational. Services: 1) Free Trigger Assessment at ' + ASSESSMENT_URL + ' (10 questions, 3-4 mins), 2) Free Discovery Call 30 mins at ' + DISCOVERY_URL + ' for those who score 70%+, 3) Paid Coaching Sessions (in bundles of 3, 6 or 10) 60 mins each at ' + COACHING_URL + '. After 2 exchanges guide visitors to take the free assessment. Never use markdown. Contact: alignedorder@gmail.com';
 
 var QUICK = {
   initial: ['What is Aligned Order?','How does it work?','Is it free?','I feel triggered often'],
