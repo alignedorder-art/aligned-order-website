@@ -3,689 +3,727 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aligned Order — Transform Your Triggers. Reclaim Your Power.</title>
-<meta name="description" content="Aligned Order is an emotional intelligence coaching company helping people identify and transform their emotional trigger patterns through personalised assessments and one-on-one coaching.">
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<title>Aligned Order — Find Your Way Back to Calm</title>
+<meta name="description" content="Aligned Order is an emotional intelligence coaching company. Take the free Trigger Assessment, check in with how you're feeling, and book a session.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0;}
 :root{
-  --bg:#f3ece1;
-  --bg2:#ede4d5;
-  --bg3:#e7dcc9;
+  --cream:#f5f0e6;
+  --cream-deep:#ece4d3;
   --paper:#fbf8f2;
-  --violet:#6a4fb5;
-  --violet-l:#7d5fc4;
-  --violet-d:#4a3490;
-  --gold:#a87a28;
-  --gold-l:#c99a3e;
-  --text:#2a2118;
-  --muted:rgba(42,33,24,0.62);
-  --muted2:rgba(42,33,24,0.4);
-  --border:rgba(168,122,40,0.2);
-  --card:rgba(255,255,255,0.45);
-  --card-border:rgba(168,122,40,0.16);
-  /* Hero stays dark regardless */
-  --hero-bg:#0d0b1a;
-  --hero-text:#f0ecff;
-  --hero-muted:rgba(240,236,255,0.55);
+  --sage:#6b7d5a;
+  --sage-deep:#4a5940;
+  --sage-pale:#e3e8da;
+  --terracotta:#c9692f;
+  --terracotta-deep:#a8541f;
+  --terracotta-pale:#f2dccb;
+  --ink:#231f18;
+  --ink-soft:rgba(35,31,24,0.62);
+  --ink-faint:rgba(35,31,24,0.38);
+  --line:rgba(35,31,24,0.1);
+  --radius-lg:28px;
+  --radius-md:18px;
+  --radius-sm:12px;
 }
 html{scroll-behavior:smooth;}
+body{background:var(--cream);color:var(--ink);font-family:'Inter',sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+h1,h2,h3{font-family:'Fraunces',serif;font-weight:600;letter-spacing:-0.01em;}
+.serif-italic{font-style:italic;font-weight:500;}
+img{display:block;max-width:100%;}
+a{color:inherit;}
+.container{max-width:1180px;margin:0 auto;padding:0 32px;}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--sage-deep);margin-bottom:14px;}
+.eyebrow::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--terracotta);}
 
-/* HERO STAYS DARK — scoped overrides regardless of global light theme */
-#home{color:#f0ecff;}
-#home h1{color:#f0ecff;}
-#home h1 em{background:linear-gradient(135deg,#9b7fd4,#d4a84b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-#home .hero-sub{color:rgba(240,236,255,0.6);}
-#home .hero-badge{background:rgba(106,79,181,0.18);border-color:rgba(106,79,181,0.35);color:#b39ae8;}
-#home .btn-secondary{color:#f0ecff;border-color:rgba(255,255,255,0.2);}
-#home .btn-secondary:hover{border-color:rgba(155,127,212,0.5);background:rgba(106,79,181,0.12);}
-#home .stat-lbl{color:rgba(240,236,255,0.45);}
-#home .hero-stats{border-top-color:rgba(255,255,255,0.1);}
-body{background:var(--bg);color:var(--text);font-family:'Raleway',sans-serif;overflow-x:hidden;}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 28px;border-radius:99px;font-family:'Inter',sans-serif;font-size:14px;font-weight:700;text-decoration:none;cursor:pointer;border:none;transition:transform 0.18s ease,box-shadow 0.18s ease,background 0.18s ease;white-space:nowrap;}
+.btn-terra{background:var(--terracotta);color:#fff;box-shadow:0 6px 20px rgba(201,105,47,0.3);}
+.btn-terra:hover{background:var(--terracotta-deep);transform:translateY(-2px);box-shadow:0 10px 28px rgba(201,105,47,0.4);}
+.btn-ink{background:var(--ink);color:var(--cream);}
+.btn-ink:hover{background:#3a342a;transform:translateY(-2px);}
+.btn-pill-ghost{background:rgba(255,255,255,0.5);border:1px solid var(--line);color:var(--ink);backdrop-filter:blur(6px);}
+.btn-pill-ghost:hover{background:#fff;}
+.btn-sm{padding:9px 18px;font-size:12.5px;}
 
-/* ── NAV ── */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 40px;height:70px;display:flex;align-items:center;justify-content:space-between;transition:background-color 0.25s ease,border-color 0.25s ease;background:transparent;}
-nav.scrolled{background:rgba(251,248,242,0.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
-.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
-.nav-brand{font-family:'Cinzel',serif;font-size:14px;font-weight:700;color:#fff;letter-spacing:0.12em;transition:color 0.25s ease;}
-nav.scrolled .nav-brand{color:var(--text);}
-.nav-links{display:flex;align-items:center;gap:32px;}
-.nav-link{font-size:13px;font-weight:500;color:rgba(255,255,255,0.75);text-decoration:none;letter-spacing:0.04em;transition:color 0.25s ease;cursor:pointer;}
-nav.scrolled .nav-link{color:var(--muted);}
-.nav-link:hover{color:#fff;}
-nav.scrolled .nav-link:hover{color:var(--text);}
-.nav-cta{padding:9px 22px;border-radius:99px;background:linear-gradient(135deg,var(--violet),var(--violet-d));color:#fff;font-family:'Raleway',sans-serif;font-size:13px;font-weight:700;text-decoration:none;transition:all 0.2s;border:none;cursor:pointer;letter-spacing:0.02em;}
-.nav-cta:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(106,79,181,0.4);}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
-.hamburger span{display:block;width:24px;height:2px;background:#fff;border-radius:2px;transition:background-color 0.25s ease;}
-nav.scrolled .hamburger span{background:var(--text);}
-.mobile-menu{display:none;position:fixed;inset:0;background:rgba(13,11,26,0.98);z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:32px;}
+nav{position:fixed;top:18px;left:50%;transform:translateX(-50%);z-index:200;width:calc(100% - 36px);max-width:1180px;}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;background:rgba(251,248,242,0.85);backdrop-filter:blur(16px);border:1px solid rgba(35,31,24,0.08);border-radius:99px;padding:8px 8px 8px 22px;box-shadow:0 8px 32px rgba(35,31,24,0.06);}
+.nav-brand{display:flex;align-items:center;gap:9px;text-decoration:none;font-family:'Fraunces',serif;font-weight:600;font-size:16px;color:var(--ink);}
+.nav-links{display:flex;align-items:center;gap:4px;}
+.nav-link{padding:9px 16px;border-radius:99px;font-size:13.5px;font-weight:600;color:var(--ink-soft);text-decoration:none;cursor:pointer;transition:all 0.2s;}
+.nav-link:hover{color:var(--ink);background:var(--sage-pale);}
+.nav-link.active{color:var(--ink);background:var(--sage-pale);}
+.hamburger{display:none;width:38px;height:38px;border-radius:50%;border:none;background:var(--ink);color:var(--cream);align-items:center;justify-content:center;cursor:pointer;flex-direction:column;gap:4px;}
+.hamburger span{display:block;width:16px;height:1.5px;background:var(--cream);border-radius:2px;}
+.mobile-menu{display:none;position:fixed;inset:0;background:var(--cream);z-index:199;flex-direction:column;align-items:center;justify-content:center;gap:8px;}
 .mobile-menu.open{display:flex;}
-.mobile-menu .nav-link{font-size:22px;color:var(--text);}
+.mobile-menu .nav-link{font-size:20px;padding:14px 28px;}
+.mobile-menu .btn{margin-top:20px;}
 
-/* ── HERO ── */
-#home{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:100px 24px 60px;position:relative;overflow:hidden;}
-.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 40%,rgba(106,79,181,0.25) 0%,transparent 65%),radial-gradient(ellipse 40% 40% at 80% 20%,rgba(155,127,212,0.12) 0%,transparent 60%),radial-gradient(ellipse 40% 40% at 20% 80%,rgba(212,168,75,0.08) 0%,transparent 60%);pointer-events:none;}
-.hero-orb{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;}
-.hero-orb-1{width:500px;height:500px;background:rgba(106,79,181,0.15);top:-100px;left:-100px;}
-.hero-orb-2{width:400px;height:400px;background:rgba(212,168,75,0.08);bottom:-50px;right:-50px;}
-.hero-content{position:relative;z-index:1;max-width:780px;}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(106,79,181,0.15);border:1px solid rgba(106,79,181,0.3);border-radius:99px;padding:7px 18px;font-size:12px;font-weight:600;color:var(--violet-l);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:28px;}
-.hero-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--violet-l);animation:pulse 2s infinite;}
-h1{font-family:'Cinzel',serif;font-size:clamp(32px,6vw,64px);font-weight:700;line-height:1.15;margin-bottom:20px;letter-spacing:0.01em;}
-h1 em{font-style:italic;background:linear-gradient(135deg,var(--violet-l),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-.hero-sub{font-size:clamp(15px,2vw,18px);color:var(--muted);line-height:1.8;max-width:520px;margin:0 auto 40px;}
-.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
-.btn-primary{padding:15px 36px;border-radius:99px;background:linear-gradient(135deg,var(--violet),var(--violet-d));color:#fff;font-family:'Raleway',sans-serif;font-size:15px;font-weight:700;text-decoration:none;transition:all 0.2s;box-shadow:0 8px 32px rgba(106,79,181,0.35);letter-spacing:0.02em;display:inline-block;}
-.btn-primary:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(106,79,181,0.5);}
-.btn-secondary{padding:15px 36px;border-radius:99px;background:transparent;color:var(--text);font-family:'Raleway',sans-serif;font-size:15px;font-weight:600;text-decoration:none;transition:all 0.2s;border:1.5px solid var(--border);letter-spacing:0.02em;display:inline-block;}
-.btn-secondary:hover{border-color:rgba(106,79,181,0.5);background:rgba(106,79,181,0.08);}
-.hero-stats{display:flex;gap:48px;justify-content:center;margin-top:64px;padding-top:48px;border-top:1px solid var(--card-border);flex-wrap:wrap;}
-.stat{text-align:center;}
-.stat-num{font-family:'Cinzel',serif;font-size:32px;font-weight:700;background:linear-gradient(135deg,var(--violet-l),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-.stat-lbl{font-size:12px;color:var(--muted);margin-top:4px;letter-spacing:0.06em;text-transform:uppercase;}
+#home{position:relative;padding:118px 18px 0;}
+.hero-shell{position:relative;border-radius:36px;overflow:hidden;min-height:760px;background:#2c3424;display:flex;flex-direction:column;}
+.hero-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 20%;}
+.hero-scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,24,16,0.35) 0%,rgba(20,24,16,0.15) 38%,rgba(20,24,16,0.55) 100%),linear-gradient(100deg,rgba(20,24,16,0.55) 0%,rgba(20,24,16,0.05) 45%,transparent 70%);}
+.hero-content{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;justify-content:flex-end;padding:48px 48px 56px;}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.85);margin-bottom:18px;}
+.hero-eyebrow::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--terracotta);}
+.hero-content h1{font-size:clamp(40px,6.4vw,76px);color:#fff;line-height:1.04;max-width:720px;margin-bottom:22px;}
+.hero-content p{font-size:16px;color:rgba(255,255,255,0.78);max-width:420px;line-height:1.7;margin-bottom:32px;}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;}
 
-/* ── SECTIONS ── */
-section{padding:80px 24px;}
-.container{max-width:1100px;margin:0 auto;}
-.section-badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--violet-l);margin-bottom:14px;}
-h2{font-family:'Cinzel',serif;font-size:clamp(26px,4vw,42px);font-weight:700;line-height:1.2;margin-bottom:16px;}
-h2 em{font-style:italic;color:var(--gold);}
-.section-sub{font-size:16px;color:var(--muted);line-height:1.8;max-width:560px;}
+.hero-card{position:absolute;top:48px;right:48px;z-index:3;width:240px;background:rgba(251,248,242,0.92);backdrop-filter:blur(10px);border-radius:22px;padding:14px;box-shadow:0 20px 50px rgba(0,0,0,0.25);}
+.hero-card img{width:100%;height:130px;object-fit:cover;border-radius:14px;margin-bottom:12px;}
+.hero-card-name{font-family:'Fraunces',serif;font-size:14px;font-weight:600;color:var(--ink);}
+.hero-card-role{font-size:11.5px;color:var(--ink-soft);margin-top:2px;line-height:1.5;}
+.hero-card-arrow{position:absolute;top:24px;right:24px;width:30px;height:30px;border-radius:50%;background:var(--terracotta);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;}
 
-/* ── HOW IT WORKS ── */
-#how{background:linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%);}
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px;}
-.step{background:var(--card);border:1px solid var(--card-border);border-radius:20px;padding:32px 28px;position:relative;overflow:hidden;transition:border-color 0.3s;}
-.step:hover{border-color:rgba(106,79,181,0.35);}
-.step::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--violet),var(--gold));opacity:0;transition:opacity 0.3s;}
-.step:hover::before{opacity:1;}
-.step-num{font-family:'Cinzel',serif;font-size:48px;font-weight:700;color:rgba(106,79,181,0.15);line-height:1;margin-bottom:16px;}
-.step-icon{font-size:28px;margin-bottom:14px;}
-.step-title{font-family:'Cinzel',serif;font-size:17px;font-weight:600;color:var(--text);margin-bottom:10px;}
-.step-text{font-size:13.5px;color:var(--muted);line-height:1.75;}
+.hero-floating-pills{position:absolute;bottom:56px;left:48px;z-index:3;display:flex;gap:10px;flex-wrap:wrap;max-width:340px;}
+.hero-pill{background:rgba(251,248,242,0.18);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.25);color:#fff;padding:9px 16px;border-radius:99px;font-size:12px;font-weight:600;}
 
-/* ── ABOUT ── */
-#about{background:var(--bg2);}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;margin-top:56px;}
-.about-visual{position:relative;}
-.about-card-main{background:linear-gradient(135deg,var(--bg3),var(--bg2));border:1px solid var(--border);border-radius:24px;padding:36px;text-align:center;position:relative;overflow:hidden;}
-.about-card-main::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--violet),var(--gold));}
-.about-avatar{width:90px;height:90px;border-radius:50%;background:linear-gradient(135deg,var(--violet),var(--violet-d));display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:32px;box-shadow:0 8px 32px rgba(106,79,181,0.3);}
-.about-name{font-family:'Cinzel',serif;font-size:18px;font-weight:700;color:var(--text);margin-bottom:6px;}
-.about-role{font-size:12px;color:var(--violet-l);font-weight:600;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:14px;}
-.about-quote{font-size:13px;color:var(--muted);line-height:1.7;font-style:italic;}
-.about-float{position:absolute;background:var(--card);border:1px solid var(--card-border);border-radius:14px;padding:14px 18px;backdrop-filter:blur(10px);}
-.about-float-1{bottom:-20px;right:-20px;}
-.about-float-2{top:-20px;left:-20px;}
-.float-label{font-size:10px;color:var(--muted2);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:4px;}
-.float-val{font-family:'Cinzel',serif;font-size:18px;font-weight:700;color:var(--gold);}
-.about-text p{font-size:15px;color:var(--muted);line-height:1.9;margin-bottom:18px;}
-.about-values{display:flex;flex-direction:column;gap:12px;margin-top:28px;}
-.about-value{display:flex;align-items:flex-start;gap:12px;}
-.about-value-icon{width:36px;height:36px;border-radius:10px;background:rgba(106,79,181,0.15);border:1px solid rgba(106,79,181,0.25);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;margin-top:2px;}
-.about-value-text h4{font-size:14px;font-weight:700;color:var(--text);margin-bottom:3px;}
-.about-value-text p{font-size:12.5px;color:var(--muted);line-height:1.6;margin:0;}
+.stat-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:-1px;background:var(--paper);border-radius:0 0 28px 28px;padding:30px 48px;}
+.stat{text-align:center;border-left:1px solid var(--line);padding-left:8px;}
+.stat:first-child{border-left:none;padding-left:0;}
+.stat-num{font-family:'Fraunces',serif;font-size:clamp(26px,3.4vw,38px);font-weight:600;color:var(--ink);}
+.stat-lbl{font-size:11.5px;color:var(--ink-soft);margin-top:4px;letter-spacing:0.02em;}
 
-/* ── SERVICES ── */
-#services{background:linear-gradient(180deg,var(--bg2) 0%,var(--bg3) 100%);}
-.services-intro{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;margin-bottom:56px;}
-.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
-.service-card{background:var(--card);border:1px solid var(--card-border);border-radius:22px;padding:32px 26px;transition:all 0.25s;position:relative;overflow:hidden;}
-.service-card:hover{transform:translateY(-6px);border-color:rgba(106,79,181,0.4);box-shadow:0 20px 60px rgba(106,79,181,0.15);}
-.service-card.featured{background:linear-gradient(135deg,rgba(106,79,181,0.2),rgba(74,52,144,0.15));border-color:rgba(106,79,181,0.4);}
-.service-card.featured::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--violet),var(--gold));}
-.service-tag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:4px 12px;border-radius:99px;margin-bottom:18px;}
-.service-tag.free{background:rgba(76,175,125,0.15);color:#4caf7d;border:1px solid rgba(76,175,125,0.25);}
-.service-tag.assessment{background:rgba(106,79,181,0.15);color:var(--violet-l);border:1px solid rgba(106,79,181,0.25);}
-.service-tag.paid{background:rgba(212,168,75,0.15);color:var(--gold);border:1px solid rgba(212,168,75,0.25);}
-.service-icon{font-size:32px;margin-bottom:16px;}
-.service-title{font-family:'Cinzel',serif;font-size:18px;font-weight:700;color:var(--text);margin-bottom:8px;}
-.service-duration{font-size:12px;color:var(--muted2);margin-bottom:14px;font-weight:600;letter-spacing:0.06em;}
-.service-desc{font-size:13.5px;color:var(--muted);line-height:1.75;margin-bottom:20px;}
-.service-features{display:flex;flex-direction:column;gap:8px;margin-bottom:24px;}
-.service-feature{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--muted);}
-.service-feature::before{content:'✦';color:var(--violet-l);font-size:10px;flex-shrink:0;}
-.service-btn{display:block;text-align:center;padding:12px;border-radius:12px;font-family:'Raleway',sans-serif;font-size:13px;font-weight:700;text-decoration:none;transition:all 0.2s;cursor:pointer;border:none;}
-.service-btn.primary{background:linear-gradient(135deg,var(--violet),var(--violet-d));color:#fff;box-shadow:0 4px 16px rgba(106,79,181,0.3);}
-.service-btn.primary:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(106,79,181,0.4);}
-.service-btn.outline{background:transparent;color:var(--violet-l);border:1.5px solid rgba(106,79,181,0.35);}
-.service-btn.outline:hover{background:rgba(106,79,181,0.1);}
+section{padding:96px 0;}
+.section-head{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;margin-bottom:52px;}
+.section-head h2{font-size:clamp(28px,4vw,44px);line-height:1.12;}
+.section-head .lede{font-size:15px;color:var(--ink-soft);line-height:1.75;max-width:380px;}
 
-/* ── TRIGGERS ── */
-#triggers{background:var(--bg3);padding:80px 24px;}
-.triggers-wrap{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
-.triggers-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
-.trigger-item{background:var(--card);border:1px solid var(--card-border);border-radius:14px;padding:18px 16px;display:flex;align-items:center;gap:12px;transition:all 0.2s;}
-.trigger-item:hover{border-color:rgba(106,79,181,0.3);background:rgba(106,79,181,0.06);}
-.trigger-emoji{font-size:22px;flex-shrink:0;}
-.trigger-label{font-size:13px;font-weight:600;color:var(--text);}
-.trigger-sub{font-size:11px;color:var(--muted2);margin-top:2px;}
-.triggers-text .section-sub{margin-bottom:28px;}
-.quote-block{background:linear-gradient(135deg,rgba(106,79,181,0.12),rgba(212,168,75,0.06));border:1px solid rgba(106,79,181,0.2);border-left:3px solid var(--violet-l);border-radius:0 14px 14px 0;padding:20px 22px;margin-top:28px;}
-.quote-text{font-size:15px;color:var(--text);line-height:1.7;font-style:italic;margin-bottom:8px;}
-.quote-author{font-size:12px;color:var(--violet-l);font-weight:700;}
+#about{background:var(--cream);}
+.bento{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.bento-text{background:var(--paper);border-radius:var(--radius-lg);padding:44px;display:flex;flex-direction:column;justify-content:center;}
+.bento-text h2{font-size:clamp(24px,3.2vw,36px);line-height:1.18;margin-bottom:14px;}
+.bento-text p{font-size:14.5px;color:var(--ink-soft);line-height:1.8;margin-bottom:22px;}
+.bento-photo{border-radius:var(--radius-lg);overflow:hidden;min-height:280px;position:relative;}
+.bento-photo img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;}
+.bento-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px;}
+.feature-card{border-radius:var(--radius-md);padding:26px;min-height:170px;display:flex;flex-direction:column;justify-content:space-between;}
+.feature-card.sage{background:var(--sage);color:#fff;}
+.feature-card.paper{background:var(--paper);}
+.feature-icon{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:16px;}
+.feature-card.paper .feature-icon{background:var(--sage-pale);}
+.feature-card h4{font-family:'Fraunces',serif;font-size:16px;font-weight:600;margin-top:14px;margin-bottom:6px;}
+.feature-card p{font-size:12.5px;line-height:1.6;opacity:0.85;}
+.feature-link{font-size:12px;font-weight:700;text-decoration:underline;text-underline-offset:3px;margin-top:10px;display:inline-block;}
 
-/* ── TESTIMONIALS ── */
-#testimonials{background:linear-gradient(180deg,var(--bg3) 0%,var(--bg2) 100%);}
-.testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:56px;}
-.testi-card{background:var(--card);border:1px solid var(--card-border);border-radius:20px;padding:28px;transition:border-color 0.3s;}
-.testi-card:hover{border-color:rgba(106,79,181,0.3);}
-.stars{display:flex;gap:3px;margin-bottom:16px;}
-.star{color:var(--gold);font-size:14px;}
-.testi-text{font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:20px;font-style:italic;}
+#mood{background:var(--cream);}
+.mood-shell{display:grid;grid-template-columns:1fr 1.15fr;gap:0;background:var(--paper);border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--line);}
+.mood-left{padding:56px 48px;display:flex;flex-direction:column;justify-content:center;}
+.mood-left h2{font-size:clamp(26px,3.4vw,38px);line-height:1.15;margin-bottom:14px;}
+.mood-left p{font-size:14.5px;color:var(--ink-soft);line-height:1.75;margin-bottom:8px;}
+.mood-priv{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--ink-faint);margin-top:18px;}
+.mood-right{background:linear-gradient(160deg,var(--sage-deep),var(--sage));padding:48px;display:flex;flex-direction:column;justify-content:center;color:#fff;position:relative;overflow:hidden;}
+.mood-right::before{content:'';position:absolute;top:-60px;right:-60px;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,0.08),transparent 70%);}
+.mood-step-label{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:8px;}
+.mood-q{font-family:'Fraunces',serif;font-size:22px;margin-bottom:22px;position:relative;z-index:1;}
+.mood-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:22px;position:relative;z-index:1;}
+.mood-opt{display:flex;align-items:center;gap:9px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.18);border-radius:14px;padding:13px 16px;cursor:pointer;transition:all 0.18s;font-size:13.5px;font-weight:600;color:#fff;}
+.mood-opt:hover{background:rgba(255,255,255,0.18);}
+.mood-opt.selected{background:var(--terracotta);border-color:var(--terracotta);}
+.mood-opt .em{font-size:17px;}
+.mood-input-wrap{position:relative;z-index:1;}
+.mood-input{width:100%;background:rgba(255,255,255,0.95);border:none;border-radius:14px;padding:16px 18px;font-family:'Inter',sans-serif;font-size:13.5px;color:var(--ink);outline:none;resize:none;min-height:64px;margin-bottom:14px;}
+.mood-input::placeholder{color:var(--ink-faint);}
+.mood-submit{width:100%;background:var(--ink);color:#fff;border:none;border-radius:14px;padding:15px;font-family:'Inter',sans-serif;font-size:13.5px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:all 0.2s;position:relative;z-index:1;}
+.mood-submit:hover{background:var(--terracotta);}
+.mood-submit:disabled{opacity:0.5;cursor:not-allowed;}
+.mood-result{display:none;position:relative;z-index:1;}
+.mood-result.show{display:block;animation:moodIn 0.4s ease both;}
+@keyframes moodIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.mood-result-label{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:10px;}
+.mood-result-text{font-size:14.5px;line-height:1.8;color:rgba(255,255,255,0.92);margin-bottom:20px;}
+.mood-result-cta{display:flex;gap:10px;flex-wrap:wrap;}
+.mood-typing{display:none;gap:5px;align-items:center;padding:8px 0;}
+.mood-typing.show{display:flex;}
+.mood-typing span{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.6);animation:moodBounce 1.2s infinite;}
+.mood-typing span:nth-child(2){animation-delay:0.15s;}
+.mood-typing span:nth-child(3){animation-delay:0.3s;}
+@keyframes moodBounce{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-5px)}}
+.mood-back{background:none;border:none;color:rgba(255,255,255,0.7);font-size:12px;font-weight:600;cursor:pointer;margin-top:14px;text-decoration:underline;text-underline-offset:3px;position:relative;z-index:1;}
+
+#problem{background:var(--cream-deep);overflow:hidden;}
+.pslider-track{display:flex;gap:16px;padding:0 32px;overflow:visible;cursor:grab;}
+.pslider-track.dragging{cursor:grabbing;}
+.pcard{flex:0 0 auto;width:280px;border-radius:var(--radius-md);padding:28px;min-height:210px;display:flex;flex-direction:column;justify-content:flex-end;user-select:none;}
+.pcard .pc-eyebrow{font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px;opacity:0.7;}
+.pcard h4{font-family:'Fraunces',serif;font-size:19px;margin-bottom:6px;}
+.pcard p{font-size:13px;line-height:1.6;opacity:0.85;}
+.pslider-controls{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:32px;}
+.pslider-arrow{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--paper);color:var(--ink);font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;}
+.pslider-arrow:hover{background:var(--ink);color:var(--cream);}
+.pslider-dots{display:flex;gap:6px;}
+.pslider-dot{width:6px;height:6px;border-radius:50%;background:var(--line);border:none;cursor:pointer;transition:all 0.2s;}
+.pslider-dot.active{background:var(--terracotta);width:18px;border-radius:99px;}
+
+#services-detail{background:var(--cream);}
+.svc-layout{display:grid;grid-template-columns:0.85fr 1.15fr;gap:48px;align-items:start;}
+.svc-tabs{display:flex;flex-direction:column;gap:8px;margin-top:28px;}
+.svc-tab{display:flex;align-items:center;justify-content:space-between;padding:15px 20px;border-radius:14px;cursor:pointer;font-size:14px;font-weight:600;transition:all 0.2s;border:1px solid transparent;}
+.svc-tab:hover{background:var(--sage-pale);}
+.svc-tab.active{background:var(--ink);color:var(--cream);}
+.svc-cards{display:flex;gap:16px;}
+.svc-card{flex:1;border-radius:var(--radius-md);overflow:hidden;position:relative;min-height:420px;}
+.svc-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.svc-card.center{flex:1.5;}
+.svc-card-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(20,24,16,0.78) 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:24px;}
+.svc-card-tag{position:absolute;top:16px;right:16px;width:32px;height:32px;border-radius:50%;background:var(--terracotta);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;}
+.svc-card-title{font-family:'Fraunces',serif;font-size:18px;color:#fff;margin-bottom:6px;}
+.svc-card-desc{font-size:12px;color:rgba(255,255,255,0.78);line-height:1.6;}
+
+#packages{background:var(--cream-deep);}
+.pkg-banner{display:inline-flex;align-items:center;gap:8px;background:var(--terracotta-pale);color:var(--terracotta-deep);border-radius:99px;padding:8px 18px;font-size:12.5px;font-weight:700;margin-bottom:24px;}
+.pkg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
+.pkg-card{background:var(--paper);border-radius:var(--radius-lg);padding:36px 30px;display:flex;flex-direction:column;border:1px solid var(--line);transition:transform 0.25s,box-shadow 0.25s;}
+.pkg-card:hover{transform:translateY(-6px);box-shadow:0 24px 50px rgba(35,31,24,0.08);}
+.pkg-card.featured{background:var(--ink);color:var(--cream);position:relative;transform:scale(1.04);}
+.pkg-card.featured:hover{transform:scale(1.04) translateY(-6px);}
+.pkg-ribbon{position:absolute;top:20px;right:-30px;background:var(--terracotta);color:#fff;font-size:10px;font-weight:800;letter-spacing:0.05em;padding:5px 36px;transform:rotate(40deg);}
+.pkg-tag{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--sage-deep);margin-bottom:14px;}
+.pkg-card.featured .pkg-tag{color:var(--terracotta-pale);}
+.pkg-name{font-family:'Fraunces',serif;font-size:24px;margin-bottom:10px;}
+.pkg-desc{font-size:13px;color:var(--ink-soft);line-height:1.7;margin-bottom:22px;min-height:40px;}
+.pkg-card.featured .pkg-desc{color:rgba(245,240,230,0.7);}
+.pkg-price-row{margin-bottom:24px;}
+.pkg-was{font-size:13px;color:var(--ink-faint);text-decoration:line-through;}
+.pkg-card.featured .pkg-was{color:rgba(245,240,230,0.4);}
+.pkg-now{font-family:'Fraunces',serif;font-size:34px;font-weight:600;}
+.pkg-per{font-size:12.5px;color:var(--ink-soft);}
+.pkg-card.featured .pkg-per{color:rgba(245,240,230,0.6);}
+.pkg-save{font-size:11.5px;color:var(--sage-deep);font-weight:700;margin-top:4px;}
+.pkg-card.featured .pkg-save{color:#9ed9a8;}
+.pkg-feats{display:flex;flex-direction:column;gap:10px;margin-bottom:26px;flex:1;}
+.pkg-feat{display:flex;align-items:flex-start;gap:9px;font-size:12.5px;line-height:1.5;}
+.pkg-feat::before{content:'✦';color:var(--terracotta);flex-shrink:0;font-size:11px;margin-top:1px;}
+
+#founder{background:var(--cream);}
+.founder-layout{display:grid;grid-template-columns:0.8fr 1.2fr;gap:56px;align-items:center;}
+.founder-photo-wrap{position:relative;}
+.founder-photo{border-radius:var(--radius-lg);overflow:hidden;aspect-ratio:4/5;}
+.founder-photo img{width:100%;height:100%;object-fit:cover;}
+.founder-badge{position:absolute;bottom:-18px;right:-18px;background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:16px 20px;box-shadow:0 16px 36px rgba(35,31,24,0.1);}
+.founder-badge-num{font-family:'Fraunces',serif;font-size:24px;color:var(--terracotta);font-weight:600;}
+.founder-badge-lbl{font-size:10.5px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:0.08em;margin-top:2px;}
+.founder-name{font-family:'Fraunces',serif;font-size:28px;margin-bottom:6px;}
+.founder-role{font-size:12.5px;font-weight:700;color:var(--sage-deep);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:22px;}
+.founder-bio{font-size:14.5px;color:var(--ink-soft);line-height:1.85;margin-bottom:14px;max-width:480px;}
+.expand-link{background:none;border:none;color:var(--ink);font-weight:700;font-size:13px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;padding:0;margin-bottom:24px;display:inline-flex;align-items:center;gap:6px;}
+.founder-quote{background:var(--paper);border-left:3px solid var(--terracotta);border-radius:0 16px 16px 0;padding:18px 22px;font-size:14px;font-style:italic;color:var(--ink);line-height:1.7;margin-bottom:26px;max-width:480px;}
+.founder-stats{display:flex;gap:32px;}
+.founder-stat-num{font-family:'Fraunces',serif;font-size:24px;}
+.founder-stat-lbl{font-size:11px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:0.06em;margin-top:2px;}
+
+#testimonials{background:var(--cream-deep);}
+.testi-layout{display:grid;grid-template-columns:0.9fr 1.1fr;gap:18px;align-items:stretch;}
+.testi-aside{display:flex;flex-direction:column;gap:18px;}
+.testi-stat-card{background:var(--paper);border-radius:var(--radius-md);padding:26px;}
+.testi-stat-num{font-family:'Fraunces',serif;font-size:30px;}
+.testi-stat-lbl{font-size:12px;color:var(--ink-soft);margin-top:4px;}
+.testi-main{background:var(--paper);border-radius:var(--radius-lg);padding:40px;display:flex;flex-direction:column;}
+.testi-stars{color:var(--terracotta);font-size:14px;letter-spacing:2px;margin-bottom:18px;}
+.testi-quote{font-family:'Fraunces',serif;font-size:21px;line-height:1.5;margin-bottom:24px;flex:1;}
 .testi-author{display:flex;align-items:center;gap:12px;}
-.testi-avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--violet),var(--violet-d));display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#fff;font-family:'Cinzel',serif;flex-shrink:0;}
-.testi-name{font-size:13px;font-weight:700;color:var(--text);}
-.testi-role{font-size:11.5px;color:var(--muted2);}
+.testi-photo{width:46px;height:46px;border-radius:50%;overflow:hidden;flex-shrink:0;}
+.testi-photo img{width:100%;height:100%;object-fit:cover;}
+.testi-name{font-size:13.5px;font-weight:700;}
+.testi-role{font-size:11.5px;color:var(--ink-soft);}
+.testi-nav{display:flex;gap:8px;margin-top:24px;}
+.testi-nav button{width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;}
+.testi-nav button:hover{background:var(--ink);color:var(--cream);}
 
-/* ── CTA BANNER ── */
-.cta-banner{background:linear-gradient(135deg,var(--violet-d),var(--bg3));border:1px solid rgba(106,79,181,0.3);border-radius:28px;padding:64px 48px;text-align:center;margin:0 auto;max-width:900px;position:relative;overflow:hidden;}
-.cta-banner::before{content:'';position:absolute;top:-80px;right:-80px;width:300px;height:300px;background:radial-gradient(circle,rgba(212,168,75,0.1) 0%,transparent 65%);pointer-events:none;}
-.cta-banner h2{margin-bottom:16px;}
-.cta-banner .section-sub{margin:0 auto 36px;text-align:center;}
-.cta-banner .hero-btns{justify-content:center;}
+#cta-final{background:var(--cream);}
+.cta-band{background:var(--ink);border-radius:var(--radius-lg);padding:64px 48px;text-align:center;position:relative;overflow:hidden;}
+.cta-band::before{content:'';position:absolute;top:-100px;right:-60px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(201,105,47,0.18),transparent 70%);}
+.cta-band h2{color:#fff;font-size:clamp(26px,4vw,42px);margin-bottom:14px;position:relative;}
+.cta-band p{color:rgba(245,240,230,0.65);font-size:14.5px;margin-bottom:32px;position:relative;}
+.cta-band .hero-btns{justify-content:center;position:relative;}
 
-/* ── CONTACT ── */
-#contact{background:var(--bg2);}
-.contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:60px;margin-top:56px;}
-.contact-info{display:flex;flex-direction:column;gap:24px;}
-.contact-item{display:flex;align-items:flex-start;gap:16px;}
-.contact-icon{width:46px;height:46px;border-radius:12px;background:rgba(106,79,181,0.15);border:1px solid rgba(106,79,181,0.25);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
-.contact-item-title{font-size:13px;font-weight:700;color:var(--text);margin-bottom:4px;}
-.contact-item-val{font-size:13px;color:var(--muted);}
-.contact-item-val a{color:var(--violet-l);text-decoration:none;}
-.contact-form{background:var(--card);border:1px solid var(--card-border);border-radius:24px;padding:36px 32px;}
-.form-group{margin-bottom:16px;}
-.form-label{display:block;font-size:11px;font-weight:700;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:7px;}
-.form-input,.form-textarea{width:100%;background:rgba(255,255,255,0.05);border:1.5px solid var(--card-border);border-radius:12px;padding:13px 16px;color:var(--text);font-family:'Raleway',sans-serif;font-size:14px;font-weight:500;outline:none;transition:all 0.2s;}
-.form-input:focus,.form-textarea:focus{border-color:rgba(106,79,181,0.5);background:rgba(106,79,181,0.05);}
-.form-input::placeholder,.form-textarea::placeholder{color:var(--muted2);}
-.form-textarea{resize:vertical;min-height:120px;line-height:1.6;}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
-.form-submit{width:100%;padding:15px;border-radius:99px;font-family:'Raleway',sans-serif;font-size:14px;font-weight:700;cursor:pointer;border:none;background:linear-gradient(135deg,var(--violet),var(--violet-d));color:#fff;box-shadow:0 6px 24px rgba(106,79,181,0.3);transition:all 0.2s;margin-top:8px;letter-spacing:0.02em;}
-.form-submit:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(106,79,181,0.4);}
-.form-submit:disabled{opacity:0.5;cursor:not-allowed;transform:none;}
+#contact{background:var(--cream-deep);}
+.contact-layout{display:grid;grid-template-columns:0.85fr 1.15fr;gap:18px;}
+.contact-info-card{background:var(--paper);border-radius:var(--radius-lg);padding:40px;display:flex;flex-direction:column;gap:22px;}
+.contact-item{display:flex;align-items:flex-start;gap:14px;}
+.contact-icon{width:42px;height:42px;border-radius:12px;background:var(--sage-pale);display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;}
+.contact-item-title{font-size:13px;font-weight:700;margin-bottom:3px;}
+.contact-item-val{font-size:12.5px;color:var(--ink-soft);}
+.contact-item-val a{text-decoration:none;color:var(--ink-soft);}
+.contact-item-val a:hover{color:var(--terracotta);}
+.contact-form{background:var(--paper);border-radius:var(--radius-lg);padding:40px;}
+.f-group{margin-bottom:16px;}
+.f-label{display:block;font-size:11px;font-weight:700;color:var(--ink-soft);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:7px;}
+.f-input,.f-textarea{width:100%;background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:13px 15px;font-family:'Inter',sans-serif;font-size:13.5px;color:var(--ink);outline:none;transition:border-color 0.2s;}
+.f-input:focus,.f-textarea:focus{border-color:var(--sage);}
+.f-input::placeholder,.f-textarea::placeholder{color:var(--ink-faint);}
+.f-textarea{resize:vertical;min-height:100px;}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.f-success{background:var(--sage-pale);color:var(--sage-deep);border-radius:12px;padding:13px 16px;font-size:12.5px;margin-top:14px;display:none;text-align:center;font-weight:600;}
+.f-success.show{display:block;}
 
-/* ── FOOTER ── */
-footer{background:var(--bg);border-top:1px solid var(--card-border);padding:48px 24px;}
-.footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;}
-.footer-brand{font-family:'Cinzel',serif;font-size:15px;font-weight:700;color:var(--text);letter-spacing:0.1em;margin-bottom:12px;display:flex;align-items:center;gap:10px;}
-.footer-desc{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:20px;}
-.footer-social{display:flex;gap:10px;}
-.social-btn{width:36px;height:36px;border-radius:10px;background:var(--card);border:1px solid var(--card-border);display:flex;align-items:center;justify-content:center;font-size:16px;cursor:pointer;transition:all 0.2s;text-decoration:none;}
-.social-btn:hover{border-color:rgba(106,79,181,0.4);background:rgba(106,79,181,0.1);}
-.footer-col-title{font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted2);margin-bottom:16px;}
-.footer-links{display:flex;flex-direction:column;gap:10px;}
-.footer-link{font-size:13px;color:var(--muted);text-decoration:none;cursor:pointer;transition:color 0.2s;}
-.footer-link:hover{color:var(--text);}
-.footer-bottom{max-width:1100px;margin:32px auto 0;padding-top:24px;border-top:1px solid var(--card-border);display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--muted2);}
+footer{background:var(--ink);color:var(--cream);border-radius:var(--radius-lg) var(--radius-lg) 0 0;margin-top:0;padding:64px 0 28px;}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;margin-bottom:48px;}
+.footer-brand{display:flex;align-items:center;gap:9px;font-family:'Fraunces',serif;font-size:17px;font-weight:600;margin-bottom:14px;}
+.footer-desc{font-size:13px;color:rgba(245,240,230,0.55);line-height:1.7;margin-bottom:20px;max-width:280px;}
+.footer-col-title{font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(245,240,230,0.4);margin-bottom:16px;}
+.footer-link{display:block;font-size:13px;color:rgba(245,240,230,0.7);text-decoration:none;margin-bottom:11px;cursor:pointer;transition:color 0.2s;}
+.footer-link:hover{color:var(--terracotta);}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:26px;border-top:1px solid rgba(245,240,230,0.12);font-size:12px;color:rgba(245,240,230,0.4);flex-wrap:wrap;gap:10px;}
 
-/* ── ANIMATIONS ── */
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
-@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
-.fade-up{opacity:0;transform:translateY(30px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.modal-overlay{position:fixed;inset:0;background:rgba(35,31,24,0.55);backdrop-filter:blur(4px);z-index:1000;display:none;align-items:center;justify-content:center;padding:20px;}
+.modal-overlay.open{display:flex;}
+.modal{background:var(--paper);border-radius:28px;max-width:560px;width:100%;max-height:85vh;overflow-y:auto;box-shadow:0 32px 80px rgba(0,0,0,0.25);animation:modalIn 0.3s cubic-bezier(0.34,1.56,0.64,1);}
+@keyframes modalIn{from{opacity:0;transform:scale(0.92) translateY(16px)}to{opacity:1;transform:scale(1) translateY(0)}}
+.modal-head{padding:32px 36px 18px;position:relative;}
+.modal-close{position:absolute;top:24px;right:26px;width:32px;height:32px;border-radius:50%;border:none;background:var(--sage-pale);font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+.modal-title{font-family:'Fraunces',serif;font-size:22px;}
+.modal-body{padding:8px 36px 36px;font-size:14.5px;color:var(--ink-soft);line-height:1.85;}
+.modal-body p{margin-bottom:14px;}
+
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity 0.7s ease,transform 0.7s ease;}
 .fade-up.visible{opacity:1;transform:translateY(0);}
 
-/* ── SUCCESS MSG ── */
-.success-msg{background:rgba(76,175,125,0.15);border:1px solid rgba(76,175,125,0.3);border-radius:12px;padding:14px 18px;font-size:13px;color:#4caf7d;margin-top:14px;display:none;text-align:center;}
-.success-msg.show{display:block;}
-
-/* ── MOBILE ── */
-@media(max-width:900px){
-  .steps{grid-template-columns:1fr 1fr;}
-  .about-grid,.triggers-wrap,.contact-grid,.services-intro{grid-template-columns:1fr;}
-  .services-grid{grid-template-columns:1fr 1fr;}
-  .testimonials-grid{grid-template-columns:1fr 1fr;}
-  .footer-inner{grid-template-columns:1fr 1fr;}
-  .about-visual{display:none;}
+@media(max-width:980px){
+  .section-head{grid-template-columns:1fr;gap:16px;}
+  .bento{grid-template-columns:1fr;}
+  .bento-row{grid-template-columns:1fr;}
+  .mood-shell{grid-template-columns:1fr;}
+  .svc-layout{grid-template-columns:1fr;}
+  .svc-cards{flex-direction:column;}
+  .svc-card{min-height:260px;}
+  .pkg-grid{grid-template-columns:1fr;}
+  .pkg-card.featured{transform:none;}
+  .pkg-card.featured:hover{transform:translateY(-6px);}
+  .founder-layout{grid-template-columns:1fr;}
+  .testi-layout{grid-template-columns:1fr;}
+  .contact-layout{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+  .stat-strip{grid-template-columns:1fr 1fr;gap:24px;padding:30px 28px;}
+  .stat{border-left:none;padding-left:0;}
+  .hero-content{padding:40px 28px 44px;}
+  .hero-card{display:none;}
 }
-@media(max-width:600px){
-  nav{padding:0 16px;}
+@media(max-width:680px){
+  .container{padding:0 20px;}
+  nav{top:12px;width:calc(100% - 24px);}
   .nav-links{display:none;}
   .hamburger{display:flex;}
-  .steps,.services-grid,.testimonials-grid,.triggers-grid{grid-template-columns:1fr;}
-  section{padding:70px 16px;}
-  .cta-banner{padding:40px 22px;border-radius:20px;}
-  .form-row{grid-template-columns:1fr;}
-  .footer-inner{grid-template-columns:1fr;}
-  .footer-bottom{flex-direction:column;gap:8px;text-align:center;}
-  .hero-stats{gap:28px;}
+  #home{padding:90px 12px 0;}
+  .hero-shell{border-radius:24px;min-height:600px;}
+  .hero-content h1{font-size:34px;}
+  .hero-floating-pills{display:none;}
+  .f-row{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr;gap:28px;}
+  .mood-grid{grid-template-columns:1fr;}
+  section{padding:64px 0;}
 }
-
-/* ── HERO CANVAS ── */
-#heroCanvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;}
-.hero-content{position:relative;z-index:2;}
-.hero-bg{display:none;}
-.hero-orb{display:none;}
-.hero-fire-btn{position:absolute;bottom:32px;right:32px;z-index:3;background:rgba(106,79,181,0.25);border:1px solid rgba(155,127,212,0.4);color:#c9a0ff;padding:10px 22px;border-radius:99px;font-family:'Raleway',sans-serif;font-size:12px;font-weight:600;cursor:pointer;letter-spacing:0.08em;transition:all 0.2s;backdrop-filter:blur(6px);}
-.hero-fire-btn:hover{background:rgba(106,79,181,0.4);transform:translateY(-2px);}
-
-/* ── SCROLL REVEAL TRANSITIONS ── */
-.section-transition{position:relative;overflow:hidden;}
-.section-transition::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:120px;
-  background:linear-gradient(180deg,var(--bg) 0%,transparent 100%);
-  z-index:2;pointer-events:none;
-}
-.section-transition::after{
-  content:'';position:absolute;bottom:0;left:0;right:0;height:120px;
-  background:linear-gradient(0deg,var(--bg2) 0%,transparent 100%);
-  z-index:2;pointer-events:none;
-}
-
-/* ── FLOATING ORBS ── */
-.orb-container{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;}
-.orb{position:absolute;border-radius:50%;filter:blur(100px);opacity:0.12;animation:orbFloat linear infinite;}
-@keyframes orbFloat{0%{transform:translate(0,0) scale(1)}33%{transform:translate(30px,-20px) scale(1.05)}66%{transform:translate(-20px,15px) scale(0.95)}100%{transform:translate(0,0) scale(1)}}
-
-/* ── GLITCH TEXT EFFECT ── */
-.glitch{position:relative;}
-.glitch::before,.glitch::after{content:attr(data-text);position:absolute;top:0;left:0;width:100%;height:100%;}
-.glitch::before{animation:glitch1 4s infinite;color:rgba(155,127,212,0.5);clip-path:polygon(0 0,100% 0,100% 40%,0 40%);}
-.glitch::after{animation:glitch2 4s infinite;color:rgba(212,168,75,0.4);clip-path:polygon(0 60%,100% 60%,100% 100%,0 100%);}
-@keyframes glitch1{0%,90%,100%{transform:translate(0)}91%{transform:translate(-2px,0)}93%{transform:translate(2px,0)}95%{transform:translate(0)}}
-@keyframes glitch2{0%,90%,100%{transform:translate(0)}91%{transform:translate(2px,0)}93%{transform:translate(-2px,0)}95%{transform:translate(0)}}
-
-/* ── TYPING CURSOR ── */
-.typing-cursor{display:inline-block;width:3px;height:0.8em;background:var(--gold);margin-left:4px;vertical-align:middle;animation:blink 0.8s step-end infinite;}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
-
-/* ── COUNTER ANIMATION ── */
-@keyframes countUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
-.stat-num{animation:countUp 0.6s ease both;}
-
-/* ── EXPAND / READ MORE ── */
-.expand-wrap{position:relative;}
-.expand-content{display:grid;grid-template-rows:0fr;transition:grid-template-rows 0.4s cubic-bezier(0.4,0,0.2,1);}
-.expand-content.open{grid-template-rows:1fr;}
-.expand-content-inner{overflow:hidden;}
-.expand-btn{display:inline-flex;align-items:center;gap:6px;background:none;border:none;color:var(--violet);font-family:'Raleway',sans-serif;font-size:13px;font-weight:700;cursor:pointer;padding:4px 0;transition:gap 0.2s;}
-.expand-btn:hover{gap:9px;}
-.expand-btn .arrow{transition:transform 0.3s;font-size:11px;}
-.expand-btn.open .arrow{transform:rotate(180deg);}
-
-/* ── MODAL ── */
-.info-modal-overlay{position:fixed;inset:0;background:rgba(13,11,26,0.6);backdrop-filter:blur(4px);z-index:1000;display:none;align-items:center;justify-content:center;padding:20px;}
-.info-modal-overlay.open{display:flex;}
-.info-modal{background:#fff;border-radius:24px;max-width:560px;width:100%;max-height:85vh;overflow-y:auto;box-shadow:0 32px 80px rgba(0,0,0,0.25);animation:modalIn 0.3s cubic-bezier(0.34,1.56,0.64,1);}
-@keyframes modalIn{from{opacity:0;transform:scale(0.92) translateY(20px)}to{opacity:1;transform:scale(1) translateY(0)}}
-.info-modal-head{padding:28px 32px 20px;border-bottom:1px solid var(--card-border);position:relative;}
-.info-modal-head::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--violet),var(--gold));border-radius:24px 24px 0 0;}
-.info-modal-close{position:absolute;top:20px;right:24px;background:none;border:none;font-size:18px;color:var(--muted2);cursor:pointer;width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;transition:all 0.2s;}
-.info-modal-close:hover{background:var(--card);color:var(--text);}
-.info-modal-icon{font-size:28px;margin-bottom:12px;}
-.info-modal-title{font-family:'Cinzel',serif;font-size:20px;font-weight:700;color:var(--text);}
-.info-modal-body{padding:24px 32px 32px;font-size:14px;color:var(--muted);line-height:1.85;}
-.info-modal-body p{margin-bottom:14px;}
-.info-modal-body p:last-child{margin-bottom:0;}
 </style>
 </head>
 <body>
-<div class="orb-container" id="orbContainer">
-  <div class="orb" style="width:600px;height:600px;background:radial-gradient(circle,#6a4fb5,transparent);top:-10%;left:-10%;animation-duration:25s;"></div>
-  <div class="orb" style="width:400px;height:400px;background:radial-gradient(circle,#9b7fd4,transparent);top:30%;right:-5%;animation-duration:20s;animation-delay:-8s;"></div>
-  <div class="orb" style="width:350px;height:350px;background:radial-gradient(circle,#d4a84b,transparent);bottom:10%;left:20%;animation-duration:30s;animation-delay:-15s;"></div>
-</div>
 
-<!-- NAV -->
-<nav id="navbar">
-  <a class="nav-logo" href="#home">
-    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
-      <circle cx="16" cy="16" r="14.5" stroke="#9b7fd4" stroke-width="1.2" opacity="0.8"/>
-      <polygon points="16,4 27,24 5,24" fill="none" stroke="#9b7fd4" stroke-width="1.5"/>
-      <polygon points="16,13 22,24 10,24" fill="rgba(106,79,181,0.2)" stroke="#9b7fd4" stroke-width="1"/>
-      <polygon points="16,3 18,7 14,7" fill="#d4a84b"/>
-    </svg>
-    <div class="nav-brand">Aligned Order</div>
-  </a>
-  <div class="nav-links">
-    <a class="nav-link" onclick="scrollTo('home')">Home</a>
-    <a class="nav-link" onclick="scrollTo('packages')">Sessions</a>
-    <a class="nav-link" onclick="scrollTo('founder')">Founder</a>
-    <a class="nav-link" onclick="scrollTo('testimonials')">Stories</a>
-    <a class="nav-link" onclick="scrollTo('contact')">Contact</a>
-    <a class="nav-link" href="https://thealignedorder.netlify.app/login" target="_blank" style="color:rgba(240,236,255,0.4);font-size:12px;letter-spacing:0.05em;">&#128274; Members</a>
-    <a class="nav-cta" href="https://thealignedorder.netlify.app" target="_blank">Take the Assessment</a>
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="#home">
+      <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+        <circle cx="13" cy="13" r="11.5" stroke="#6b7d5a" stroke-width="1.1"/>
+        <path d="M13 6 L19 18 L7 18 Z" fill="none" stroke="#c9692f" stroke-width="1.3"/>
+      </svg>
+      Aligned Order
+    </a>
+    <div class="nav-links">
+      <a class="nav-link active" onclick="scrollToId('home')">Home</a>
+      <a class="nav-link" onclick="scrollToId('mood')">Check In</a>
+      <a class="nav-link" onclick="scrollToId('packages')">Sessions</a>
+      <a class="nav-link" onclick="scrollToId('founder')">Founder</a>
+      <a class="nav-link" onclick="scrollToId('testimonials')">Stories</a>
+      <a class="nav-link" onclick="scrollToId('contact')">Contact</a>
+    </div>
+    <a class="btn btn-terra btn-sm" href="https://thealignedorder.netlify.app" target="_blank">Take the Assessment</a>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
-  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
 </nav>
 
-<!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
-  <a class="nav-link" onclick="scrollTo('home');toggleMenu()">Home</a>
-  <a class="nav-link" onclick="scrollTo('packages');toggleMenu()">Sessions</a>
-  <a class="nav-link" onclick="scrollTo('founder');toggleMenu()">Founder</a>
-  <a class="nav-link" onclick="scrollTo('testimonials');toggleMenu()">Stories</a>
-  <a class="nav-link" onclick="scrollTo('contact');toggleMenu()">Contact</a>
-  <a class="nav-cta" href="https://thealignedorder.netlify.app" target="_blank">Take the Assessment</a>
+  <a class="nav-link" onclick="scrollToId('home');toggleMenu()">Home</a>
+  <a class="nav-link" onclick="scrollToId('mood');toggleMenu()">Check In</a>
+  <a class="nav-link" onclick="scrollToId('packages');toggleMenu()">Sessions</a>
+  <a class="nav-link" onclick="scrollToId('founder');toggleMenu()">Founder</a>
+  <a class="nav-link" onclick="scrollToId('testimonials');toggleMenu()">Stories</a>
+  <a class="nav-link" onclick="scrollToId('contact');toggleMenu()">Contact</a>
+  <a class="btn btn-terra" href="https://thealignedorder.netlify.app" target="_blank">Take the Assessment</a>
 </div>
 
-<!-- HERO -->
-<section id="home" style="position:relative;overflow:hidden;background:#0d0b1a;">
-  <div class="hero-bg"></div>
-  <div class="hero-orb hero-orb-1"></div>
-  <div class="hero-orb hero-orb-2"></div>
-  <canvas id="heroCanvas"></canvas>
-  <button class="hero-fire-btn" onclick="triggerBurst()">⚡ Fire Neurons</button>
-  <div class="hero-content">
-    <div class="hero-badge">Emotional Intelligence Coaching</div>
-    <h1>Transform Your <em>Triggers.</em><br>Reclaim Your Power.</h1>
-    <p class="hero-sub">Most people manage their emotions. We help you master them. Discover your trigger patterns and break free from the cycles holding you back.</p>
-    <div class="hero-btns">
-      <a class="btn-primary" href="https://thealignedorder.netlify.app" target="_blank">Take the Free Assessment →</a>
-      <a class="btn-secondary" onclick="scrollTo('packages')">Explore Sessions</a>
-    </div>
-    <div class="hero-stats" id="heroStats">
-      <div class="stat"><div class="stat-num">3–4</div><div class="stat-lbl">Minutes to complete</div></div>
-      <div class="stat"><div class="stat-num">5</div><div class="stat-lbl">Trigger components</div></div>
-      <div class="stat"><div class="stat-num">100%</div><div class="stat-lbl">Personalised results</div></div>
-      <div class="stat"><div class="stat-num">Free</div><div class="stat-lbl">Discovery call</div></div>
-    </div>
-  </div>
-</section>
+<section id="home" style="padding-top:118px;">
+  <div class="container" style="padding:0 18px;max-width:1240px;">
+    <div class="hero-shell">
+      <img class="hero-photo" src="https://images.pexels.com/photos/12971112/pexels-photo-12971112.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Woman finding peace in a golden field">
+      <div class="hero-scrim"></div>
 
+      <div class="hero-card">
+        <div class="hero-card-arrow">↗</div>
+        <img src="https://images.pexels.com/photos/12971113/pexels-photo-12971113.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Matyyx Zander Tahero">
+        <div class="hero-card-name">Matyyx Zander Tahero</div>
+        <div class="hero-card-role">Your Dedicated Trigger Coach &amp; Support Partner</div>
+      </div>
 
-<!-- PROBLEM SECTION -->
-<section id="problem" style="padding:80px 0;background:linear-gradient(180deg,#fbf8f2 0%,#f3ece1 100%);overflow:hidden;">
-  <div class="container">
-    <div style="text-align:center;max-width:600px;margin:0 auto 48px;padding:0 24px;">
-      <div class="section-badge">Sound Familiar?</div>
-      <h2>You're Not Broken.<br>You're <em>Triggered.</em></h2>
-      <p class="section-sub" style="margin:0 auto;">Reactions that feel out of control. Patterns you can't explain.</p>
-    </div>
-  </div>
+      <div class="hero-content">
+        <div class="hero-eyebrow">Emotional Intelligence Coaching</div>
+        <h1>A new beginning<br>to calm</h1>
+        <p>Begin your journey back to clarity with support and tools built for a steadier, more aligned mind.</p>
+        <div class="hero-btns">
+          <a class="btn btn-terra" href="https://thealignedorder.netlify.app" target="_blank">Get Started Today</a>
+          <a class="btn btn-pill-ghost" onclick="scrollToId('mood')">Check In Now</a>
+        </div>
+      </div>
 
-  <div class="pattern-slider-wrap fade-up">
-    <div class="pattern-slider" id="patternSlider">
-      <div class="pattern-card" style="background:linear-gradient(135deg,#3d2d75,#241a4d);">
-        <div class="pattern-orb"></div>
-        <div class="pattern-eyebrow" style="color:#c9a0ff;">The pattern</div>
-        <div class="pattern-title" style="color:#fff;">You snap — then regret it</div>
-        <div class="pattern-text" style="color:rgba(255,255,255,0.6);">Small things trigger huge reactions you regret instantly.</div>
-      </div>
-      <div class="pattern-card" style="background:var(--card);border:1px solid var(--card-border);">
-        <div class="pattern-eyebrow" style="color:var(--gold);">The pattern</div>
-        <div class="pattern-title" style="color:var(--text);">Stress follows you everywhere</div>
-        <div class="pattern-text" style="color:var(--muted);">Bleeds from one part of life into everything else.</div>
-      </div>
-      <div class="pattern-card" style="background:var(--card);border:1px solid var(--card-border);">
-        <div class="pattern-eyebrow" style="color:var(--gold);">The pattern</div>
-        <div class="pattern-title" style="color:var(--text);">Repeating patterns</div>
-        <div class="pattern-text" style="color:var(--muted);">Same reactions, nothing changes.</div>
-      </div>
-      <div class="pattern-card" style="background:linear-gradient(135deg,var(--violet),var(--violet-d));">
-        <div class="pattern-eyebrow" style="color:rgba(255,255,255,0.75);">The pattern</div>
-        <div class="pattern-title" style="color:#fff;">Relationships suffer</div>
-        <div class="pattern-text" style="color:rgba(255,255,255,0.65);">Connection replaced by tension.</div>
-      </div>
-      <div class="pattern-card" style="background:var(--card);border:1px solid var(--card-border);">
-        <div class="pattern-eyebrow" style="color:var(--gold);">The pattern</div>
-        <div class="pattern-title" style="color:var(--text);">Mind won't switch off</div>
-        <div class="pattern-text" style="color:var(--muted);">Overthinking long after it's over.</div>
-      </div>
-      <div class="pattern-card" style="background:var(--gold);">
-        <div class="pattern-eyebrow" style="color:rgba(42,33,24,0.6);">The pattern</div>
-        <div class="pattern-title" style="color:#2a2118;">Wearing a mask</div>
-        <div class="pattern-text" style="color:rgba(42,33,24,0.7);">Exhausting — and invisible.</div>
+      <div class="hero-floating-pills">
+        <div class="hero-pill">Find Your Calm</div>
+        <div class="hero-pill">We Hold Space for You</div>
+        <div class="hero-pill">Path to Alignment</div>
       </div>
     </div>
-  </div>
 
-  <div class="pattern-controls">
-    <button class="pattern-arrow" onclick="patternSlide(-1)" aria-label="Previous">&#8592;</button>
-    <div class="pattern-dots" id="patternDots"></div>
-    <button class="pattern-arrow" onclick="patternSlide(1)" aria-label="Next">&#8594;</button>
-  </div>
-
-  <div class="container">
-    <div style="text-align:center;background:var(--paper);border:1px solid var(--card-border);border-radius:20px;padding:36px;max-width:680px;margin:48px auto 0;">
-      <div style="font-family:'Cinzel',serif;font-size:20px;color:var(--text);margin-bottom:12px;">Sound familiar? You're in the right place.</div>
-      <div style="font-size:14px;color:var(--muted);line-height:1.8;margin-bottom:24px;">These are <strong style="color:var(--violet)">trigger patterns</strong> — and they can be changed.</div>
-      <a class="btn-primary" href="https://thealignedorder.netlify.app" target="_blank">Discover Your Triggers — It's Free →</a>
+    <div class="stat-strip">
+      <div class="stat"><div class="stat-num">200+</div><div class="stat-lbl">Lives Changed</div></div>
+      <div class="stat"><div class="stat-num">95%</div><div class="stat-lbl">Positive Impact</div></div>
+      <div class="stat"><div class="stat-num">8+</div><div class="stat-lbl">Years Experience</div></div>
+      <div class="stat"><div class="stat-num">4.9★</div><div class="stat-lbl">Average Rating</div></div>
     </div>
   </div>
 </section>
 
-<!-- HOW IT WORKS -->
-<section id="how" style="padding:80px 24px;background:linear-gradient(180deg,#fbf8f2 0%,#f3ece1 100%);">
+<section id="about">
   <div class="container">
-    <div style="text-align:center;max-width:580px;margin:0 auto 60px;">
-      <div class="section-badge">How It Works</div>
-      <h2>Three Steps to <em>Lasting Change</em></h2>
-      <p class="section-sub" style="margin:0 auto;">Simple, powerful, built around you.</p>
+    <div class="bento fade-up">
+      <div class="bento-photo">
+        <img src="https://images.pexels.com/photos/12971114/pexels-photo-12971114.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Woman in a wheat field, reflective moment">
+      </div>
+      <div class="bento-text">
+        <div class="eyebrow">About Us</div>
+        <h2>More Than Coaching — It's Inner Order</h2>
+        <p>A purpose-led space focused on safe, effective and compassionate emotional work. Our approach is rooted in mapping your triggers with clarity and rebuilding your response with intention.</p>
+        <div><a class="btn btn-ink btn-sm" onclick="openModal('about')">Read Our Story</a></div>
+      </div>
     </div>
-    <div class="steps">
-      <div class="step fade-up">
-        <div class="step-num">01</div>
-        <div class="step-icon">📋</div>
-        <div class="step-title">Take the Free Assessment</div>
-        <div class="step-text">10 adaptive questions, real-time insights as you go. Takes 3–4 minutes.</div>
+
+    <div class="bento-row fade-up">
+      <div class="feature-card paper">
+        <div class="feature-icon">🧭</div>
+        <div>
+          <h4>Clarity of Mind</h4>
+          <p>Structured reflection helps you process patterns clearly and reduce mental overload over time.</p>
+        </div>
+        <a class="feature-link" style="color:var(--terracotta);" onclick="openModal('clarity')">Read More →</a>
       </div>
-      <div class="step fade-up">
-        <div class="step-num">02</div>
-        <div class="step-icon">🔍</div>
-        <div class="step-title">Receive Your Trigger Profile</div>
-        <div class="step-text">Your score across 5 trigger components, with AI insights sent straight to your inbox.</div>
-      </div>
-      <div class="step fade-up">
-        <div class="step-num">03</div>
-        <div class="step-icon">🔥</div>
-        <div class="step-title">Transform with Coaching</div>
-        <div class="step-text">Qualify for a free Discovery Call, then work directly with us to dismantle the patterns holding you back.</div>
+      <div class="feature-card sage">
+        <div class="feature-icon">💛</div>
+        <div>
+          <h4>Emotional Awareness</h4>
+          <p>Guided questions help you name what you feel and trace it back to where it began.</p>
+        </div>
+        <a class="feature-link" style="color:#fff;" onclick="openModal('awareness')">Read More →</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- COURSE PACKAGES -->
-<section id="packages" style="padding:80px 24px;background:linear-gradient(180deg,#f3ece1 0%,#fbf8f2 100%);">
+<section id="mood">
   <div class="container">
-    <div style="text-align:center;max-width:680px;margin:0 auto 20px;">
-      <div class="section-badge">Limited Time — Introductory Offer</div>
-      <h2>Coaching <em>Sessions</em></h2>
-      <p class="section-sub" style="margin:0 auto;">Choose the session bundle that matches your commitment — and save with introductory pricing.</p>
-    </div>
-
-    <div style="text-align:center;margin-bottom:48px;">
-      <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(212,168,75,0.12);border:1px solid rgba(212,168,75,0.3);border-radius:99px;padding:8px 20px;font-size:12.5px;font-weight:600;color:#d4a84b;">
-        <span>&#9889;</span> Introductory pricing — save up to 25% for a limited time
+    <div class="mood-shell fade-up">
+      <div class="mood-left">
+        <div class="eyebrow">Our AI Feature</div>
+        <h2>How are you feeling<br>right now?</h2>
+        <p>Select a mood and share a thought. Let us offer a moment of clarity — privately, instantly, and free.</p>
+        <div class="mood-priv">🔒 Private &amp; secure — nothing is stored without your consent</div>
       </div>
-    </div>
-
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
-
-      <!-- FOUNDATION -->
-      <div class="fade-up" style="background:rgba(106,79,181,0.04);border:1px solid rgba(106,79,181,0.14);border-radius:24px;padding:36px 30px;display:flex;flex-direction:column;transition:all 0.25s;" onmouseover="this.style.transform='translateY(-6px)';this.style.borderColor='rgba(106,79,181,0.35)'" onmouseout="this.style.transform='translateY(0)';this.style.borderColor='rgba(255,255,255,0.08)'">
-        <div style="font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#9090c0;margin-bottom:16px;">3 Sessions</div>
-        <div style="font-family:'Cinzel',serif;font-size:24px;font-weight:700;color:var(--text);margin-bottom:10px;">Foundation</div>
-        <div style="font-size:13.5px;color:rgba(42,33,24,0.6);line-height:1.75;margin-bottom:24px;min-height:40px;">Get clear on your core trigger patterns and build foundational awareness.</div>
-        <div style="margin-bottom:28px;">
-          <span style="font-size:14px;color:rgba(42,33,24,0.38);text-decoration:line-through;">$450</span>
-          <div style="display:flex;align-items:baseline;gap:6px;">
-            <span style="font-family:'Cinzel',serif;font-size:36px;font-weight:700;color:var(--text);">$360</span>
-            <span style="font-size:13px;color:rgba(42,33,24,0.48);">/ sessions</span>
+      <div class="mood-right">
+        <div id="moodStep1">
+          <div class="mood-step-label">Step 1 of 2</div>
+          <div class="mood-q">Select a mood and share a thought.</div>
+          <div class="mood-grid">
+            <div class="mood-opt" data-mood="Anxious" onclick="selectMood(this,'Anxious')"><span class="em">😰</span> Anxious</div>
+            <div class="mood-opt" data-mood="Low / Sad" onclick="selectMood(this,'Low / Sad')"><span class="em">🌧️</span> Low / Sad</div>
+            <div class="mood-opt" data-mood="Overwhelmed" onclick="selectMood(this,'Overwhelmed')"><span class="em">🌀</span> Overwhelmed</div>
+            <div class="mood-opt" data-mood="Lonely" onclick="selectMood(this,'Lonely')"><span class="em">🌙</span> Lonely</div>
           </div>
-          <div style="font-size:11.5px;color:#4caf7d;margin-top:4px;font-weight:600;">Save $90 — $120/session</div>
-        </div>
-        <div style="display:flex;flex-direction:column;gap:11px;margin-bottom:28px;flex:1;">
-          <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:rgba(42,33,24,0.68);"><span style="color:#9b7fd4;flex-shrink:0;">&#10022;</span>Identify your top 3 trigger patterns</div>
-          <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:rgba(42,33,24,0.68);"><span style="color:#9b7fd4;flex-shrink:0;">&#10022;</span>Understand the root causes</div>
-          <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:rgba(42,33,24,0.68);"><span style="color:#9b7fd4;flex-shrink:0;">&#10022;</span>Initial regulation tools and techniques</div>
-          <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:rgba(42,33,24,0.68);"><span style="color:#9b7fd4;flex-shrink:0;">&#10022;</span>Personalised action plan</div>
-        </div>
-        <a href="https://calendly.com/alignedorder/paid-session" target="_blank" style="display:block;text-align:center;padding:13px;border-radius:99px;background:transparent;color:#9b7fd4;border:1.5px solid rgba(106,79,181,0.35);font-family:'Raleway',sans-serif;font-size:13.5px;font-weight:700;text-decoration:none;transition:all 0.2s;">Get Started →</a>
-      </div>
-
-      <!-- BREAKTHROUGH (featured) -->
-      <div class="fade-up" style="background:linear-gradient(135deg,#3d2d75,#241a4d);border:1px solid rgba(155,127,212,0.4);border-radius:24px;padding:36px 30px;display:flex;flex-direction:column;position:relative;overflow:hidden;transform:scale(1.03);box-shadow:0 20px 60px rgba(74,52,144,0.35);">
-        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#6a4fb5,#d4a84b);"></div>
-        <div style="position:absolute;top:18px;right:-32px;background:#d4a84b;color:#0d0b1a;font-size:10px;font-weight:800;padding:5px 36px;transform:rotate(40deg);letter-spacing:0.05em;">MOST POPULAR</div>
-        <div style="font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#c9a0ff;margin-bottom:16px;">6 Sessions</div>
-        <div style="font-family:'Cinzel',serif;font-size:24px;font-weight:700;color:#fff;margin-bottom:10px;">Breakthrough</div>
-        <div style="font-size:13.5px;color:rgba(255,255,255,0.7);line-height:1.75;margin-bottom:24px;min-height:40px;">Enough depth to move from awareness into real behavioural change.</div>
-        <div style="margin-bottom:28px;">
-          <span style="font-size:14px;color:rgba(255,255,255,0.4);text-decoration:line-through;">$900</span>
-          <div style="display:flex;align-items:baseline;gap:6px;">
-            <span style="font-family:'Cinzel',serif;font-size:36px;font-weight:700;color:#fff;">$660</span>
-            <span style="font-size:13px;color:rgba(255,255,255,0.55);">/ sessions</span>
+          <div class="mood-input-wrap">
+            <textarea class="mood-input" id="moodNote" placeholder="Tell me more about how you're feeling…"></textarea>
+            <button class="mood-submit" id="moodSubmitBtn" onclick="submitMood()" disabled>✦ Get Mindful Insight</button>
           </div>
-          <div style="font-size:11.5px;color:#7ee8a8;margin-top:4px;font-weight:600;">Save $240 — $110/session</div>
         </div>
-        <div style="display:flex;flex-direction:column;gap:11px;margin-bottom:28px;flex:1;">
-          <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:rgba(255,255,255,0.8);"><span style="color:#d4a84b;flex-shrink:0;">&#10022;</span>Everything in Foundation, plus:</div>
-          <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:rgba(255,255,255,0.8);"><span style="color:#d4a84b;flex-shrink:0;">&#10022;</span>Deep work across relationships, work & family triggers</div>
-          <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:rgba(255,255,255,0.8);"><span style="color:#d4a84b;flex-shrink:0;">&#10022;</span>Practical reframing & nervous system tools</div>
-          <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:rgba(255,255,255,0.8);"><span style="color:#d4a84b;flex-shrink:0;">&#10022;</span>Real-time progress tracking between sessions</div>
-          <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:rgba(255,255,255,0.8);"><span style="color:#d4a84b;flex-shrink:0;">&#10022;</span>Priority scheduling</div>
+
+        <div class="mood-result" id="moodResult">
+          <div class="mood-typing" id="moodTyping"><span></span><span></span><span></span></div>
+          <div id="moodResultInner"></div>
         </div>
-        <a href="https://calendly.com/alignedorder/paid-session" target="_blank" style="display:block;text-align:center;padding:14px;border-radius:99px;background:linear-gradient(135deg,#6a4fb5,#4a3490);color:#fff;font-family:'Raleway',sans-serif;font-size:14px;font-weight:700;text-decoration:none;box-shadow:0 8px 28px rgba(106,79,181,0.4);transition:all 0.2s;">Start Breakthrough →</a>
       </div>
-
-      <!-- MASTERY -->
-      <div class="fade-up" style="background:rgba(255,255,255,0.03);border:1px solid rgba(212,168,75,0.25);border-radius:24px;padding:36px 30px;display:flex;flex-direction:column;transition:all 0.25s;" onmouseover="this.style.transform='translateY(-6px)';this.style.borderColor='rgba(212,168,75,0.45)'" onmouseout="this.style.transform='translateY(0)';this.style.borderColor='rgba(212,168,75,0.25)'">
-        <div style="font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#e8c47a;margin-bottom:16px;">10 Sessions</div>
-        <div style="font-family:'Cinzel',serif;font-size:24px;font-weight:700;color:var(--text);margin-bottom:10px;">Mastery</div>
-        <div style="font-size:13.5px;color:rgba(42,33,24,0.6);line-height:1.75;margin-bottom:24px;min-height:40px;">Complete reprogramming with ongoing support and accountability.</div>
-        <div style="margin-bottom:28px;">
-          <span style="font-size:14px;color:rgba(42,33,24,0.38);text-decoration:line-through;">$1,500</span>
-          <div style="display:flex;align-items:baseline;gap:6px;">
-            <span style="font-family:'Cinzel',serif;font-size:36px;font-weight:700;color:var(--text);">$1,125</span>
-            <span style="font-size:13px;color:rgba(42,33,24,0.48);">/ sessions</span>
-          </div>
-          <div style="font-size:11.5px;color:#4caf7d;margin-top:4px;font-weight:600;">Save $375 — $112.50/session</div>
-        </div>
-        <div style="display:flex;flex-direction:column;gap:11px;margin-bottom:28px;flex:1;">
-          <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:rgba(42,33,24,0.68);"><span style="color:#d4a84b;flex-shrink:0;">&#10022;</span>Everything in Breakthrough, plus:</div>
-          <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:rgba(42,33,24,0.68);"><span style="color:#d4a84b;flex-shrink:0;">&#10022;</span>Full trigger pattern reprogramming</div>
-          <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:rgba(42,33,24,0.68);"><span style="color:#d4a84b;flex-shrink:0;">&#10022;</span>Ongoing accountability check-ins</div>
-          <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:rgba(42,33,24,0.68);"><span style="color:#d4a84b;flex-shrink:0;">&#10022;</span>WhatsApp support between sessions</div>
-          <div style="display:flex;align-items:flex-start;gap:9px;font-size:13px;color:rgba(42,33,24,0.68);"><span style="color:#d4a84b;flex-shrink:0;">&#10022;</span>3-month follow-up session included</div>
-        </div>
-        <a href="https://calendly.com/alignedorder/paid-session" target="_blank" style="display:block;text-align:center;padding:13px;border-radius:99px;background:transparent;color:#e8c47a;border:1.5px solid rgba(212,168,75,0.4);font-family:'Raleway',sans-serif;font-size:13.5px;font-weight:700;text-decoration:none;transition:all 0.2s;">Begin Mastery →</a>
-      </div>
-
-    </div>
-
-    <div style="text-align:center;margin-top:40px;">
-      <p style="font-size:13px;color:rgba(42,33,24,0.42);">Not sure which session bundle is right for you? <a href="https://calendly.com/alignedorder/30min" target="_blank" style="color:#9b7fd4;text-decoration:none;font-weight:600;">Book a free Discovery Call</a> and we'll help you decide.</p>
     </div>
   </div>
 </section>
 
-<!-- FOUNDER -->
-<section id="founder" style="padding:80px 24px;background:linear-gradient(180deg,#fbf8f2 0%,#f3ece1 100%);">
+<section id="problem">
   <div class="container">
-    <div style="text-align:center;max-width:580px;margin:0 auto 56px;">
-      <div class="section-badge">Meet the Founder</div>
-      <h2>The Person Behind <em>Aligned Order</em></h2>
-      <p class="section-sub" style="margin:0 auto;">Coaching built on lived experience, not just theory.</p>
-    </div>
-
-    <div style="display:grid;grid-template-columns:0.8fr 1.2fr;gap:60px;align-items:center;max-width:960px;margin:0 auto;">
-
-      <!-- PHOTO / AVATAR CARD -->
-      <div class="fade-up" style="position:relative;">
-        <div style="background:linear-gradient(135deg,#fbf8f2,#f3ece1);border:1px solid var(--card-border);border-radius:24px;padding:8px;box-shadow:0 24px 60px rgba(106,79,181,0.12);">
-          <div style="border-radius:18px;aspect-ratio:1;position:relative;overflow:hidden;">
-            <img src="images/founder.jpg" alt="Matyyx Zander Tahero" style="width:100%;height:100%;object-fit:cover;object-position:center 25%;display:block;">
-            <div style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(106,79,181,0.15) 100%);"></div>
-          </div>
-        </div>
-        <div style="position:absolute;bottom:-16px;right:-16px;background:var(--paper);border:1px solid var(--card-border);border-radius:16px;padding:14px 18px;box-shadow:0 12px 32px rgba(168,122,40,0.15);">
-          <div style="font-size:10px;color:var(--muted2);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:2px;">Years of Practice</div>
-          <div style="font-family:'Cinzel',serif;font-size:20px;font-weight:700;color:var(--gold);">8+</div>
-        </div>
+    <div class="section-head fade-up">
+      <div>
+        <div class="eyebrow">Sound Familiar?</div>
+        <h2>You're not broken.<br>You're <span class="serif-italic">triggered.</span></h2>
       </div>
+      <div class="lede" style="justify-self:end;">Reactions that feel out of control. Patterns you can't quite explain. Drag through what's been showing up for you.</div>
+    </div>
+  </div>
 
-      <!-- BIO -->
+  <div class="pslider-track" id="pSlider">
+    <div class="pcard" style="background:var(--ink);color:var(--cream);">
+      <div class="pc-eyebrow">The pattern</div>
+      <h4>You snap — then regret it</h4>
+      <p>Small things trigger huge reactions you regret instantly.</p>
+    </div>
+    <div class="pcard" style="background:var(--paper);color:var(--ink);">
+      <div class="pc-eyebrow" style="color:var(--terracotta-deep);">The pattern</div>
+      <h4>Stress follows you everywhere</h4>
+      <p>Bleeds from one part of life into everything else.</p>
+    </div>
+    <div class="pcard" style="background:var(--terracotta);color:#fff;">
+      <div class="pc-eyebrow" style="opacity:0.8;">The pattern</div>
+      <h4>Repeating patterns</h4>
+      <p>Same reactions, nothing changes.</p>
+    </div>
+    <div class="pcard" style="background:var(--sage);color:#fff;">
+      <div class="pc-eyebrow" style="opacity:0.8;">The pattern</div>
+      <h4>Relationships suffer</h4>
+      <p>Connection replaced by tension.</p>
+    </div>
+    <div class="pcard" style="background:var(--paper);color:var(--ink);">
+      <div class="pc-eyebrow" style="color:var(--terracotta-deep);">The pattern</div>
+      <h4>Mind won't switch off</h4>
+      <p>Overthinking long after it's over.</p>
+    </div>
+    <div class="pcard" style="background:var(--cream-deep);border:1px solid var(--line);color:var(--ink);">
+      <div class="pc-eyebrow" style="color:var(--sage-deep);">The pattern</div>
+      <h4>Wearing a mask</h4>
+      <p>Exhausting — and invisible.</p>
+    </div>
+  </div>
+
+  <div class="pslider-controls">
+    <button class="pslider-arrow" onclick="pSlide(-1)" aria-label="Previous">←</button>
+    <div class="pslider-dots" id="pDots"></div>
+    <button class="pslider-arrow" onclick="pSlide(1)" aria-label="Next">→</button>
+  </div>
+
+  <div class="container">
+    <div style="text-align:center;background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:36px;max-width:640px;margin:48px auto 0;" class="fade-up">
+      <div style="font-family:'Fraunces',serif;font-size:20px;margin-bottom:12px;">Sound familiar? You're in the right place.</div>
+      <div style="font-size:14px;color:var(--ink-soft);line-height:1.8;margin-bottom:22px;">These are <strong style="color:var(--sage-deep);">trigger patterns</strong> — and they can be changed.</div>
+      <a class="btn btn-terra" href="https://thealignedorder.netlify.app" target="_blank">Discover Your Triggers — It's Free →</a>
+    </div>
+  </div>
+</section>
+
+<section id="services-detail">
+  <div class="container">
+    <div class="svc-layout">
       <div class="fade-up">
-        <div style="font-family:'Cinzel',serif;font-size:24px;font-weight:700;color:var(--text);margin-bottom:6px;">Matyyx Zander Tahero</div>
-        <div style="font-size:12.5px;font-weight:600;color:var(--violet-l);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:22px;">Founder &amp; Lead Coach</div>
-
-        <p style="font-size:14.5px;color:var(--muted);line-height:1.9;margin-bottom:16px;">I didn't start this from a textbook — I started it from my own struggle with triggers I couldn't explain.</p>
-        <button class="expand-btn" onclick="openInfoModal('founder')" style="margin-bottom:28px;">Read my full story <span class="arrow">▾</span></button>
-
-        <div style="background:rgba(106,79,181,0.05);border-left:3px solid var(--violet-l);border-radius:0 14px 14px 0;padding:18px 20px;margin-bottom:28px;">
-          <div style="font-size:14px;color:var(--text);line-height:1.7;font-style:italic;">"I'm not here to tell you to calm down. I'm here to show you why you can't — and walk with you until you can."</div>
-        </div>
-
-        <div style="display:flex;gap:28px;flex-wrap:wrap;">
-          <div>
-            <div style="font-family:'Cinzel',serif;font-size:22px;font-weight:700;color:var(--text);">200+</div>
-            <div style="font-size:11px;color:var(--muted2);text-transform:uppercase;letter-spacing:0.08em;margin-top:2px;">Clients Coached</div>
-          </div>
-          <div>
-            <div style="font-family:'Cinzel',serif;font-size:22px;font-weight:700;color:var(--text);">8+</div>
-            <div style="font-size:11px;color:var(--muted2);text-transform:uppercase;letter-spacing:0.08em;margin-top:2px;">Years Experience</div>
-          </div>
-          <div>
-            <div style="font-family:'Cinzel',serif;font-size:22px;font-weight:700;color:var(--text);">4.9★</div>
-            <div style="font-size:11px;color:var(--muted2);text-transform:uppercase;letter-spacing:0.08em;margin-top:2px;">Average Rating</div>
-          </div>
+        <div class="eyebrow">Our Core Services</div>
+        <h2 style="font-size:clamp(26px,3.4vw,38px);line-height:1.18;margin-bottom:14px;">Sessions Designed for Mindful Living</h2>
+        <p style="font-size:14.5px;color:var(--ink-soft);line-height:1.8;">Supportive care and tools to help you heal, grow, and build emotional strength every step of the way.</p>
+        <div class="svc-tabs" id="svcTabs">
+          <div class="svc-tab active" data-svc="discovery" onclick="setSvc('discovery',this)">Discovery Call</div>
+          <div class="svc-tab" data-svc="coaching" onclick="setSvc('coaching',this)">1:1 Coaching</div>
+          <div class="svc-tab" data-svc="mindfulness" onclick="setSvc('mindfulness',this)">Mindfulness Practice</div>
+          <div class="svc-tab" data-svc="assessment" onclick="setSvc('assessment',this)">Trigger Assessment</div>
         </div>
       </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section id="testimonials" style="padding:80px 24px;background:linear-gradient(180deg,#f3ece1 0%,#fbf8f2 100%);">
-  <div class="container">
-    <div style="text-align:center;max-width:580px;margin:0 auto 60px;">
-      <div class="section-badge">Client Stories</div>
-      <h2>Real People. Real <em>Results.</em></h2>
-      <p class="section-sub" style="margin:0 auto;">Real transformations from real people.</p>
-    </div>
-    <div class="testimonials-grid">
-      <div class="testi-card fade-up">
-        <div class="stars">★★★★★</div>
-        <div class="testi-text">"After two sessions, my wife noticed a difference before I even told her I was doing coaching."</div>
-        <div class="testi-author"><div class="testi-avatar">M</div><div><div class="testi-name">Michael R.</div><div class="testi-role">Business Owner, 41</div></div></div>
-      </div>
-      <div class="testi-card fade-up">
-        <div class="stars">★★★★★</div>
-        <div class="testi-text">"The assessment alone was eye-opening. The coaching was the missing piece I'd been searching for."</div>
-        <div class="testi-author"><div class="testi-avatar">S</div><div><div class="testi-name">Sarah K.</div><div class="testi-role">Marketing Director, 35</div></div></div>
-      </div>
-      <div class="testi-card fade-up">
-        <div class="stars">★★★★★</div>
-        <div class="testi-text">"The coaching gave me actual tools — not just awareness — to stay calm when my kids push my buttons."</div>
-        <div class="testi-author"><div class="testi-avatar">D</div><div><div class="testi-name">David T.</div><div class="testi-role">Father of 3, 38</div></div></div>
+      <div class="svc-cards fade-up">
+        <div class="svc-card">
+          <img src="https://images.pexels.com/photos/35378157/pexels-photo-35378157.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Cozy journaling moment">
+          <div class="svc-card-overlay"></div>
+        </div>
+        <div class="svc-card center">
+          <img src="https://images.pexels.com/photos/30644460/pexels-photo-30644460.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Discovery call session">
+          <div class="svc-card-tag">↗</div>
+          <div class="svc-card-overlay">
+            <div class="svc-card-title" id="svcCardTitle">Discovery Call</div>
+            <div class="svc-card-desc" id="svcCardDesc">A free 30-minute conversation to explore where you are and what's possible.</div>
+          </div>
+        </div>
+        <div class="svc-card">
+          <img src="https://images.pexels.com/photos/12354262/pexels-photo-12354262.jpeg?auto=compress&cs=tinysrgb&w=700" alt="Reflective moment in nature">
+          <div class="svc-card-overlay"></div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-
-<!-- FINAL CTA -->
-<section style="padding:80px 24px;">
+<section id="packages">
   <div class="container">
-    <div class="cta-banner fade-up">
-      <div class="section-badge">Start Today — It's Free</div>
-      <h2>The First Step Costs <em>Nothing</em></h2>
-      <p class="section-sub" style="margin:0 auto 36px;">3 minutes. No credit card. Just clarity.</p>
+    <div class="section-head fade-up">
+      <div>
+        <div class="pkg-banner">⚡ Limited Time — Introductory Offer</div>
+        <h2>Coaching <span class="serif-italic">Sessions</span></h2>
+      </div>
+      <div class="lede" style="justify-self:end;">Choose the session bundle that matches your commitment — and save with introductory pricing.</div>
+    </div>
+
+    <div class="pkg-grid">
+      <div class="pkg-card fade-up">
+        <div class="pkg-tag">3 Sessions</div>
+        <div class="pkg-name">Foundation</div>
+        <div class="pkg-desc">Get clear on your core trigger patterns and build foundational awareness.</div>
+        <div class="pkg-price-row">
+          <div class="pkg-was">$450</div>
+          <div class="pkg-now">$360 <span class="pkg-per">/ sessions</span></div>
+          <div class="pkg-save">Save $90 — $120/session</div>
+        </div>
+        <div class="pkg-feats">
+          <div class="pkg-feat">Identify your top 3 trigger patterns</div>
+          <div class="pkg-feat">Understand the root causes</div>
+          <div class="pkg-feat">Initial regulation tools and techniques</div>
+          <div class="pkg-feat">Personalised action plan</div>
+        </div>
+        <a class="btn btn-pill-ghost" style="border-color:var(--line);" href="https://calendly.com/alignedorder/paid-session" target="_blank">Get Started →</a>
+      </div>
+
+      <div class="pkg-card featured fade-up">
+        <div class="pkg-ribbon">MOST POPULAR</div>
+        <div class="pkg-tag">6 Sessions</div>
+        <div class="pkg-name">Breakthrough</div>
+        <div class="pkg-desc">Enough depth to move from awareness into real behavioural change.</div>
+        <div class="pkg-price-row">
+          <div class="pkg-was">$900</div>
+          <div class="pkg-now">$660 <span class="pkg-per">/ sessions</span></div>
+          <div class="pkg-save">Save $240 — $110/session</div>
+        </div>
+        <div class="pkg-feats">
+          <div class="pkg-feat">Everything in Foundation, plus:</div>
+          <div class="pkg-feat">Deep work across relationships, work &amp; family triggers</div>
+          <div class="pkg-feat">Practical reframing &amp; nervous system tools</div>
+          <div class="pkg-feat">Real-time progress tracking between sessions</div>
+          <div class="pkg-feat">Priority scheduling</div>
+        </div>
+        <a class="btn btn-terra" href="https://calendly.com/alignedorder/paid-session" target="_blank">Start Breakthrough →</a>
+      </div>
+
+      <div class="pkg-card fade-up">
+        <div class="pkg-tag">10 Sessions</div>
+        <div class="pkg-name">Mastery</div>
+        <div class="pkg-desc">Complete reprogramming with ongoing support and accountability.</div>
+        <div class="pkg-price-row">
+          <div class="pkg-was">$1,500</div>
+          <div class="pkg-now">$1,125 <span class="pkg-per">/ sessions</span></div>
+          <div class="pkg-save">Save $375 — $112.50/session</div>
+        </div>
+        <div class="pkg-feats">
+          <div class="pkg-feat">Everything in Breakthrough, plus:</div>
+          <div class="pkg-feat">Full trigger pattern reprogramming</div>
+          <div class="pkg-feat">Ongoing accountability check-ins</div>
+          <div class="pkg-feat">WhatsApp support between sessions</div>
+          <div class="pkg-feat">3-month follow-up session included</div>
+        </div>
+        <a class="btn btn-pill-ghost" style="border-color:var(--line);" href="https://calendly.com/alignedorder/paid-session" target="_blank">Begin Mastery →</a>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:32px;" class="fade-up">
+      <p style="font-size:13px;color:var(--ink-soft);">Not sure which session bundle is right for you? <a href="https://calendly.com/alignedorder/30min" target="_blank" style="color:var(--sage-deep);font-weight:700;text-decoration:underline;text-underline-offset:3px;">Book a free Discovery Call</a> and we'll help you decide.</p>
+    </div>
+  </div>
+</section>
+
+<section id="founder">
+  <div class="container">
+    <div class="founder-layout">
+      <div class="founder-photo-wrap fade-up">
+        <div class="founder-photo">
+          <img src="images/founder.jpg" alt="Matyyx Zander Tahero">
+        </div>
+        <div class="founder-badge">
+          <div class="founder-badge-num">8+</div>
+          <div class="founder-badge-lbl">Years of Practice</div>
+        </div>
+      </div>
+      <div class="fade-up">
+        <div class="eyebrow">Meet the Founder</div>
+        <div class="founder-name">Matyyx Zander Tahero</div>
+        <div class="founder-role">Founder &amp; Lead Coach</div>
+        <p class="founder-bio">I didn't start this from a textbook — I started it from my own struggle with triggers I couldn't explain.</p>
+        <button class="expand-link" onclick="openModal('founder')">Read my full story <span style="font-size:11px;">▾</span></button>
+        <div class="founder-quote">"I'm not here to tell you to calm down. I'm here to show you why you can't — and walk with you until you can."</div>
+        <div class="founder-stats">
+          <div><div class="founder-stat-num">200+</div><div class="founder-stat-lbl">Clients Coached</div></div>
+          <div><div class="founder-stat-num">8+</div><div class="founder-stat-lbl">Years Experience</div></div>
+          <div><div class="founder-stat-num">4.9★</div><div class="founder-stat-lbl">Average Rating</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="testimonials">
+  <div class="container">
+    <div class="section-head fade-up">
+      <div>
+        <div class="eyebrow">Testimonials</div>
+        <h2>What Our <span class="serif-italic">Clients</span> Say</h2>
+      </div>
+      <div class="lede" style="justify-self:end;">Real transformations from real people.</div>
+    </div>
+
+    <div class="testi-layout fade-up">
+      <div class="testi-aside">
+        <div class="testi-stat-card">
+          <div class="testi-stat-num">4.9 / 5</div>
+          <div class="testi-stat-lbl">★★★★★ Average rating across 60+ reviews</div>
+        </div>
+        <div class="testi-stat-card" style="background:var(--sage);color:#fff;flex:1;display:flex;flex-direction:column;justify-content:center;">
+          <div class="testi-stat-num">99%</div>
+          <div class="testi-stat-lbl" style="color:rgba(255,255,255,0.75);">Client satisfaction rate</div>
+        </div>
+      </div>
+      <div class="testi-main" id="testiMain">
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-quote" id="testiQuote">"After two sessions, my wife noticed a difference before I even told her I was doing coaching."</div>
+        <div class="testi-author">
+          <div class="testi-photo"><img id="testiPhoto" src="https://images.pexels.com/photos/35378157/pexels-photo-35378157.jpeg?auto=compress&cs=tinysrgb&w=200" alt=""></div>
+          <div>
+            <div class="testi-name" id="testiName">Michael R.</div>
+            <div class="testi-role" id="testiRole">Business Owner, 41</div>
+          </div>
+        </div>
+        <div class="testi-nav">
+          <button onclick="testiSlide(-1)">←</button>
+          <button onclick="testiSlide(1)">→</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="cta-final">
+  <div class="container">
+    <div class="cta-band fade-up">
+      <div class="eyebrow" style="color:var(--terracotta-pale);">Start Today — It's Free</div>
+      <h2>The first step costs <span class="serif-italic" style="color:var(--terracotta-pale);">nothing</span></h2>
+      <p>3 minutes. No credit card. Just clarity.</p>
       <div class="hero-btns">
-        <a class="btn-primary" href="https://thealignedorder.netlify.app" target="_blank">Take the Free Assessment →</a>
-        <a class="btn-secondary" href="https://calendly.com/alignedorder/30min" target="_blank">Book a Discovery Call</a>
+        <a class="btn btn-terra" href="https://thealignedorder.netlify.app" target="_blank">Take the Free Assessment →</a>
+        <a class="btn btn-pill-ghost" style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.2);color:#fff;" href="https://calendly.com/alignedorder/30min" target="_blank">Book a Discovery Call</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
-<section id="contact" style="padding:80px 24px;background:var(--bg2);">
+<section id="contact">
   <div class="container">
-    <div style="max-width:580px;margin-bottom:40px;">
-      <div class="section-badge">Contact Us</div>
-      <h2>Get in <em>Touch</em></h2>
-      <p class="section-sub">Questions? We'd love to hear from you.</p>
+    <div class="section-head fade-up">
+      <div>
+        <div class="eyebrow">Contact Us</div>
+        <h2>Get in <span class="serif-italic">Touch</span></h2>
+      </div>
+      <div class="lede" style="justify-self:end;">Have a question about our services? We'd love to hear from you.</div>
     </div>
-    <div class="contact-grid">
-      <div class="contact-info fade-up">
+
+    <div class="contact-layout fade-up">
+      <div class="contact-info-card">
         <div class="contact-item">
           <div class="contact-icon">✉</div>
           <div><div class="contact-item-title">Email Us</div><div class="contact-item-val"><a href="mailto:alignedorder@gmail.com">alignedorder@gmail.com</a></div></div>
@@ -703,703 +741,170 @@ footer{background:var(--bg);border-top:1px solid var(--card-border);padding:48px
           <div><div class="contact-item-title">Coaching Session</div><div class="contact-item-val"><a href="https://calendly.com/alignedorder/paid-session" target="_blank">calendly.com/alignedorder/paid-session</a></div></div>
         </div>
       </div>
-      <div class="contact-form fade-up">
-        <div class="form-row">
-          <div class="form-group"><label class="form-label">First Name</label><input class="form-input" id="cfFirst" placeholder="Your first name"></div>
-          <div class="form-group"><label class="form-label">Last Name</label><input class="form-input" id="cfLast" placeholder="Your last name"></div>
+      <div class="contact-form">
+        <div class="f-row">
+          <div class="f-group"><label class="f-label">First Name</label><input class="f-input" id="cfFirst" placeholder="Your first name"></div>
+          <div class="f-group"><label class="f-label">Last Name</label><input class="f-input" id="cfLast" placeholder="Your last name"></div>
         </div>
-        <div class="form-group"><label class="form-label">Email</label><input class="form-input" id="cfEmail" type="email" placeholder="you@email.com"></div>
-        <div class="form-group"><label class="form-label">Subject</label><input class="form-input" id="cfSubject" placeholder="What can we help you with?"></div>
-        <div class="form-group"><label class="form-label">Message</label><textarea class="form-textarea" id="cfMessage" placeholder="Tell us more…"></textarea></div>
-        <button class="form-submit" id="cfSubmit" onclick="submitContact()">Send Message →</button>
-        <div class="success-msg" id="cfSuccess">✓ Message sent! We'll get back to you within 24 hours.</div>
+        <div class="f-group"><label class="f-label">Email</label><input class="f-input" id="cfEmail" type="email" placeholder="you@email.com"></div>
+        <div class="f-group"><label class="f-label">Subject</label><input class="f-input" id="cfSubject" placeholder="What can we help you with?"></div>
+        <div class="f-group"><label class="f-label">Message</label><textarea class="f-textarea" id="cfMessage" placeholder="Tell us more…"></textarea></div>
+        <button class="btn btn-ink" style="width:100%;" id="cfSubmit" onclick="submitContact()">Send Message →</button>
+        <div class="f-success" id="cfSuccess">✓ Message sent! We'll get back to you within 24 hours.</div>
       </div>
     </div>
   </div>
 </section>
+
 <footer>
-  <div class="footer-inner">
-    <div>
-      <div class="footer-brand">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-          <circle cx="12" cy="12" r="11" stroke="#9b7fd4" stroke-width="1"/>
-          <polygon points="12,3 20,18 4,18" fill="none" stroke="#9b7fd4" stroke-width="1.2"/>
-          <polygon points="12,10 16,18 8,18" fill="rgba(106,79,181,0.2)" stroke="#9b7fd4" stroke-width="0.8"/>
-          <polygon points="12,2 13,5 11,5" fill="#d4a84b"/>
-        </svg>
-        Aligned Order
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="10.5" stroke="#9ed9a8" stroke-width="1"/>
+            <path d="M12 5 L17.5 17 L6.5 17 Z" fill="none" stroke="#c9692f" stroke-width="1.1"/>
+          </svg>
+          Aligned Order
+        </div>
+        <div class="footer-desc">Start healing today and step into a brighter tomorrow. Emotional intelligence coaching that meets you exactly where you are.</div>
+        <a class="btn btn-terra btn-sm" href="https://thealignedorder.netlify.app" target="_blank">Learn More</a>
       </div>
-      <div class="footer-desc">Emotional intelligence coaching that transforms your triggers and reclaims your power. Take the free assessment today.</div>
-      <div class="footer-social">
-        <a class="social-btn" href="mailto:alignedorder@gmail.com">✉</a>
-        <a class="social-btn" href="https://thealignedorder.netlify.app" target="_blank">◈</a>
+      <div>
+        <div class="footer-col-title">Navigation</div>
+        <a class="footer-link" onclick="scrollToId('home')">Home</a>
+        <a class="footer-link" onclick="scrollToId('mood')">Check In</a>
+        <a class="footer-link" onclick="scrollToId('packages')">Sessions</a>
+        <a class="footer-link" onclick="scrollToId('founder')">Founder</a>
       </div>
-    </div>
-    <div>
-      <div class="footer-col-title">Navigation</div>
-      <div class="footer-links">
-        <a class="footer-link" onclick="scrollTo('home')">Home</a>
-        <a class="footer-link" onclick="scrollTo('packages')">Sessions</a>
-        <a class="footer-link" onclick="scrollTo('founder')">Founder</a>
-        <a class="footer-link" onclick="scrollTo('contact')">Contact</a>
-      </div>
-    </div>
-    <div>
-      <div class="footer-col-title">Services</div>
-      <div class="footer-links">
+      <div>
+        <div class="footer-col-title">Resources</div>
         <a class="footer-link" href="https://thealignedorder.netlify.app" target="_blank">Free Assessment</a>
         <a class="footer-link" href="https://calendly.com/alignedorder/30min" target="_blank">Discovery Call</a>
-        <a class="footer-link" href="https://calendly.com/alignedorder/paid-session" target="_blank">Coaching Session</a>
         <a class="footer-link" href="https://thealignedorder.netlify.app/booking" target="_blank">Book Now</a>
+        <a class="footer-link" href="https://thealignedorder.netlify.app/members" target="_blank">🔒 Team Login</a>
+      </div>
+      <div>
+        <div class="footer-col-title">Contact</div>
+        <a class="footer-link" href="mailto:alignedorder@gmail.com">alignedorder@gmail.com</a>
+        <a class="footer-link" onclick="scrollToId('contact')">Send a Message</a>
       </div>
     </div>
-    <div>
-      <div class="footer-col-title">Get Started</div>
-      <div class="footer-links">
-        <a class="footer-link" href="https://thealignedorder.netlify.app" target="_blank">Take the Assessment</a>
-        <a class="footer-link" href="https://calendly.com/alignedorder/30min" target="_blank">Free 30-min Call</a>
-        <a class="footer-link" href="mailto:alignedorder@gmail.com">Email Us</a>
-        <a class="footer-link" href="https://thealignedorder.netlify.app/login" target="_blank">&#128274; Team Login</a>
-      </div>
+    <div class="footer-bottom">
+      <div>© 2026 Aligned Order. All rights reserved.</div>
+      <div>Transform Your Triggers. Reclaim Your Power.</div>
     </div>
-  </div>
-  <div class="footer-bottom">
-    <div>© 2026 Aligned Order. All rights reserved.</div>
-    <div>Transform Your Triggers. Reclaim Your Power.</div>
   </div>
 </footer>
 
-<!-- ── INFO MODALS ── -->
-<div class="info-modal-overlay" id="infoModalOverlay" onclick="closeInfoModal(event)">
-  <div class="info-modal" onclick="event.stopPropagation()">
-    <div class="info-modal-head">
-      <button class="info-modal-close" onclick="closeInfoModal()">&#10005;</button>
-      <div class="info-modal-icon" id="modalIcon">&#10024;</div>
-      <div class="info-modal-title" id="modalTitle">Title</div>
+<div class="modal-overlay" id="modalOverlay" onclick="closeModalBg(event)">
+  <div class="modal" onclick="event.stopPropagation()">
+    <div class="modal-head">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <div class="modal-title" id="modalTitle">Title</div>
     </div>
-    <div class="info-modal-body" id="modalBody"></div>
+    <div class="modal-body" id="modalBody"></div>
   </div>
 </div>
 
 <script>
-var INFO_CONTENT = {
-  founder: {
-    icon: '&#128100;',
-    title: 'Matyyx\'s Full Story',
-    body: '<p>I didn\'t start this work from a textbook — I started it from my own struggle with triggers I couldn\'t explain. Years spent reacting before thinking, carrying tension that never seemed to leave, and watching it quietly affect the people I cared about most.</p>' +
-          '<p>It took real work — and the right guidance — to understand that my reactions weren\'t random. They were patterns. Patterns that could be mapped, understood and changed.</p>' +
-          '<p>Aligned Order exists to give other people that same map — faster, clearer and more practically than I ever had it. Every assessment question, every coaching framework, comes from real lived experience of what actually creates change.</p>' +
-          '<p style="font-style:italic;color:var(--violet-l);margin-top:20px;">"I\'m not here to tell you to calm down. I\'m here to show you why you can\'t — and walk with you until you can."</p>'
-  }
-};
-
-function openInfoModal(key) {
-  var data = INFO_CONTENT[key];
-  if (!data) return;
-  document.getElementById('modalIcon').innerHTML = data.icon;
-  document.getElementById('modalTitle').textContent = data.title;
-  document.getElementById('modalBody').innerHTML = data.body;
-  document.getElementById('infoModalOverlay').classList.add('open');
-  document.body.style.overflow = 'hidden';
+function scrollToId(id){
+  document.getElementById(id).scrollIntoView({behavior:'smooth'});
 }
-function closeInfoModal(e) {
-  if (e && e.target !== document.getElementById('infoModalOverlay')) return;
-  document.getElementById('infoModalOverlay').classList.remove('open');
-  document.body.style.overflow = '';
-}
-window.openInfoModal = openInfoModal;
-window.closeInfoModal = closeInfoModal;
-</script>
-
-
-<script>
-// ── BRAIN + UNIVERSE HERO ANIMATION ──
-(function(){
-  const canvas = document.getElementById('heroCanvas');
-  const ctx = canvas.getContext('2d');
-  let W, H, nodes=[], stars=[], sparks=[], time=0;
-  let raf;
-
-  function resize(){
-    W = canvas.width = canvas.offsetWidth || window.innerWidth;
-    H = canvas.height = canvas.offsetHeight || window.innerHeight;
-  }
-
-  class Star {
-    constructor(init){
-      this.x = Math.random()*W;
-      this.y = Math.random()*H;
-      this.size = Math.random()*1.8+0.2;
-      this.opacity = Math.random()*0.7+0.1;
-      this.twinkle = Math.random()*Math.PI*2;
-      this.speed = Math.random()*0.2+0.05;
-    }
-    update(){
-      this.x -= this.speed;
-      this.twinkle += 0.03;
-      if(this.x < -5){ this.x=W+5; this.y=Math.random()*H; }
-    }
-    draw(){
-      const o = this.opacity*(0.6+0.4*Math.sin(this.twinkle));
-      ctx.save();
-      ctx.globalAlpha = o;
-      ctx.fillStyle = '#ffffff';
-      if(this.size > 1.2){ ctx.shadowBlur=5; ctx.shadowColor='rgba(200,180,255,0.8)'; }
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.size, 0, Math.PI*2);
-      ctx.fill();
-      ctx.restore();
-    }
-  }
-
-  class Node {
-    constructor(x,y,r){
-      this.x=x; this.y=y; this.r=r; this.baseR=r;
-      this.pulse=Math.random()*Math.PI*2;
-      this.pulseSpeed=0.02+Math.random()*0.03;
-      this.energy=0;
-      this.color=Math.random()>0.55?'violet':'gold';
-      this.connections=[];
-      this.firing=false;
-      this.fireTimer=0;
-      this.vx=(Math.random()-0.5)*0.06;
-      this.vy=(Math.random()-0.5)*0.06;
-    }
-    fire(){
-      if(this.firing) return;
-      this.firing=true; this.fireTimer=0; this.energy=1;
-      setTimeout(()=>{
-        this.connections.forEach(n=>{
-          setTimeout(()=>{ n.fire(); createSpark(this.x,this.y,n.x,n.y); }, 80+Math.random()*140);
-        });
-      }, 40);
-    }
-    update(){
-      this.pulse += this.pulseSpeed;
-      this.x += this.vx; this.y += this.vy;
-      const cx=W/2, cy=H/2;
-      const dx=this.x-cx, dy=this.y-cy;
-      const dist=Math.sqrt(dx*dx+dy*dy);
-      const maxD=Math.min(W,H)*0.4;
-      if(dist>maxD){ this.vx-=dx*0.001; this.vy-=dy*0.001; }
-      if(this.energy>0) this.energy-=0.035;
-      if(this.firing){ this.fireTimer++; if(this.fireTimer>35) this.firing=false; }
-      this.r = this.baseR*(1+0.12*Math.sin(this.pulse));
-    }
-    draw(){
-      const pf=0.75+0.25*Math.sin(this.pulse);
-      const isV=this.color==='violet';
-      const bc=isV?[155,127,212]:[212,168,75];
-      const e=this.energy;
-      ctx.save();
-      if(e>0){ ctx.shadowBlur=15+e*25; ctx.shadowColor=isV?`rgba(200,170,255,${e})`:`rgba(255,200,80,${e})`; }
-      const grad=ctx.createRadialGradient(this.x,this.y,0,this.x,this.y,this.r*2.5);
-      grad.addColorStop(0,`rgba(${bc[0]},${bc[1]},${bc[2]},${0.8+e*0.2})`);
-      grad.addColorStop(0.5,`rgba(${bc[0]},${bc[1]},${bc[2]},0.3)`);
-      grad.addColorStop(1,'rgba(0,0,0,0)');
-      ctx.globalAlpha=pf*(0.5+e*0.5);
-      ctx.fillStyle=grad;
-      ctx.beginPath();
-      ctx.arc(this.x,this.y,this.r*2.5,0,Math.PI*2);
-      ctx.fill();
-      ctx.globalAlpha=1;
-      ctx.fillStyle=e>0?`rgba(255,255,255,${0.9+e*0.1})`:`rgba(${bc[0]},${bc[1]},${bc[2]},0.95)`;
-      ctx.shadowBlur=e>0?12:3;
-      ctx.shadowColor=isV?'rgba(180,150,255,0.8)':'rgba(255,200,80,0.8)';
-      ctx.beginPath();
-      ctx.arc(this.x,this.y,this.r*pf,0,Math.PI*2);
-      ctx.fill();
-      ctx.restore();
-    }
-  }
-
-  class Spark {
-    constructor(x1,y1,x2,y2){
-      this.x1=x1;this.y1=y1;this.x2=x2;this.y2=y2;
-      this.progress=0; this.speed=0.05+Math.random()*0.06; this.life=1;
-      this.jitter=[];
-      for(let i=0;i<8;i++) this.jitter.push({dx:(Math.random()-0.5)*18,dy:(Math.random()-0.5)*18});
-    }
-    update(){ this.progress+=this.speed; if(this.progress>1) this.life-=0.09; }
-    draw(){
-      if(this.life<=0)return;
-      const steps=this.jitter.length;
-      ctx.save();
-      ctx.globalAlpha=this.life*0.75;
-      ctx.strokeStyle=`rgba(200,180,255,${this.life})`;
-      ctx.shadowBlur=8; ctx.shadowColor='rgba(155,127,212,0.9)';
-      ctx.lineWidth=1.5;
-      ctx.beginPath();
-      for(let i=0;i<=steps;i++){
-        const t=i/steps;
-        if(t>this.progress)break;
-        const bx=this.x1+(this.x2-this.x1)*t;
-        const by=this.y1+(this.y2-this.y1)*t;
-        const j=this.jitter[Math.min(i,steps-1)];
-        const jf=Math.sin(t*Math.PI)*0.5;
-        if(i===0)ctx.moveTo(bx+j.dx*jf,by+j.dy*jf);
-        else ctx.lineTo(bx+j.dx*jf,by+j.dy*jf);
-      }
-      ctx.stroke();
-      ctx.restore();
-    }
-    isDead(){return this.life<=0;}
-  }
-
-  function createSpark(x1,y1,x2,y2){ sparks.push(new Spark(x1,y1,x2,y2)); }
-
-  function drawBackground(){
-    ctx.fillStyle='#000008';
-    ctx.fillRect(0,0,W,H);
-    const cx=W/2, cy=H/2;
-    const g1=ctx.createRadialGradient(cx,cy,0,cx,cy,Math.min(W,H)*0.55);
-    g1.addColorStop(0,'rgba(30,12,70,0.9)');
-    g1.addColorStop(0.45,'rgba(12,5,35,0.85)');
-    g1.addColorStop(1,'rgba(0,0,8,0.95)');
-    ctx.fillStyle=g1; ctx.fillRect(0,0,W,H);
-    const g2=ctx.createRadialGradient(cx,cy,0,cx,cy,Math.min(W,H)*0.4);
-    g2.addColorStop(0,'rgba(80,40,160,0.22)');
-    g2.addColorStop(0.5,'rgba(40,15,100,0.1)');
-    g2.addColorStop(1,'rgba(0,0,0,0)');
-    ctx.fillStyle=g2; ctx.fillRect(0,0,W,H);
-    const gx=cx+W*0.2+Math.sin(time*0.0008)*W*0.05;
-    const gy=cy-H*0.1+Math.cos(time*0.0006)*H*0.04;
-    const g3=ctx.createRadialGradient(gx,gy,0,gx,gy,W*0.22);
-    g3.addColorStop(0,'rgba(212,120,30,0.07)');
-    g3.addColorStop(1,'rgba(0,0,0,0)');
-    ctx.fillStyle=g3; ctx.fillRect(0,0,W,H);
-  }
-
-  function drawConnections(){
-    nodes.forEach((a,i)=>{
-      nodes.forEach((b,j)=>{
-        if(j<=i)return;
-        const dx=a.x-b.x, dy=a.y-b.y;
-        const dist=Math.sqrt(dx*dx+dy*dy);
-        if(dist>130)return;
-        const ae=a.energy, be=b.energy;
-        const alpha=(1-dist/130)*0.14*(1+ae*0.6+be*0.6);
-        const isV=a.color==='violet'&&b.color==='violet';
-        ctx.save();
-        ctx.globalAlpha=alpha;
-        ctx.strokeStyle=isV?'rgba(155,127,212,1)':'rgba(212,168,75,1)';
-        ctx.lineWidth=0.7+(ae+be)*0.4;
-        ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y); ctx.stroke();
-        ctx.restore();
-      });
-    });
-  }
-
-  function init(){
-    resize();
-    stars=[]; for(let i=0;i<150;i++) stars.push(new Star(true));
-    nodes=[];
-    const cx=W/2, cy=H/2;
-    for(let i=0;i<32;i++){
-      const angle=Math.random()*Math.PI*2;
-      const r=20+Math.random()*Math.min(W,H)*0.38;
-      nodes.push(new Node(cx+Math.cos(angle)*r, cy+Math.sin(angle)*r, 2+Math.random()*3));
-    }
-    nodes.forEach(n=>{
-      n.connections=nodes.filter(o=>{
-        if(o===n)return false;
-        const dx=n.x-o.x,dy=n.y-o.y;
-        return Math.sqrt(dx*dx+dy*dy)<115;
-      }).slice(0,3);
-    });
-    sparks=[];
-  }
-
-  window.triggerBurst=function(){
-    const r=nodes[Math.floor(Math.random()*nodes.length)];
-    if(r)r.fire();
-  };
-
-  function animate(){
-    time++;
-    drawBackground();
-    stars.forEach(s=>{s.update();s.draw();});
-    drawConnections();
-    nodes.forEach(n=>{n.update();n.draw();});
-    sparks=sparks.filter(s=>!s.isDead());
-    sparks.forEach(s=>{s.update();s.draw();});
-    if(time%85===0){ const r=nodes[Math.floor(Math.random()*nodes.length)]; if(r)r.fire(); }
-    raf=requestAnimationFrame(animate);
-  }
-
-  window.addEventListener('resize',()=>{init();});
-  canvas.addEventListener('click',()=>window.triggerBurst());
-
-  window.addEventListener('load',()=>{init();animate();});
-  setTimeout(()=>{init();animate();},100);
-})();
-
-// ── PATTERN SLIDER ──
-(function() {
-  var slider = document.getElementById('patternSlider');
-  var dotsWrap = document.getElementById('patternDots');
-  if (!slider || !dotsWrap) return;
-
-  var cards = slider.children;
-  var current = 0;
-  var cardWidth, gap, visibleCount, maxIndex;
-  var isDragging = false;
-  var startX = 0;
-  var currentTranslate = 0;
-  var prevTranslate = 0;
-
-  function setup() {
-    var style = getComputedStyle(slider);
-    gap = parseFloat(style.gap) || 16;
-    cardWidth = cards[0].offsetWidth + gap;
-    var wrapWidth = slider.parentElement.offsetWidth;
-    visibleCount = Math.max(1, Math.floor(wrapWidth / cardWidth));
-    maxIndex = Math.max(0, cards.length - visibleCount);
-    buildDots();
-    goTo(Math.min(current, maxIndex));
-  }
-
-  function buildDots() {
-    dotsWrap.innerHTML = '';
-    for (var i = 0; i <= maxIndex; i++) {
-      var dot = document.createElement('button');
-      dot.className = 'pattern-dot' + (i === current ? ' active' : '');
-      dot.setAttribute('aria-label', 'Slide ' + (i + 1));
-      dot.onclick = (function(idx) { return function() { goTo(idx); }; })(i);
-      dotsWrap.appendChild(dot);
-    }
-  }
-
-  function updateDots() {
-    var dots = dotsWrap.children;
-    for (var i = 0; i < dots.length; i++) {
-      dots[i].classList.toggle('active', i === current);
-    }
-  }
-
-  function goTo(idx) {
-    current = Math.max(0, Math.min(idx, maxIndex));
-    var offset = -current * cardWidth;
-    slider.style.transform = 'translateX(' + offset + 'px)';
-    prevTranslate = offset;
-    currentTranslate = offset;
-    updateDots();
-  }
-
-  window.patternSlide = function(dir) {
-    goTo(current + dir);
-  };
-
-  // Drag / swipe support
-  function getX(e) {
-    return e.touches ? e.touches[0].clientX : e.clientX;
-  }
-
-  slider.addEventListener('mousedown', dragStart);
-  slider.addEventListener('touchstart', dragStart, { passive: true });
-  slider.addEventListener('mouseup', dragEnd);
-  slider.addEventListener('mouseleave', dragEnd);
-  slider.addEventListener('touchend', dragEnd);
-  slider.addEventListener('mousemove', dragMove);
-  slider.addEventListener('touchmove', dragMove, { passive: true });
-
-  function dragStart(e) {
-    isDragging = true;
-    startX = getX(e);
-    slider.classList.add('dragging');
-  }
-  function dragMove(e) {
-    if (!isDragging) return;
-    var x = getX(e);
-    var diff = x - startX;
-    slider.style.transform = 'translateX(' + (prevTranslate + diff) + 'px)';
-  }
-  function dragEnd(e) {
-    if (!isDragging) return;
-    isDragging = false;
-    slider.classList.remove('dragging');
-    var x = (e.changedTouches ? e.changedTouches[0].clientX : e.clientX) || startX;
-    var diff = x - startX;
-    if (Math.abs(diff) > 50) {
-      if (diff < 0) goTo(current + 1);
-      else goTo(current - 1);
-    } else {
-      goTo(current);
-    }
-  }
-
-  window.addEventListener('resize', setup);
-  setTimeout(setup, 200);
-})();
-
-// ── NAV SCROLL ──
-window.addEventListener('scroll', () => {
-  var heroHeight = document.getElementById('home').offsetHeight;
-  var threshold = Math.max(heroHeight - 100, 100);
-  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > threshold);
-});
-
-// ── SMOOTH SCROLL ──
-function scrollTo(id) {
-  document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
-}
-
-// ── MOBILE MENU ──
-function toggleMenu() {
+function toggleMenu(){
   document.getElementById('mobileMenu').classList.toggle('open');
 }
 
-// ── SCROLL ANIMATIONS ──
 const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if(e.isIntersecting) { e.target.classList.add('visible'); }
-  });
-}, { threshold: 0.12 });
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, {threshold:0.12});
 document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-// ── CONTACT FORM ──
-async function submitContact() {
-  const first   = document.getElementById('cfFirst').value.trim();
-  const last    = document.getElementById('cfLast').value.trim();
-  const email   = document.getElementById('cfEmail').value.trim();
-  const subject = document.getElementById('cfSubject').value.trim();
-  const message = document.getElementById('cfMessage').value.trim();
-
-  if(!first || !email || !message) {
-    alert('Please fill in your name, email and message.');
-    return;
-  }
-
-  const btn = document.getElementById('cfSubmit');
-  btn.disabled = true;
-  btn.textContent = 'Sending…';
-
-  // Open email client as fallback
-  const body = 'Name: ' + first + ' ' + last + '\nEmail: ' + email + '\n\n' + message;
-  const subj = encodeURIComponent(subject || 'Website Enquiry - Aligned Order');
-  window.open('mailto:alignedorder@gmail.com?subject=' + subj + '&body=' + encodeURIComponent(body), '_blank');
-
-  setTimeout(() => {
-    document.getElementById('cfSuccess').classList.add('show');
-    btn.disabled = false;
-    btn.textContent = 'Send Message →';
-    ['cfFirst','cfLast','cfEmail','cfSubject','cfMessage'].forEach(id => {
-      document.getElementById(id).value = '';
-    });
-  }, 800);
-}
-</script>
-
-<!-- ── CHATBOT ── -->
-<style>
-#chatBtn{position:fixed;bottom:28px;right:28px;z-index:999;width:58px;height:58px;border-radius:50%;background:linear-gradient(135deg,#6a4fb5,#4a3490);border:none;cursor:pointer;box-shadow:0 8px 28px rgba(106,79,181,0.5);display:flex;align-items:center;justify-content:center;transition:all 0.3s;font-size:24px;}
-#chatBtn:hover{transform:scale(1.1);}
-#chatBtn .ping{position:absolute;top:-2px;right:-2px;width:14px;height:14px;border-radius:50%;background:#4caf7d;border:2px solid #000;animation:chatPing 2s infinite;}
-@keyframes chatPing{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.3);opacity:0.7}}
-#chatBox{position:fixed;bottom:100px;right:28px;z-index:999;width:360px;max-height:560px;background:#0d0b1a;border:1px solid rgba(106,79,181,0.3);border-radius:20px;box-shadow:0 20px 60px rgba(0,0,0,0.6);display:none;flex-direction:column;overflow:hidden;animation:chatIn 0.3s cubic-bezier(0.34,1.56,0.64,1);}
-@keyframes chatIn{from{opacity:0;transform:scale(0.85) translateY(20px)}to{opacity:1;transform:scale(1) translateY(0)}}
-#chatBox.open{display:flex;}
-.chat-head{background:linear-gradient(135deg,rgba(106,79,181,0.3),rgba(74,52,144,0.2));padding:16px 18px;border-bottom:1px solid rgba(106,79,181,0.2);display:flex;align-items:center;gap:12px;}
-.chat-head-avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#6a4fb5,#4a3490);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
-.chat-head-info{flex:1;}
-.chat-head-name{font-size:14px;font-weight:700;color:#f0ecff;font-family:'Cinzel',serif;}
-.chat-head-status{font-size:11px;color:#4caf7d;display:flex;align-items:center;gap:5px;}
-.chat-head-status::before{content:'';width:6px;height:6px;border-radius:50%;background:#4caf7d;display:inline-block;}
-.chat-close{background:none;border:none;color:rgba(240,236,255,0.5);cursor:pointer;font-size:18px;padding:4px;}
-.chat-messages{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:12px;max-height:380px;}
-.chat-messages::-webkit-scrollbar{width:4px;}
-.chat-messages::-webkit-scrollbar-thumb{background:rgba(106,79,181,0.3);border-radius:2px;}
-.msg{max-width:85%;animation:msgIn 0.3s ease;}
-@keyframes msgIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-.msg.bot{align-self:flex-start;}
-.msg.user{align-self:flex-end;}
-.msg-bubble{padding:11px 14px;border-radius:14px;font-size:13.5px;line-height:1.6;}
-.msg.bot .msg-bubble{background:rgba(255,255,255,0.06);color:#e8e4ff;border:1px solid rgba(255,255,255,0.08);border-bottom-left-radius:4px;}
-.msg.user .msg-bubble{background:linear-gradient(135deg,#6a4fb5,#4a3490);color:#fff;border-bottom-right-radius:4px;}
-.msg-time{font-size:10px;color:rgba(240,236,255,0.3);margin-top:4px;padding:0 4px;}
-.msg.user .msg-time{text-align:right;}
-.chat-typing{align-self:flex-start;padding:11px 14px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);border-radius:14px;border-bottom-left-radius:4px;display:none;}
-.chat-typing.show{display:flex;gap:4px;align-items:center;}
-.typing-dot{width:7px;height:7px;border-radius:50%;background:rgba(155,127,212,0.7);animation:typingBounce 1.2s infinite;}
-.typing-dot:nth-child(2){animation-delay:0.2s;}
-.typing-dot:nth-child(3){animation-delay:0.4s;}
-@keyframes typingBounce{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-6px)}}
-.chat-quick{padding:10px 14px;display:flex;gap:6px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,0.06);}
-.qbtn{padding:6px 12px;border-radius:99px;font-size:11.5px;font-weight:600;cursor:pointer;border:1px solid rgba(106,79,181,0.4);background:rgba(106,79,181,0.1);color:#c9a0ff;transition:all 0.15s;font-family:'Raleway',sans-serif;}
-.qbtn:hover{background:rgba(106,79,181,0.25);}
-.chat-input-wrap{padding:12px 14px;border-top:1px solid rgba(255,255,255,0.06);display:flex;gap:8px;align-items:center;}
-#chatInput{flex:1;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:10px 12px;color:#f0ecff;font-family:'Raleway',sans-serif;font-size:13px;outline:none;}
-#chatInput:focus{border-color:rgba(106,79,181,0.5);}
-#chatInput::placeholder{color:rgba(240,236,255,0.3);}
-#chatSend{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#6a4fb5,#4a3490);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
-#chatSend:disabled{opacity:0.4;cursor:not-allowed;}
-@media(max-width:480px){#chatBox{width:calc(100vw - 24px);right:12px;bottom:90px;}#chatBtn{bottom:16px;right:16px;}}
-.pattern-slider-wrap{position:relative;width:100%;overflow:hidden;padding:4px 0;}
-.pattern-slider{display:flex;gap:16px;padding:0 24px;transition:transform 0.45s cubic-bezier(0.4,0,0.2,1);will-change:transform;cursor:grab;}
-.pattern-slider.dragging{transition:none;cursor:grabbing;}
-.pattern-card{flex:0 0 auto;width:260px;border-radius:24px;padding:28px 26px;min-height:200px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;user-select:none;}
-.pattern-orb{position:absolute;top:-40px;right:-40px;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(155,127,212,0.25),transparent 70%);pointer-events:none;}
-.pattern-eyebrow{font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px;}
-.pattern-title{font-family:'Cinzel',serif;font-size:18px;margin-bottom:6px;line-height:1.3;}
-.pattern-text{font-size:13px;line-height:1.6;}
-.pattern-controls{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:24px;}
-.pattern-arrow{width:38px;height:38px;border-radius:50%;border:1px solid var(--card-border);background:var(--paper);color:var(--text);font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;flex-shrink:0;}
-.pattern-arrow:hover{background:var(--violet);color:#fff;border-color:var(--violet);}
-.pattern-dots{display:flex;gap:7px;}
-.pattern-dot{width:7px;height:7px;border-radius:50%;background:var(--card-border);cursor:pointer;transition:all 0.25s;border:none;padding:0;}
-.pattern-dot.active{background:var(--violet);width:20px;border-radius:99px;}
-@media(max-width:640px){
-  .pattern-card{width:220px;min-height:180px;padding:22px 20px;}
-  .pattern-slider{gap:12px;}
-}
-</style>
-
-<button id="chatBtn" onclick="toggleChat()" aria-label="Open chat">
-  <span id="chatIcon">&#10022;</span>
-  <div class="ping"></div>
-</button>
-
-<div id="chatBox">
-  <div class="chat-head">
-    <div class="chat-head-avatar">&#10022;</div>
-    <div class="chat-head-info">
-      <div class="chat-head-name">Aligned Order</div>
-      <div class="chat-head-status">Online now</div>
-    </div>
-    <button class="chat-close" onclick="toggleChat()">&#10005;</button>
-  </div>
-  <div class="chat-messages" id="chatMessages">
-    <div class="chat-typing" id="chatTyping">
-      <div class="typing-dot"></div>
-      <div class="typing-dot"></div>
-      <div class="typing-dot"></div>
-    </div>
-  </div>
-  <div class="chat-quick" id="quickReplies"></div>
-  <div class="chat-input-wrap">
-    <input id="chatInput" placeholder="Ask me anything..." onkeydown="if(event.key==='Enter'){event.preventDefault();sendChat();}">
-    <button id="chatSend" onclick="sendChat()">&#8594;</button>
-  </div>
-</div>
-
-<script>
-var chatOpen = false;
-var chatHistory = [];
-var hasGreeted = false;
-var chatBusy = false;
-
-var ASSESSMENT_URL = 'https://thealignedorder.netlify.app';
-var DISCOVERY_URL  = 'https://calendly.com/alignedorder/30min';
-var COACHING_URL   = 'https://calendly.com/alignedorder/paid-session';
-
-var SYSTEM = 'You are Aria, a warm AI assistant for Aligned Order, an emotional intelligence coaching company. Keep responses to 2-3 sentences max. Be warm, empathetic and conversational. Services: 1) Free Trigger Assessment at ' + ASSESSMENT_URL + ' (10 questions, 3-4 mins), 2) Free Discovery Call 30 mins at ' + DISCOVERY_URL + ' for those who score 70%+, 3) Paid Coaching Sessions (in bundles of 3, 6 or 10) 60 mins each at ' + COACHING_URL + '. After 2 exchanges guide visitors to take the free assessment. Never use markdown. Contact: alignedorder@gmail.com';
-
-var QUICK = {
-  initial: ['What is Aligned Order?','How does it work?','Is it free?','I feel triggered often'],
-  after: ['Take the assessment','Book a call','Tell me more','What are triggers?'],
-  cta: ['Take free assessment','Book discovery call','Learn more first']
-};
-
-function toggleChat() {
-  chatOpen = !chatOpen;
-  var box = document.getElementById('chatBox');
-  var icon = document.getElementById('chatIcon');
-  var ping = document.querySelector('#chatBtn .ping');
-  if (chatOpen) {
-    box.classList.add('open');
-    icon.innerHTML = '&#10005;';
-    if (ping) ping.style.display = 'none';
-    if (!hasGreeted) { setTimeout(greet, 500); hasGreeted = true; }
-  } else {
-    box.classList.remove('open');
-    icon.innerHTML = '&#10022;';
-  }
-}
-
-function greet() {
-  showTyping();
-  setTimeout(function() {
-    hideTyping();
-    addBotMsg("Hi there! I'm Aria, your Aligned Order guide. I help people discover their emotional trigger patterns and find the right support. What brings you here today?");
-    showQuick('initial');
-  }, 1200);
-}
-
-function addBotMsg(text) {
-  addMsg('bot', text);
-  chatHistory.push({role: 'assistant', content: text});
-}
-
-function addMsg(role, text) {
-  var wrap = document.getElementById('chatMessages');
-  var typing = document.getElementById('chatTyping');
-  var div = document.createElement('div');
-  div.className = 'msg ' + role;
-  var now = new Date().toLocaleTimeString('en-GB', {hour: '2-digit', minute: '2-digit'});
-  var bubble = document.createElement('div');
-  bubble.className = 'msg-bubble';
-  bubble.innerHTML = text.split('\n').join('<br>');
-  var time = document.createElement('div');
-  time.className = 'msg-time';
-  time.textContent = now;
-  div.appendChild(bubble);
-  div.appendChild(time);
-  wrap.insertBefore(div, typing);
-  wrap.scrollTop = wrap.scrollHeight;
-}
-
-function showTyping() {
-  document.getElementById('chatTyping').classList.add('show');
-  var w = document.getElementById('chatMessages');
-  w.scrollTop = w.scrollHeight;
-}
-function hideTyping() { document.getElementById('chatTyping').classList.remove('show'); }
-
-function showQuick(set) {
-  var wrap = document.getElementById('quickReplies');
-  var btns = QUICK[set] || [];
-  wrap.innerHTML = '';
-  btns.forEach(function(b) {
-    var btn = document.createElement('button');
-    btn.className = 'qbtn';
-    btn.textContent = b;
-    btn.onclick = function() { quickChat(b); };
-    wrap.appendChild(btn);
+const navSections = ['home','mood','packages','founder','testimonials','contact'];
+window.addEventListener('scroll', () => {
+  let current = 'home';
+  navSections.forEach(id => {
+    const el = document.getElementById(id);
+    if(el && window.scrollY >= el.offsetTop - 160) current = id;
   });
+  document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+  document.querySelectorAll('.nav-link').forEach(l => {
+    if(l.getAttribute('onclick') && l.getAttribute('onclick').includes("'"+current+"'")) l.classList.add('active');
+  });
+});
+
+var MODAL_CONTENT = {
+  about: {
+    title: 'Our Full Story',
+    body: '<p>Aligned Order was built on a single conviction: most human suffering comes not from what happens to us, but from our unconscious reaction to it.</p>' +
+          '<p>We created the Trigger Assessment to give people something they\'ve never had before — a precise, personalised map of their emotional patterns. Not a personality test. A real diagnostic tool that shows you exactly where your nervous system is wired to react.</p>' +
+          '<p>Our coaching takes that map and turns it into a transformation plan — practical, fast and deeply personal.</p>'
+  },
+  clarity: {
+    title: 'Clarity of Mind',
+    body: '<p>Daily reflection allows individuals to process their thoughts clearly, reduce mental overload, and build greater emotional clarity over time.</p>' +
+          '<p>Through structured prompts and guided check-ins, we help you separate the signal from the noise — so the right response becomes obvious instead of overwhelming.</p>'
+  },
+  awareness: {
+    title: 'Emotional Awareness',
+    body: '<p>Through guided prompts, individuals can explore their emotions, understand personal values, and identify deeper emotional and psychological needs.</p>' +
+          '<p>Awareness is the first domino. Once you can name what you feel and trace it to where it began, you have something to work with — and something you can finally change.</p>'
+  },
+  founder: {
+    title: 'Matyyx\'s Full Story',
+    body: '<p>I didn\'t start this work from a textbook — I started it from my own struggle with triggers I couldn\'t explain. Years spent reacting before thinking, carrying tension that never seemed to leave, and watching it quietly affect the people I cared about most.</p>' +
+          '<p>It took real work — and the right guidance — to understand that my reactions weren\'t random. They were patterns. Patterns that could be mapped, understood and changed.</p>' +
+          '<p>Aligned Order exists to give other people that same map — faster, clearer and more practically than I ever had it.</p>' +
+          '<p style="font-style:italic;color:var(--sage-deep);margin-top:18px;">"I\'m not here to tell you to calm down. I\'m here to show you why you can\'t — and walk with you until you can."</p>'
+  }
+};
+function openModal(key){
+  var d = MODAL_CONTENT[key];
+  if(!d) return;
+  document.getElementById('modalTitle').textContent = d.title;
+  document.getElementById('modalBody').innerHTML = d.body;
+  document.getElementById('modalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal(){
+  document.getElementById('modalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function closeModalBg(e){ if(e.target.id === 'modalOverlay') closeModal(); }
+
+var selectedMoodVal = null;
+
+function selectMood(el, mood){
+  document.querySelectorAll('.mood-opt').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+  selectedMoodVal = mood;
+  document.getElementById('moodSubmitBtn').disabled = false;
 }
 
-function quickChat(text) {
-  document.getElementById('quickReplies').innerHTML = '';
-  if (text.toLowerCase().indexOf('assessment') >= 0) {
-    addMsg('user', text);
-    chatHistory.push({role: 'user', content: text});
-    addBotMsg('The free assessment takes just 3-4 minutes and gives you a personalised trigger profile with AI insights. Start here: ' + ASSESSMENT_URL);
-    showQuick('cta');
-    return;
-  }
-  if (text.toLowerCase().indexOf('call') >= 0 || text.toLowerCase().indexOf('discovery') >= 0) {
-    addMsg('user', text);
-    chatHistory.push({role: 'user', content: text});
-    addBotMsg('The Discovery Call is a free 30-minute video session for people who score 70%+ on the assessment. Book here: ' + DISCOVERY_URL);
-    showQuick('cta');
-    return;
-  }
-  sendChat(text);
-}
+async function submitMood(){
+  if(!selectedMoodVal) return;
+  var note = document.getElementById('moodNote').value.trim();
+  var step1 = document.getElementById('moodStep1');
+  var result = document.getElementById('moodResult');
+  var typing = document.getElementById('moodTyping');
+  var inner = document.getElementById('moodResultInner');
 
-async function sendChat(override) {
-  var input = document.getElementById('chatInput');
-  var text = override || input.value.trim();
-  if (!text || chatBusy) return;
-  chatBusy = true;
-  input.value = '';
-  document.getElementById('chatSend').disabled = true;
-  document.getElementById('quickReplies').innerHTML = '';
-  addMsg('user', text);
-  chatHistory.push({role: 'user', content: text});
-  showTyping();
+  step1.style.display = 'none';
+  result.classList.add('show');
+  typing.classList.add('show');
+  inner.innerHTML = '';
+
+  var fallback = "It makes sense that you're feeling " + selectedMoodVal.toLowerCase() + " right now. " +
+    "That feeling is information, not a flaw — it's worth understanding where it's coming from. " +
+    "If this is a pattern for you, the free Trigger Assessment can help you see it clearly in just a few minutes.";
+
+  var resultText = fallback;
   try {
-    var msgs = chatHistory.slice(-10);
+    var prompt = "Someone just told you they're feeling '" + selectedMoodVal + "'" +
+      (note ? " and shared: \"" + note + "\"" : "") +
+      ". You are a warm, brief emotional intelligence coach for Aligned Order. Respond in 2-3 short sentences max. " +
+      "Validate the feeling without diagnosing them, offer one grounded insight or reframe, and gently mention they could explore this further with the free Trigger Assessment. No headers, no lists, just warm plain text.";
+
     var res = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
       headers: {
@@ -1411,29 +916,156 @@ async function sendChat(override) {
       body: JSON.stringify({
         model: 'claude-sonnet-4-6',
         max_tokens: 200,
-        system: SYSTEM,
-        messages: msgs
+        messages: [{ role: 'user', content: prompt }]
       })
     });
     var data = await res.json();
-    hideTyping();
-    var reply = (data.content && data.content[0] && data.content[0].text) || "I'm here to help! For immediate assistance email alignedorder@gmail.com or take our free assessment at " + ASSESSMENT_URL;
-    addBotMsg(reply);
-    var r = reply.toLowerCase();
-    if (r.indexOf('assessment') >= 0 || r.indexOf('trigger') >= 0) { showQuick('cta'); }
-    else { showQuick('after'); }
-  } catch(e) {
-    hideTyping();
-    addBotMsg("Something went wrong on my end! You can reach us at alignedorder@gmail.com or start the free assessment here: " + ASSESSMENT_URL);
-    showQuick('cta');
-  }
-  chatBusy = false;
-  document.getElementById('chatSend').disabled = false;
+    var txt = (data.content && data.content[0] && data.content[0].text) || '';
+    if(txt) resultText = txt;
+  } catch(e) { /* keep fallback */ }
+
+  setTimeout(function(){
+    typing.classList.remove('show');
+    inner.innerHTML =
+      '<div class="mood-result-label">A moment of clarity</div>' +
+      '<div class="mood-result-text">' + resultText.replace(/\n/g,'<br>') + '</div>' +
+      '<div class="mood-result-cta">' +
+        '<a class="btn btn-terra btn-sm" href="https://thealignedorder.netlify.app" target="_blank">Take the Free Assessment</a>' +
+        '<a class="btn btn-pill-ghost btn-sm" style="background:rgba(255,255,255,0.12);border-color:rgba(255,255,255,0.25);color:#fff;" href="https://calendly.com/alignedorder/30min" target="_blank">Talk to Someone</a>' +
+      '</div>' +
+      '<button class="mood-back" onclick="resetMood()">← Check in again</button>';
+  }, 1100);
 }
 
-window.toggleChat = toggleChat;
-window.sendChat = sendChat;
-window.quickChat = quickChat;
+function resetMood(){
+  document.getElementById('moodStep1').style.display = 'block';
+  document.getElementById('moodResult').classList.remove('show');
+  document.getElementById('moodNote').value = '';
+  document.querySelectorAll('.mood-opt').forEach(o => o.classList.remove('selected'));
+  selectedMoodVal = null;
+  document.getElementById('moodSubmitBtn').disabled = true;
+}
+
+(function(){
+  var slider = document.getElementById('pSlider');
+  var dotsWrap = document.getElementById('pDots');
+  if(!slider || !dotsWrap) return;
+  var cards = slider.children;
+  var current = 0, cardWidth, visibleCount, maxIndex;
+  var isDragging = false, startX = 0, prevTranslate = 0;
+
+  function setup(){
+    var style = getComputedStyle(slider);
+    var gap = parseFloat(style.gap) || 16;
+    cardWidth = cards[0].offsetWidth + gap;
+    var wrapWidth = slider.parentElement.offsetWidth;
+    visibleCount = Math.max(1, Math.floor(wrapWidth / cardWidth));
+    maxIndex = Math.max(0, cards.length - visibleCount);
+    buildDots();
+    goTo(Math.min(current, maxIndex));
+  }
+  function buildDots(){
+    dotsWrap.innerHTML = '';
+    for(var i=0;i<=maxIndex;i++){
+      var dot = document.createElement('button');
+      dot.className = 'pslider-dot' + (i===current?' active':'');
+      dot.onclick = (function(idx){ return function(){ goTo(idx); }; })(i);
+      dotsWrap.appendChild(dot);
+    }
+  }
+  function updateDots(){
+    var dots = dotsWrap.children;
+    for(var i=0;i<dots.length;i++) dots[i].classList.toggle('active', i===current);
+  }
+  function goTo(idx){
+    current = Math.max(0, Math.min(idx, maxIndex));
+    var offset = -current * cardWidth;
+    slider.style.transform = 'translateX(' + offset + 'px)';
+    prevTranslate = offset;
+    updateDots();
+  }
+  window.pSlide = function(dir){ goTo(current + dir); };
+
+  function getX(e){ return e.touches ? e.touches[0].clientX : e.clientX; }
+  slider.addEventListener('mousedown', dragStart);
+  slider.addEventListener('touchstart', dragStart, {passive:true});
+  slider.addEventListener('mouseup', dragEnd);
+  slider.addEventListener('mouseleave', dragEnd);
+  slider.addEventListener('touchend', dragEnd);
+  slider.addEventListener('mousemove', dragMove);
+  slider.addEventListener('touchmove', dragMove, {passive:true});
+  function dragStart(e){ isDragging = true; startX = getX(e); slider.classList.add('dragging'); }
+  function dragMove(e){
+    if(!isDragging) return;
+    var diff = getX(e) - startX;
+    slider.style.transform = 'translateX(' + (prevTranslate + diff) + 'px)';
+  }
+  function dragEnd(e){
+    if(!isDragging) return;
+    isDragging = false;
+    slider.classList.remove('dragging');
+    var x = (e.changedTouches ? e.changedTouches[0].clientX : e.clientX) || startX;
+    var diff = x - startX;
+    if(Math.abs(diff) > 50){ goTo(current + (diff<0?1:-1)); } else { goTo(current); }
+  }
+  window.addEventListener('resize', setup);
+  setTimeout(setup, 200);
+  slider.style.transition = 'transform 0.45s cubic-bezier(0.4,0,0.2,1)';
+})();
+
+var SVC_DATA = {
+  discovery:{title:'Discovery Call', desc:"A free 30-minute conversation to explore where you are and what's possible.", img:'https://images.pexels.com/photos/30644460/pexels-photo-30644460.jpeg?auto=compress&cs=tinysrgb&w=900'},
+  coaching:{title:'1:1 Coaching', desc:'Deep working sessions tailored to your specific trigger patterns.', img:'https://images.pexels.com/photos/12354262/pexels-photo-12354262.jpeg?auto=compress&cs=tinysrgb&w=900'},
+  mindfulness:{title:'Mindfulness Practice', desc:'Grounding techniques to bring your nervous system back to baseline.', img:'https://images.pexels.com/photos/12971114/pexels-photo-12971114.jpeg?auto=compress&cs=tinysrgb&w=900'},
+  assessment:{title:'Trigger Assessment', desc:'A free adaptive assessment that maps your emotional patterns in minutes.', img:'https://images.pexels.com/photos/12971112/pexels-photo-12971112.jpeg?auto=compress&cs=tinysrgb&w=900'}
+};
+function setSvc(key, el){
+  document.querySelectorAll('.svc-tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  var d = SVC_DATA[key];
+  document.getElementById('svcCardTitle').textContent = d.title;
+  document.getElementById('svcCardDesc').textContent = d.desc;
+  document.querySelector('.svc-card.center img').src = d.img;
+}
+
+var TESTI = [
+  {quote:'"After two sessions, my wife noticed a difference before I even told her I was doing coaching."', name:'Michael R.', role:'Business Owner, 41', img:'https://images.pexels.com/photos/35378157/pexels-photo-35378157.jpeg?auto=compress&cs=tinysrgb&w=200'},
+  {quote:'"The assessment alone was eye-opening. The coaching was the missing piece I\'d been searching for."', name:'Sarah K.', role:'Marketing Director, 35', img:'https://images.pexels.com/photos/12354262/pexels-photo-12354262.jpeg?auto=compress&cs=tinysrgb&w=200'},
+  {quote:'"The coaching gave me actual tools — not just awareness — to stay calm when my kids push my buttons."', name:'David T.', role:'Father of 3, 38', img:'https://images.pexels.com/photos/12971113/pexels-photo-12971113.jpeg?auto=compress&cs=tinysrgb&w=200'}
+];
+var testiIdx = 0;
+function renderTesti(){
+  var t = TESTI[testiIdx];
+  document.getElementById('testiQuote').textContent = t.quote;
+  document.getElementById('testiName').textContent = t.name;
+  document.getElementById('testiRole').textContent = t.role;
+  document.getElementById('testiPhoto').src = t.img;
+}
+function testiSlide(dir){
+  testiIdx = (testiIdx + dir + TESTI.length) % TESTI.length;
+  renderTesti();
+}
+
+function submitContact(){
+  var first = document.getElementById('cfFirst').value.trim();
+  var last = document.getElementById('cfLast').value.trim();
+  var email = document.getElementById('cfEmail').value.trim();
+  var subject = document.getElementById('cfSubject').value.trim();
+  var message = document.getElementById('cfMessage').value.trim();
+  if(!first || !email || !message){ alert('Please fill in your name, email and message.'); return; }
+  var btn = document.getElementById('cfSubmit');
+  btn.disabled = true;
+  btn.textContent = 'Sending…';
+  var body = 'Name: ' + first + ' ' + last + '\nEmail: ' + email + '\n\n' + message;
+  var subj = encodeURIComponent(subject || 'Website Enquiry - Aligned Order');
+  window.open('mailto:alignedorder@gmail.com?subject=' + subj + '&body=' + encodeURIComponent(body), '_blank');
+  setTimeout(function(){
+    document.getElementById('cfSuccess').classList.add('show');
+    btn.disabled = false;
+    btn.textContent = 'Send Message →';
+    ['cfFirst','cfLast','cfEmail','cfSubject','cfMessage'].forEach(function(id){ document.getElementById(id).value=''; });
+  }, 700);
+}
 </script>
 </body>
 </html>
