@@ -61,9 +61,9 @@ nav.scrolled .nav-portal{border-color:rgba(168,122,40,0.5);color:var(--gold);}
 nav.scrolled .nav-portal:hover{background:rgba(168,122,40,0.08);}
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
 .hamburger span{display:block;width:24px;height:2px;background:var(--text);border-radius:2px;transition:all 0.3s;}
-.mobile-menu{display:none;position:fixed;inset:0;background:rgba(13,11,26,0.98);z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:32px;}
-.mobile-menu.open{display:flex;}
-.mobile-menu .nav-link{font-size:22px;color:var(--text);}
+/* mobile-menu replaced by drawer */
+/* .mobile-menu.open replaced */
+/* mobile nav-link replaced */
 
 /* ── HERO ── */
 #home{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:100px 24px 60px;position:relative;overflow:hidden;}
@@ -229,6 +229,30 @@ footer{background:var(--bg);border-top:1px solid var(--card-border);padding:48px
 .fade-up{opacity:0;transform:translateY(30px);transition:opacity 0.7s ease,transform 0.7s ease;}
 .fade-up.visible{opacity:1;transform:translateY(0);}
 
+
+/* ── STICKY MOBILE CTA ── */
+.sticky-cta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:200;background:rgba(13,11,26,0.97);backdrop-filter:blur(12px);border-top:1px solid rgba(106,79,181,0.35);padding:12px 20px;align-items:center;justify-content:space-between;gap:12px;}
+@media(max-width:640px){.sticky-cta{display:flex;}}
+.sticky-cta-text{font-size:13px;color:rgba(240,236,255,0.7);font-family:'Raleway',sans-serif;line-height:1.4;}
+.sticky-cta-text strong{color:#f0ecff;display:block;font-weight:700;}
+.sticky-cta-btn{padding:11px 20px;background:linear-gradient(135deg,#6a4fb5,#4a3490);color:#fff;border:none;border-radius:99px;font-family:'Raleway',sans-serif;font-size:13px;font-weight:700;white-space:nowrap;cursor:pointer;text-decoration:none;flex-shrink:0;box-shadow:0 4px 16px rgba(106,79,181,0.4);}
+
+/* ── SLIDE-IN MOBILE DRAWER ── */
+.mobile-drawer-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:98;opacity:0;transition:opacity 0.25s;}
+.mobile-drawer-overlay.open{display:block;opacity:1;}
+.mobile-menu{display:none;position:fixed;top:0;right:0;bottom:0;width:280px;background:#0d0b1a;z-index:99;flex-direction:column;padding:80px 28px 40px;gap:8px;transform:translateX(100%);transition:transform 0.28s cubic-bezier(0.4,0,0.2,1);box-shadow:-20px 0 60px rgba(0,0,0,0.5);}
+.mobile-menu.open{display:flex;transform:translateX(0);}
+.mobile-menu .nav-link{font-size:18px;color:rgba(240,236,255,0.75);padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.06);}
+.mobile-menu .nav-link:hover{color:#f0ecff;}
+.mobile-menu-close{position:absolute;top:20px;right:20px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:8px;color:rgba(240,236,255,0.7);cursor:pointer;width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-size:18px;font-family:'Raleway',sans-serif;}
+.mobile-menu-close:hover{background:rgba(255,255,255,0.12);color:#f0ecff;}
+
+.scroll-progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,#6a4fb5,#d4a84b);width:0%;z-index:9999;transition:width 0.1s linear;}
+
+.hero-scroll-arrow{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:3;display:flex;flex-direction:column;align-items:center;gap:4px;opacity:0.6;transition:opacity 0.4s;cursor:pointer;}
+.hero-scroll-arrow.hidden{opacity:0;pointer-events:none;}
+.scroll-arrow-chevron{width:20px;height:20px;border-right:2px solid rgba(212,168,75,0.7);border-bottom:2px solid rgba(212,168,75,0.7);transform:rotate(45deg);animation:scrollBounce 1.8s ease-in-out infinite;}
+@keyframes scrollBounce{0%,100%{transform:rotate(45deg) translateY(0)}50%{transform:rotate(45deg) translateY(5px)}}
 /* ── SUCCESS MSG ── */
 .success-msg{background:rgba(76,175,125,0.15);border:1px solid rgba(76,175,125,0.3);border-radius:12px;padding:14px 18px;font-size:13px;color:#4caf7d;margin-top:14px;display:none;text-align:center;}
 .success-msg.show{display:block;}
@@ -324,6 +348,7 @@ footer{background:var(--bg);border-top:1px solid var(--card-border);padding:48px
 </style>
 </head>
 <body>
+<div class="scroll-progress" id="scrollProgress"></div>
 <div class="orb-container" id="orbContainer">
   <div class="orb" style="width:600px;height:600px;background:radial-gradient(circle,#6a4fb5,transparent);top:-10%;left:-10%;animation-duration:25s;"></div>
   <div class="orb" style="width:400px;height:400px;background:radial-gradient(circle,#9b7fd4,transparent);top:30%;right:-5%;animation-duration:20s;animation-delay:-8s;"></div>
@@ -358,7 +383,9 @@ footer{background:var(--bg);border-top:1px solid var(--card-border);padding:48px
 </nav>
 
 <!-- MOBILE MENU -->
+<div class="mobile-drawer-overlay" id="drawerOverlay" onclick="toggleMenu()"></div>
 <div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" onclick="toggleMenu()">✕</button>
   <a class="nav-link" onclick="scrollTo('home');toggleMenu()">Home</a>
   <a class="nav-link" onclick="scrollTo('about');toggleMenu()">About</a>
   <a class="nav-link" onclick="scrollTo('services');toggleMenu()">Services</a>
@@ -376,6 +403,9 @@ footer{background:var(--bg);border-top:1px solid var(--card-border);padding:48px
   <div class="hero-orb hero-orb-2"></div>
   <canvas id="heroCanvas"></canvas>
   <button class="hero-fire-btn" onclick="triggerBurst()">⚡ Fire Neurons</button>
+  <div class="hero-scroll-arrow" id="scrollArrow" onclick="document.getElementById('problem').scrollIntoView({behavior:'smooth'})">
+    <div class="scroll-arrow-chevron"></div>
+  </div>
   <div class="hero-content">
     <div class="hero-badge">Emotional Intelligence Coaching</div>
     <h1>Transform Your <em>Triggers.</em><br>Reclaim Your Power.</h1>
@@ -393,6 +423,31 @@ footer{background:var(--bg);border-top:1px solid var(--card-border);padding:48px
   </div>
 </section>
 
+
+<!-- TRUST STRIP -->
+<div style="background:#0d0b1a;border-top:1px solid rgba(106,79,181,0.25);border-bottom:1px solid rgba(106,79,181,0.25);padding:18px 24px;">
+  <div style="max-width:900px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:48px;flex-wrap:wrap;">
+    <div style="display:flex;align-items:center;gap:10px;">
+      <span style="font-family:'Cinzel',serif;font-size:22px;font-weight:700;background:linear-gradient(135deg,#9b7fd4,#d4a84b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">200+</span>
+      <span style="font-size:13px;color:rgba(240,236,255,0.55);font-weight:500;">Clients coached</span>
+    </div>
+    <div style="width:1px;height:24px;background:rgba(106,79,181,0.3);"></div>
+    <div style="display:flex;align-items:center;gap:10px;">
+      <span style="font-family:'Cinzel',serif;font-size:22px;font-weight:700;color:#d4a84b;">4.9★</span>
+      <span style="font-size:13px;color:rgba(240,236,255,0.55);font-weight:500;">Average rating</span>
+    </div>
+    <div style="width:1px;height:24px;background:rgba(106,79,181,0.3);"></div>
+    <div style="display:flex;align-items:center;gap:10px;">
+      <span style="font-family:'Cinzel',serif;font-size:22px;font-weight:700;color:#9b7fd4;">Session 1</span>
+      <span style="font-size:13px;color:rgba(240,236,255,0.55);font-weight:500;">Results felt</span>
+    </div>
+    <div style="width:1px;height:24px;background:rgba(106,79,181,0.3);"></div>
+    <div style="display:flex;align-items:center;gap:10px;">
+      <span style="font-family:'Cinzel',serif;font-size:22px;font-weight:700;color:#9b7fd4;">100%</span>
+      <span style="font-size:13px;color:rgba(240,236,255,0.55);font-weight:500;">Confidential</span>
+    </div>
+  </div>
+</div>
 
 <!-- PROBLEM SECTION -->
 <section id="problem" style="padding:100px 24px;background:linear-gradient(180deg,#fbf8f2 0%,#f3ece1 100%);">
@@ -514,7 +569,7 @@ footer{background:var(--bg);border-top:1px solid var(--card-border);padding:48px
   <div class="container">
     <div style="text-align:center;max-width:680px;margin:0 auto 20px;">
       <div class="section-badge">Limited Time — Introductory Offer</div>
-      <h2>Coaching <em>Sessions</em></h2>
+      <h2><em>Sessions</em></h2>
       <p class="section-sub" style="margin:0 auto;">Choose the session bundle that matches your commitment — and save with introductory pricing.</p>
     </div>
 
@@ -552,6 +607,7 @@ footer{background:var(--bg);border-top:1px solid var(--card-border);padding:48px
       <div class="fade-up" style="background:linear-gradient(135deg,#3d2d75,#241a4d);border:1px solid rgba(155,127,212,0.4);border-radius:24px;padding:36px 30px;display:flex;flex-direction:column;position:relative;overflow:hidden;transform:scale(1.03);box-shadow:0 20px 60px rgba(74,52,144,0.35);">
         <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#6a4fb5,#d4a84b);"></div>
         <div style="position:absolute;top:18px;right:-32px;background:#d4a84b;color:#0d0b1a;font-size:10px;font-weight:800;padding:5px 36px;transform:rotate(40deg);letter-spacing:0.05em;">MOST POPULAR</div>
+        <div style="position:absolute;top:16px;left:16px;background:rgba(224,90,90,0.15);border:1px solid rgba(224,90,90,0.3);border-radius:99px;padding:4px 10px;font-size:10px;font-weight:700;color:#e05a5a;font-family:'Raleway',sans-serif;letter-spacing:.05em;">🔥 Only 3 spots left</div>
         <div style="font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#c9a0ff;margin-bottom:16px;">6 Sessions</div>
         <div style="font-family:'Cinzel',serif;font-size:24px;font-weight:700;color:#fff;margin-bottom:10px;">Breakthrough</div>
         <div style="font-size:13.5px;color:rgba(255,255,255,0.7);line-height:1.75;margin-bottom:24px;min-height:40px;">Enough depth to move from awareness into real behavioural change.</div>
@@ -758,17 +814,26 @@ footer{background:var(--bg);border-top:1px solid var(--card-border);padding:48px
       <div class="testi-card fade-up">
         <div class="stars">★★★★★</div>
         <div class="testi-text">"After two sessions, my wife noticed a difference before I even told her I was doing coaching."</div>
-        <div class="testi-author"><div class="testi-avatar">M</div><div><div class="testi-name">Michael R.</div><div class="testi-role">Business Owner, 41</div></div></div>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:none;padding:0;overflow:hidden;"><img src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=80&h=80&dpr=1" alt="Michael R." style="width:40px;height:40px;object-fit:cover;border-radius:50%;display:block;"></div>
+          <div><div class="testi-name">Michael R.</div><div class="testi-role">Business Owner, 41</div></div>
+        </div>
       </div>
       <div class="testi-card fade-up">
         <div class="stars">★★★★★</div>
         <div class="testi-text">"The assessment alone was eye-opening. The coaching was the missing piece I'd been searching for."</div>
-        <div class="testi-author"><div class="testi-avatar">S</div><div><div class="testi-name">Sarah K.</div><div class="testi-role">Marketing Director, 35</div></div></div>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:none;padding:0;overflow:hidden;"><img src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=80&h=80&dpr=1" alt="Sarah K." style="width:40px;height:40px;object-fit:cover;border-radius:50%;display:block;"></div>
+          <div><div class="testi-name">Sarah K.</div><div class="testi-role">Marketing Director, 35</div></div>
+        </div>
       </div>
       <div class="testi-card fade-up">
         <div class="stars">★★★★★</div>
         <div class="testi-text">"The coaching gave me actual tools — not just awareness — to stay calm when my kids push my buttons."</div>
-        <div class="testi-author"><div class="testi-avatar">D</div><div><div class="testi-name">David T.</div><div class="testi-role">Father of 3, 38</div></div></div>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:none;padding:0;overflow:hidden;"><img src="https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=80&h=80&dpr=1" alt="David T." style="width:40px;height:40px;object-fit:cover;border-radius:50%;display:block;"></div>
+          <div><div class="testi-name">David T.</div><div class="testi-role">Father of 3, 38</div></div>
+        </div>
       </div>
     </div>
   </div>
@@ -849,6 +914,19 @@ footer{background:var(--bg);border-top:1px solid var(--card-border);padding:48px
 </section>
 
 <!-- CONTACT -->
+
+<!-- FAQ -->
+<section id="faq" style="padding:100px 24px;background:var(--bg2);">
+  <div class="container">
+    <div style="text-align:center;max-width:580px;margin:0 auto 60px;">
+      <div class="section-badge">Common Questions</div>
+      <h2>Everything You <em>Need to Know</em></h2>
+      <p class="section-sub" style="margin:0 auto;">No pressure, no jargon — just straight answers.</p>
+    </div>
+    <div style="max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:12px;" id="faqList"></div>
+  </div>
+</section>
+
 <section id="contact" style="padding:100px 24px;background:var(--bg2);">
   <div class="container">
     <div style="max-width:580px;margin-bottom:56px;">
@@ -1218,12 +1296,24 @@ window.closeInfoModal = closeInfoModal;
   window.addEventListener('resize',()=>{init();});
   canvas.addEventListener('click',()=>window.triggerBurst());
 
-  window.addEventListener('load',()=>{init();animate();});
+  window.addEventListener('load',()=>{
+    init();animate();
+    // Auto-fire on load after 2s, then every 8s
+    setTimeout(()=>window.triggerBurst(),2000);
+    setInterval(()=>window.triggerBurst(),8000);
+  });
   setTimeout(()=>{init();animate();},100);
 })();
 
-// ── NAV SCROLL ──
+// ── SCROLL HANDLER (progress + arrow + nav) ──
 window.addEventListener('scroll', () => {
+  const prog = document.getElementById('scrollProgress');
+  if (prog) {
+    const pct = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+    prog.style.width = pct + '%';
+  }
+  const arrow = document.getElementById('scrollArrow');
+  if (arrow) { arrow.classList.toggle('hidden', window.scrollY > 80); }
   document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
 });
 
@@ -1232,10 +1322,65 @@ function scrollTo(id) {
   document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
 }
 
-// ── MOBILE MENU ──
+// ── MOBILE DRAWER ──
 function toggleMenu() {
-  document.getElementById('mobileMenu').classList.toggle('open');
+  const menu = document.getElementById('mobileMenu');
+  const overlay = document.getElementById('drawerOverlay');
+  const isOpen = menu.classList.contains('open');
+  if (isOpen) {
+    menu.classList.remove('open');
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  } else {
+    menu.classList.add('open');
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
 }
+
+
+// ── FAQ ──
+(function(){
+    const faqs = [
+    {q:"How does the coaching process actually work?", a:"It starts with our free 3-4 minute trigger assessment, which maps your emotional patterns across five components. If you qualify (score 70%+), you book a free 30-minute Discovery Call where we identify root causes together. From there, you choose a session bundle — Foundation (3), Breakthrough (6), or Mastery (10) — and we work together in 60-minute one-on-one coaching sessions to dismantle the patterns holding you back."},
+    {q:"Is everything I share kept confidential?", a:"Absolutely. Every conversation, assessment result, and detail you share is strictly between you and your coach. Aligned Order operates with complete discretion — nothing is shared with third parties, ever."},
+    {q:"What makes Aligned Order different from therapy?", a:"Therapy explores your past to understand your present. Aligned Order gives you a precise map of your trigger patterns right now, and practical tools to change them — fast. Most clients feel a shift in their first session. If you have tried therapy and want something more action-oriented, this is built for you."},
+    {q:"How quickly will I see results?", a:"Most clients notice something meaningful in their very first session — a new way of seeing a pattern they have carried for years. Significant behavioural change typically builds across the first 3 sessions. The deeper rewiring happens through consistent practice between sessions."},
+    {q:"What if I don't qualify after the free assessment?", a:"If you score below 70%, it usually means your triggers are in a manageable range and you may not need intensive coaching right now. We will point you toward resources that match where you are. There is no hard sell — only guidance that fits your actual situation."},
+    {q:"Do I need to have my life in crisis to benefit from this?", a:"Not at all. Many of our most committed clients are high-functioning professionals who simply know they are operating below their emotional potential. You do not need to be struggling — you just need to be willing to go deeper."}
+  ];
+  const list = document.getElementById('faqList');
+  if (!list) return;
+  list.innerHTML = faqs.map((item, i) => `
+    <div style="background:var(--card);border:1px solid var(--card-border);border-radius:16px;overflow:hidden;transition:border-color 0.2s;" id="faq-${i}">
+      <button onclick="toggleFaq(${i})" style="width:100%;text-align:left;background:none;border:none;padding:22px 26px;display:flex;align-items:center;justify-content:space-between;gap:16px;cursor:pointer;font-family:'Raleway',sans-serif;">
+        <span style="font-size:15px;font-weight:700;color:var(--text);font-family:'Cinzel',serif;letter-spacing:.01em;">${item.q}</span>
+        <span class="faq-icon" id="faqicon-${i}" style="font-size:20px;color:var(--violet-l);flex-shrink:0;transition:transform 0.3s;display:inline-block;">+</span>
+      </button>
+      <div class="faq-body" id="faqbody-${i}" style="max-height:0;overflow:hidden;transition:max-height 0.35s cubic-bezier(0.4,0,0.2,1);">
+        <p style="padding:0 26px 22px;font-size:14.5px;color:var(--muted);line-height:1.85;margin:0;">${item.a}</p>
+      </div>
+    </div>`).join('');
+  window.toggleFaq = function(i) {
+    const body = document.getElementById('faqbody-'+i);
+    const icon = document.getElementById('faqicon-'+i);
+    const card = document.getElementById('faq-'+i);
+    const isOpen = body.style.maxHeight !== '0px' && body.style.maxHeight !== '';
+    // close all
+    faqs.forEach((_,j) => {
+      document.getElementById('faqbody-'+j).style.maxHeight = '0px';
+      document.getElementById('faqicon-'+j).style.transform = 'rotate(0deg)';
+      document.getElementById('faqicon-'+j).textContent = '+';
+      document.getElementById('faq-'+j).style.borderColor = '';
+    });
+    if (!isOpen) {
+      body.style.maxHeight = body.scrollHeight + 'px';
+      icon.style.transform = 'rotate(45deg)';
+      icon.textContent = '+';
+      card.style.borderColor = 'rgba(106,79,181,0.4)';
+    }
+  };
+})();
 
 // ── SCROLL ANIMATIONS ──
 const observer = new IntersectionObserver((entries) => {
@@ -1505,5 +1650,11 @@ window.toggleChat = toggleChat;
 window.sendChat = sendChat;
 window.quickChat = quickChat;
 </script>
+
+<!-- STICKY MOBILE CTA -->
+<div class="sticky-cta" id="stickyCta">
+  <div class="sticky-cta-text"><strong>Discover your triggers</strong>Free 3-min assessment</div>
+  <a href="https://thealignedorder.netlify.app" target="_blank" class="sticky-cta-btn">Start free →</a>
+</div>
 </body>
 </html>
